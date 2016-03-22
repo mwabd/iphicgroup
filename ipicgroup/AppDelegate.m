@@ -7,16 +7,18 @@
 //
 
 #import "AppDelegate.h"
-
+#import "ViewController.h"
+#import "mainscreenViewController.h"
 @interface AppDelegate ()
 
 @end
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    //_window=[[UIWindow alloc]initWithFrame:[[UIScreen mainScreen] bounds]];
+   // NSLog(@"%f",[[UIScreen mainScreen] bounds].size.width);
     return YES;
 }
 
