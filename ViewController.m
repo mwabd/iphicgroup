@@ -101,7 +101,7 @@ lbl.textColor=[UIColor whiteColor];
 [lbl setBackgroundColor:[UIColor colorWithRed:0.031 green:0.231 blue:0.102 alpha:1]];
 //[self.navigationController.view setBackgroundColor:[UIColor clearColor]];
 btn=[[UIButton alloc]initWithFrame:CGRectMake(self.view.frame.size.width/2+50,20, 40, 40)];
-[btn setImage:[UIImage imageNamed:@"right.jpg"] forState:UIControlStateNormal];
+[btn setImage:[UIImage imageNamed:@"downarrow.png"] forState:UIControlStateNormal];
 [btn addTarget:self action:@selector(openMenu:) forControlEvents:UIControlEventTouchUpInside];
 [self.navigationController.view addSubview:lbl];
 [self.navigationController.view  addSubview:btn];
