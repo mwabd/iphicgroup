@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="qyk-zA-LSx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="qyk-zA-LSx">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -18,10 +18,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="picker_bg" translatesAutoresizingMaskIntoConstraints="NO" id="LDr-Pw-Pz1">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </imageView>
                             <pickerView opaque="NO" clearsContextBeforeDrawing="NO" contentMode="center" showsSelectionIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GXc-1f-K5S">
                                 <rect key="frame" x="-4" y="0.0" width="328" height="568"/>
-                                <color key="backgroundColor" red="0.0" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="RB2-nE-Lap"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="iuy-UP-MvL"/>
@@ -44,6 +45,10 @@
                             <constraint firstItem="KxP-J7-fB2" firstAttribute="top" secondItem="GXc-1f-K5S" secondAttribute="bottom" constant="-130" id="7Vj-mO-y2m"/>
                             <constraint firstAttribute="trailingMargin" secondItem="GXc-1f-K5S" secondAttribute="trailing" constant="-20" id="Jg3-Eh-eA8"/>
                             <constraint firstItem="KxP-J7-fB2" firstAttribute="leading" secondItem="GXc-1f-K5S" secondAttribute="trailing" constant="-294" id="Lfc-cv-nRZ"/>
+                            <constraint firstItem="LDr-Pw-Pz1" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="NZN-nO-EF1"/>
+                            <constraint firstAttribute="trailing" secondItem="LDr-Pw-Pz1" secondAttribute="trailing" id="OCw-Ie-8WZ"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="LDr-Pw-Pz1" secondAttribute="bottom" id="SWd-B3-mYV"/>
+                            <constraint firstItem="LDr-Pw-Pz1" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="YBc-Bh-qwB"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="GXc-1f-K5S" secondAttribute="bottom" id="hbA-a3-Y0c"/>
                             <constraint firstItem="GXc-1f-K5S" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="qw8-uK-yfp"/>
                             <constraint firstItem="KxP-J7-fB2" firstAttribute="centerX" secondItem="GXc-1f-K5S" secondAttribute="centerX" id="tWL-ea-wj4"/>
@@ -267,5 +272,6 @@
     <resources>
         <image name="button" width="100" height="70"/>
         <image name="masterbg" width="640" height="960"/>
+        <image name="picker_bg" width="640" height="960"/>
     </resources>
 </document>
