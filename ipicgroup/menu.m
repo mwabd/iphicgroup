@@ -32,6 +32,7 @@ NSArray *_pickerData;
     _picker.showsSelectionIndicator=NO;
     _picker.dataSource = self;
     _picker.delegate = self;
+    selecteditem=@"ENTERTAINMENT";
     [_picker selectRow:1 inComponent:0 animated:YES];
     self.view.opaque=NO;
     
@@ -57,6 +58,7 @@ NSArray *_pickerData;
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
     selecteditem=[_pickerData objectAtIndex:row];
+    NSLog(@"%@",selecteditem);
 
 
 

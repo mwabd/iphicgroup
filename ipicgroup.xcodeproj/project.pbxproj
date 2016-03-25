@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3B3E52501CA03A1B002753CC /* NavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B3E524F1CA03A1B002753CC /* NavController.m */; };
 		3BB2EA7D1CA2F1B200A2EF32 /* data.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3BB2EA7C1CA2F1B200A2EF32 /* data.plist */; };
+		3BC032021CA5458800057847 /* beatles.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BC032011CA5458800057847 /* beatles.png */; };
 		3BF59F1D1C9EB43F00B4D414 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BF59F1C1C9EB43F00B4D414 /* Images.xcassets */; };
 		3BF59F1F1C9EC14400B4D414 /* bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3BF59F1E1C9EC14400B4D414 /* bg.jpg */; };
 		3BF59F221C9ECCD000B4D414 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BF59F211C9ECCCF00B4D414 /* ViewController.m */; };
@@ -47,6 +48,7 @@
 		3B3E524E1CA03A1B002753CC /* NavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NavController.h; path = ../NavController.h; sourceTree = "<group>"; };
 		3B3E524F1CA03A1B002753CC /* NavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NavController.m; path = ../NavController.m; sourceTree = "<group>"; };
 		3BB2EA7C1CA2F1B200A2EF32 /* data.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = data.plist; path = ../data.plist; sourceTree = "<group>"; };
+		3BC032011CA5458800057847 /* beatles.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = beatles.png; sourceTree = "<group>"; };
 		3BD396AC1CA3FD6A001C92D2 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		3BF59F1C1C9EB43F00B4D414 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3BF59F1E1C9EC14400B4D414 /* bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = bg.jpg; path = ../bg.jpg; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 		B6E83C2E1CA242AE00C03C0C /* images */ = {
 			isa = PBXGroup;
 			children = (
+				3BC032011CA5458800057847 /* beatles.png */,
 				B637BBE61CA13E7200295ECB /* cherryl.png */,
 				B637BBE21CA12FA300295ECB /* logo.png */,
 				B62AD79F1C9FEE86008E3B35 /* players-template-rugby.png */,
@@ -287,6 +290,7 @@
 				B637BBE71CA13E7200295ECB /* cherryl.png in Resources */,
 				B61C49751C9A7665003B01E7 /* Main.storyboard in Resources */,
 				3BF59F2B1C9ECD1D00B4D414 /* slideshow.jpg in Resources */,
+				3BC032021CA5458800057847 /* beatles.png in Resources */,
 				3BF59F1D1C9EB43F00B4D414 /* Images.xcassets in Resources */,
 				B637BBE51CA135E000295ECB /* clubname.png in Resources */,
 				3BF59F2C1C9ECD1D00B4D414 /* left.jpg in Resources */,

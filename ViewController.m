@@ -78,7 +78,6 @@ _menu.delegate = self;
 return _menu;
 }
 - (void)viewDidLoad {
-    NSLog(@"%@",_selectedItem);
 [super viewDidLoad];
 counter=0;
 count=0;;
@@ -137,7 +136,7 @@ self.myscrollview.contentSize = CGSizeMake(numberOfViews * self.myscrollview.fra
 self.numberOfItemsInRow = 1;
 UILabel *lbl=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 70)];
 lbl.textColor=[UIColor whiteColor];
-lbl.text=@"Football";
+lbl.text=_selectedItem;
 lbl.textAlignment = NSTextAlignmentCenter;
 lbl.textColor=[UIColor whiteColor];
 [lbl setBackgroundColor:[UIColor colorWithRed:0.031 green:0.231 blue:0.102 alpha:1]];

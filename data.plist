@@ -43,6 +43,16 @@
 				<string>Liverpool</string>
 			</dict>
 		</dict>
+		<key>ENTERTAINMENT</key>
+		<dict>
+			<key>Music</key>
+			<dict>
+				<key>image2</key>
+				<string>beatles.png</string>
+				<key>name1</key>
+				<string>Beatles</string>
+			</dict>
+		</dict>
 	</dict>
 </dict>
 </plist>
