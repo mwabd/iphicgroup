@@ -19,7 +19,6 @@ NSInteger counter;
 UIButton *btn;
 BOOL enabled;
 NSInteger count;
-NSString *selecteditem;
 NSMutableArray *parent;
 int k;
 NSMutableArray *name_of_item;
@@ -79,6 +78,7 @@ _menu.delegate = self;
 return _menu;
 }
 - (void)viewDidLoad {
+    NSLog(@"%@",_selectedItem);
 [super viewDidLoad];
 counter=0;
 count=0;;
@@ -87,34 +87,34 @@ int name_of_item_count=0;
 int image_of_item_count=0;
 
 /*init array*/
-selecteditem=@"SPORTS";
+//selecteditem=@"SPORTS";
 parent=[[NSMutableArray alloc]init];
 image_of_item=[[NSMutableArray alloc]init];
 name_of_item=[[NSMutableArray alloc]init];
 NSString *file = [[NSBundle mainBundle] pathForResource:@"data" ofType:@"plist"];
 NSDictionary *dict = [[NSDictionary alloc] initWithContentsOfFile:file];
-for (id row  in dict[@"Category Sub Menu"][selecteditem]) {
+for (id row  in dict[@"Category Sub Menu"][_selectedItem]) {
        parent[k++]=row;
-        for(int i=1;i<=[dict[@"Category Sub Menu"][selecteditem][row] count];i++)
+        for(int i=1;i<=[dict[@"Category Sub Menu"][_selectedItem][row] count];i++)
         {
           
            NSString *string = [NSString stringWithFormat:@"%d", i];
             
             string=[@"name" stringByAppendingString:string];
             ;
-            if([dict[@"Category Sub Menu"][selecteditem][row][string] length]>0)
+            if([dict[@"Category Sub Menu"][_selectedItem][row][string] length]>0)
             {
-                name_of_item[name_of_item_count++]=dict[@"Category Sub Menu"][selecteditem][row][string];
+                name_of_item[name_of_item_count++]=dict[@"Category Sub Menu"][_selectedItem][row][string];
                 
             }
             
             string=@"";
             string = [NSString stringWithFormat:@"%d", i];
             string=[@"image" stringByAppendingString:string];
-            if([dict[@"Category Sub Menu"][selecteditem][row][string] length]>0)
+            if([dict[@"Category Sub Menu"][_selectedItem][row][string] length]>0)
             {
                
-                image_of_item[image_of_item_count++]=dict[@"Category Sub Menu"][selecteditem][row][string];
+                image_of_item[image_of_item_count++]=dict[@"Category Sub Menu"][_selectedItem][row][string];
                
             }
         string=@"";

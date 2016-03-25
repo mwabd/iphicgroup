@@ -12,6 +12,7 @@
 {
 NSArray *_pickerData;
 //UIPickerView *picker;
+    NSString *selecteditem;
 }
 @end
 
@@ -36,8 +37,11 @@ NSArray *_pickerData;
     
     
 }
-- (IBAction)btn:(id)sender {
-    NSLog(@"xxxx");
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+
+    ViewController *vc=segue.destinationViewController.childViewControllers[0];
+    vc.selectedItem=selecteditem;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -52,7 +56,7 @@ NSArray *_pickerData;
 
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
-    NSLog(@"%@",[_pickerData objectAtIndex:row]);
+    selecteditem=[_pickerData objectAtIndex:row];
 
 
 

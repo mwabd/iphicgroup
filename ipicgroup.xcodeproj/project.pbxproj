@@ -130,11 +130,10 @@
 				3BF59F291C9ECD1D00B4D414 /* UIView+DOPExtension.h */,
 				3BF59F201C9ECCCF00B4D414 /* ViewController.h */,
 				B61C7DC11C9BB5CC001FE9FB /* mainscreenViewController.h */,
+				B61C49701C9A7665003B01E7 /* menu.h */,
 				B6E83C2E1CA242AE00C03C0C /* images */,
 				B61C496D1C9A7665003B01E7 /* AppDelegate.h */,
 				B61C496E1C9A7665003B01E7 /* AppDelegate.m */,
-				B61C49701C9A7665003B01E7 /* menu.h */,
-				B61C49711C9A7665003B01E7 /* menu.m */,
 				B61C49731C9A7665003B01E7 /* Main.storyboard */,
 				B61C49781C9A7665003B01E7 /* LaunchScreen.xib */,
 				3BF59F1C1C9EB43F00B4D414 /* Images.xcassets */,
@@ -196,6 +195,7 @@
 				3BF59F281C9ECD1D00B4D414 /* DOPNavbarMenu.m */,
 				3BF59F211C9ECCCF00B4D414 /* ViewController.m */,
 				B61C7DC21C9BB5CC001FE9FB /* mainscreenViewController.m */,
+				B61C49711C9A7665003B01E7 /* menu.m */,
 			);
 			name = controllers;
 			sourceTree = "<group>";

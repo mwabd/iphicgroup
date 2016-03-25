@@ -10,7 +10,7 @@
 
 @interface MenuController : UIViewController<UIPickerViewDataSource, UIPickerViewDelegate>
 @property (strong, nonatomic) IBOutlet UIPickerView *picker;
-@property (strong, nonatomic) IBOutlet UIButton *btn;
+
 
 @end
 

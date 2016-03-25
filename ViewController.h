@@ -12,6 +12,7 @@
 @property(nonatomic,weak) IBOutlet UICollectionView *mycollectionview;
 @property (weak, nonatomic) IBOutlet UIScrollView *myscrollview;
 ;
+@property (weak, nonatomic) NSString *selectedItem;
 @property (weak, nonatomic) IBOutlet UICollectionView *myclubcollectionViewConroller;
 
 @end
