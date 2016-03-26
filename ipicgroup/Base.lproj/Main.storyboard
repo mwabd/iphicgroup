@@ -87,7 +87,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="presentation" modalPresentationStyle="currentContext" id="9eL-kN-cqY"/>
+                                    <segue destination="BYZ-38-t0r" kind="presentation" modalPresentationStyle="currentContext" modalTransitionStyle="crossDissolve" id="9eL-kN-cqY"/>
                                 </connections>
                             </button>
                         </subviews>

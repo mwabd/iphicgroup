@@ -36,12 +36,7 @@ NSArray *_pickerData;
     [_picker selectRow:1 inComponent:0 animated:YES];
     self.view.opaque=NO;
     
-    
-    UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
-    UIVisualEffectView *bluredEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
-    [_bluimage addSubview:bluredEffectView];
-
-    
+      
     
 }
 
