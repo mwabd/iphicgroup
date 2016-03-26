@@ -37,7 +37,15 @@ NSArray *_pickerData;
     self.view.opaque=NO;
     
     
+    UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+    UIVisualEffectView *bluredEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+    [_bluimage addSubview:bluredEffectView];
+
+    
+    
 }
+
+
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
 

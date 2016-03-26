@@ -56,21 +56,14 @@ color=[UIColor colorWithRed:0.051 green:0.365 blue:0.165 alpha:1];
 [colors addObject:color];
 DOPNavbarMenuItem *item1[[parent count]];
 for (int t=0; t<k; t++) {
-    item1[t]=[DOPNavbarMenuItem ItemWithTitle:parent[t]];
+item1[t]=[DOPNavbarMenuItem ItemWithTitle:parent[t]];
 }
 
 NSMutableArray *item2;
 item2=[[NSMutableArray alloc]init];
 for (int i=0; i<[parent count]; i++) {
-    [item2 insertObject:item1[i] atIndex:i];
+[item2 insertObject:item1[i] atIndex:i];
 }
-
-
-
-
-
-
-
 _menu =[[DOPNavbarMenu alloc] initWithItems:item2 width:self.view.dop_width maximumNumberInRow:_numberOfItemsInRow color:colors];;
 _menu.separatarColor = [UIColor colorWithRed:0.129 green:0.569 blue:0.208 alpha:1];
 _menu.delegate = self;
@@ -84,7 +77,6 @@ count=0;;
 k=0;
 int name_of_item_count=0;
 int image_of_item_count=0;
-
 /*init array*/
 //selecteditem=@"SPORTS";
 parent=[[NSMutableArray alloc]init];
@@ -93,33 +85,33 @@ name_of_item=[[NSMutableArray alloc]init];
 NSString *file = [[NSBundle mainBundle] pathForResource:@"data" ofType:@"plist"];
 NSDictionary *dict = [[NSDictionary alloc] initWithContentsOfFile:file];
 for (id row  in dict[@"Category Sub Menu"][_selectedItem]) {
-       parent[k++]=row;
-        for(int i=1;i<=[dict[@"Category Sub Menu"][_selectedItem][row] count];i++)
+   parent[k++]=row;
+    for(int i=1;i<=[dict[@"Category Sub Menu"][_selectedItem][row] count];i++)
+    {
+      
+       NSString *string = [NSString stringWithFormat:@"%d", i];
+        
+        string=[@"name" stringByAppendingString:string];
+        ;
+        if([dict[@"Category Sub Menu"][_selectedItem][row][string] length]>0)
         {
-          
-           NSString *string = [NSString stringWithFormat:@"%d", i];
+            name_of_item[name_of_item_count++]=dict[@"Category Sub Menu"][_selectedItem][row][string];
             
-            string=[@"name" stringByAppendingString:string];
-            ;
-            if([dict[@"Category Sub Menu"][_selectedItem][row][string] length]>0)
-            {
-                name_of_item[name_of_item_count++]=dict[@"Category Sub Menu"][_selectedItem][row][string];
-                
-            }
-            
-            string=@"";
-            string = [NSString stringWithFormat:@"%d", i];
-            string=[@"image" stringByAppendingString:string];
-            if([dict[@"Category Sub Menu"][_selectedItem][row][string] length]>0)
-            {
-               
-                image_of_item[image_of_item_count++]=dict[@"Category Sub Menu"][_selectedItem][row][string];
-               
-            }
-        string=@"";
         }
+        
+        string=@"";
+        string = [NSString stringWithFormat:@"%d", i];
+        string=[@"image" stringByAppendingString:string];
+        if([dict[@"Category Sub Menu"][_selectedItem][row][string] length]>0)
+        {
+           
+            image_of_item[image_of_item_count++]=dict[@"Category Sub Menu"][_selectedItem][row][string];
+           
+        }
+    string=@"";
+    }
 }
-    
+
 
 /*init array*/
 self.myscrollview.bounces=NO;
@@ -171,7 +163,7 @@ return retval;
 {
 if(collectionView==self.mycollectionview)
 {
-    
+
 return [image_of_item count];
 }
 else
@@ -186,7 +178,7 @@ return 1;
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-  
+
 UICollectionViewCell *cell;
 if(collectionView==self.myclubcollectionViewConroller)
 {
@@ -196,12 +188,12 @@ UIImage *img=[UIImage imageNamed:image_of_item[indexPath.section]];
 
 UIImageView *imageview=[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 40, 40)];
 imageview.image=img;
-    UILabel *label=[[UILabel alloc]initWithFrame:CGRectMake(0 , 60, 100, 20)];
-    [imageview addSubview:label];
+UILabel *label=[[UILabel alloc]initWithFrame:CGRectMake(0 , 60, 100, 20)];
+[imageview addSubview:label];
 imageview.contentMode = UIViewContentModeScaleAspectFit;
 imageview.center=cell.center;
 label.text=name_of_item[indexPath.section];
-    [label setBackgroundColor:[UIColor whiteColor]];
+[label setBackgroundColor:[UIColor whiteColor]];
 [cell setBackgroundView:imageview];
 return cell;
 }
@@ -209,16 +201,16 @@ else if(collectionView==self.mycollectionview)
 {
 
 
-    cell=[collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
-    UIImage *img=[UIImage imageNamed:@"players-template-rugby.png"];
-    
-    UIImageView *imageview=[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 40, 40)];
-    imageview.image=img;
-    [imageview setBackgroundColor:[UIColor whiteColor]];
-    
-    imageview.contentMode = UIViewContentModeScaleAspectFit;
-    imageview.center=cell.center;
-    [cell setBackgroundView:imageview];
+cell=[collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
+UIImage *img=[UIImage imageNamed:@"players-template-rugby.png"];
+
+UIImageView *imageview=[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 40, 40)];
+imageview.image=img;
+[imageview setBackgroundColor:[UIColor whiteColor]];
+
+imageview.contentMode = UIViewContentModeScaleAspectFit;
+imageview.center=cell.center;
+[cell setBackgroundView:imageview];
 
 count++;
 return cell;

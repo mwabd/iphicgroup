@@ -11,6 +11,7 @@
 @interface MenuController : UIViewController<UIPickerViewDataSource, UIPickerViewDelegate>
 @property (strong, nonatomic) IBOutlet UIPickerView *picker;
 
+@property (weak, nonatomic) IBOutlet UIImageView *bluimage;
 
 @end
 

@@ -56,6 +56,7 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="bluimage" destination="LDr-Pw-Pz1" id="mVy-4f-SSG"/>
                         <outlet property="picker" destination="GXc-1f-K5S" id="GKW-hk-Z7u"/>
                     </connections>
                 </viewController>
@@ -86,7 +87,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="presentation" modalPresentationStyle="overFullScreen" id="9eL-kN-cqY"/>
+                                    <segue destination="BYZ-38-t0r" kind="presentation" modalPresentationStyle="currentContext" id="9eL-kN-cqY"/>
                                 </connections>
                             </button>
                         </subviews>
