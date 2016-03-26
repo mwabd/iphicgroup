@@ -192,6 +192,14 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <tabBar contentMode="scaleAspectFill" fixedFrame="YES" itemPositioning="fill" translatesAutoresizingMaskIntoConstraints="NO" id="5IQ-4C-K1E" customClass="TabBar">
+                                <rect key="frame" x="-1" y="693" width="414" height="49"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <items/>
+                                <color key="tintColor" red="0.15060242677937452" green="1" blue="0.67287449780598108" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tabBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -276,7 +284,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="da4-Ho-e8c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="710" y="1881"/>
+            <point key="canvasLocation" x="820" y="2054"/>
         </scene>
     </scenes>
     <resources>

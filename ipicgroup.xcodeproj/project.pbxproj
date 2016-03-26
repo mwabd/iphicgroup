@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B22E3A61CA635E70023C1CF /* tabsports.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B22E3A51CA635E70023C1CF /* tabsports.png */; };
+		3B22E3A81CA636980023C1CF /* sportstab.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3B22E3A71CA636980023C1CF /* sportstab.jpg */; };
+		3B22E3AA1CA638CE0023C1CF /* tabbg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3B22E3A91CA638CE0023C1CF /* tabbg.jpg */; };
+		3B22E3AC1CA639680023C1CF /* sportstabw.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3B22E3AB1CA639680023C1CF /* sportstabw.jpg */; };
+		3B22E3FE1CA65F540023C1CF /* TabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B22E3FD1CA65F540023C1CF /* TabBar.m */; };
 		3B3E52501CA03A1B002753CC /* NavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B3E524F1CA03A1B002753CC /* NavController.m */; };
 		3BB2EA7D1CA2F1B200A2EF32 /* data.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3BB2EA7C1CA2F1B200A2EF32 /* data.plist */; };
 		3BC032021CA5458800057847 /* beatles.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BC032011CA5458800057847 /* beatles.png */; };
@@ -45,6 +50,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3B22E3A51CA635E70023C1CF /* tabsports.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tabsports.png; path = ../tabsports.png; sourceTree = "<group>"; };
+		3B22E3A71CA636980023C1CF /* sportstab.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sportstab.jpg; sourceTree = "<group>"; };
+		3B22E3A91CA638CE0023C1CF /* tabbg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tabbg.jpg; sourceTree = "<group>"; };
+		3B22E3AB1CA639680023C1CF /* sportstabw.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sportstabw.jpg; sourceTree = "<group>"; };
+		3B22E3FC1CA65F540023C1CF /* TabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBar.h; sourceTree = "<group>"; };
+		3B22E3FD1CA65F540023C1CF /* TabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBar.m; sourceTree = "<group>"; };
 		3B3E524E1CA03A1B002753CC /* NavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NavController.h; path = ../NavController.h; sourceTree = "<group>"; };
 		3B3E524F1CA03A1B002753CC /* NavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NavController.m; path = ../NavController.m; sourceTree = "<group>"; };
 		3BB2EA7C1CA2F1B200A2EF32 /* data.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = data.plist; path = ../data.plist; sourceTree = "<group>"; };
@@ -133,6 +144,7 @@
 				3BF59F201C9ECCCF00B4D414 /* ViewController.h */,
 				B61C7DC11C9BB5CC001FE9FB /* mainscreenViewController.h */,
 				B61C49701C9A7665003B01E7 /* menu.h */,
+				3B22E3FC1CA65F540023C1CF /* TabBar.h */,
 				B6E83C2E1CA242AE00C03C0C /* images */,
 				B61C496D1C9A7665003B01E7 /* AppDelegate.h */,
 				B61C496E1C9A7665003B01E7 /* AppDelegate.m */,
@@ -174,6 +186,10 @@
 		B6E83C2E1CA242AE00C03C0C /* images */ = {
 			isa = PBXGroup;
 			children = (
+				3B22E3A91CA638CE0023C1CF /* tabbg.jpg */,
+				3B22E3AB1CA639680023C1CF /* sportstabw.jpg */,
+				3B22E3A51CA635E70023C1CF /* tabsports.png */,
+				3B22E3A71CA636980023C1CF /* sportstab.jpg */,
 				3BC032011CA5458800057847 /* beatles.png */,
 				B637BBE61CA13E7200295ECB /* cherryl.png */,
 				B637BBE21CA12FA300295ECB /* logo.png */,
@@ -193,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				3BF59F2A1C9ECD1D00B4D414 /* UIView+DOPExtension.m */,
+				3B22E3FD1CA65F540023C1CF /* TabBar.m */,
 				B6E363C71CA0F5F200B12D2B /* HelpController.m */,
 				3B3E524F1CA03A1B002753CC /* NavController.m */,
 				3BF59F281C9ECD1D00B4D414 /* DOPNavbarMenu.m */,
@@ -286,10 +303,13 @@
 			files = (
 				3BF59F1F1C9EC14400B4D414 /* bg.jpg in Resources */,
 				B637BBE11CA101AE00295ECB /* downarrow.png in Resources */,
+				3B22E3A61CA635E70023C1CF /* tabsports.png in Resources */,
 				B637BBE31CA12FA300295ECB /* logo.png in Resources */,
+				3B22E3A81CA636980023C1CF /* sportstab.jpg in Resources */,
 				B637BBE71CA13E7200295ECB /* cherryl.png in Resources */,
 				B61C49751C9A7665003B01E7 /* Main.storyboard in Resources */,
 				3BF59F2B1C9ECD1D00B4D414 /* slideshow.jpg in Resources */,
+				3B22E3AA1CA638CE0023C1CF /* tabbg.jpg in Resources */,
 				3BC032021CA5458800057847 /* beatles.png in Resources */,
 				3BF59F1D1C9EB43F00B4D414 /* Images.xcassets in Resources */,
 				B637BBE51CA135E000295ECB /* clubname.png in Resources */,
@@ -299,6 +319,7 @@
 				B61C497A1C9A7665003B01E7 /* LaunchScreen.xib in Resources */,
 				B62AD7A01C9FEE86008E3B35 /* players-template-rugby.png in Resources */,
 				3BF59F2E1C9ECD1D00B4D414 /* left in Resources */,
+				3B22E3AC1CA639680023C1CF /* sportstabw.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,6 +342,7 @@
 				B61C7DC31C9BB5CC001FE9FB /* mainscreenViewController.m in Sources */,
 				B61C496F1C9A7665003B01E7 /* AppDelegate.m in Sources */,
 				3BF59F301C9ECD1D00B4D414 /* UIView+DOPExtension.m in Sources */,
+				3B22E3FE1CA65F540023C1CF /* TabBar.m in Sources */,
 				B61C496C1C9A7665003B01E7 /* main.m in Sources */,
 				3B3E52501CA03A1B002753CC /* NavController.m in Sources */,
 				3BF59F2F1C9ECD1D00B4D414 /* DOPNavbarMenu.m in Sources */,
