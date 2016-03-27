@@ -60,19 +60,15 @@ NSArray *_pickerData;
 
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
-    selecteditem=[_pickerData objectAtIndex:row];
-    NSLog(@"%@",selecteditem);
-
-
+    selecteditem=[_pickerData objectAtIndex:row%3];
+     [self pickerViewLoaded:nil];
 
 }
-
-
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
   
-    return _pickerData.count;
+    return 1638;
 }
 - (CGFloat)pickerView:(UIPickerView *)pickerView rowHeightForComponent:(NSInteger)component
 {
@@ -82,15 +78,23 @@ NSArray *_pickerData;
 }
 
 
+
+
+-(void)pickerViewLoaded: (id)blah {
+    NSUInteger max = 1638;
+    NSUInteger base10 = (max/2)-(max/2)%3;
+    [_picker selectRow:[_picker selectedRowInComponent:0]%3+base10 inComponent:0 animated:NO];
+}
+
 - (CGFloat)pickerView:(UIPickerView *)pickerView rowWidthForComponent:(NSInteger)component
 {
     return self.view.frame.size.width;
 }
-- (NSAttributedString *)pickerView:(UIPickerView *)pickerView attributedTitleForRow:(NSInteger)row forComponent:(NSInteger)component {
+ -(NSAttributedString *)pickerView:(UIPickerView *)pickerView attributedTitleForRow:(NSInteger)row forComponent:(NSInteger)component {
     NSString *title = @"";
     NSMutableParagraphStyle *paragraphStyle = [NSMutableParagraphStyle new];
     
-    title = [NSString stringWithFormat: @"%@", _pickerData[row]];
+    title = [NSString stringWithFormat: @"%@", _pickerData[row%3]];
     
     
     [paragraphStyle setAlignment:NSTextAlignmentCenter];
@@ -103,4 +107,5 @@ NSArray *_pickerData;
               NSFontAttributeName:[UIFont systemFontOfSize:32.0],
               NSParagraphStyleAttributeName: paragraphStyle
               }];
-}@end
+}
+ @end
