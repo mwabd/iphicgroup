@@ -23,6 +23,7 @@ NSMutableArray *parent;
 int k;
 NSMutableArray *name_of_item;
 NSMutableArray *image_of_item;
+UILabel *lbl;
 }
 
 -(BOOL)shouldAutorotate
@@ -126,7 +127,7 @@ UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(i*self.my
 self.myscrollview.contentSize = CGSizeMake(numberOfViews * self.myscrollview.frame.size.width, self.myscrollview.frame.size.height+15);
 //self.myclubcollectionViewConroller.contentSize = CGSizeMake(numberOfViews * self.myscrollview.frame.size.width, self.myscrollview.frame.size.height+15);
 self.numberOfItemsInRow = 1;
-UILabel *lbl=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 70)];
+lbl=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 70)];
 lbl.textColor=[UIColor whiteColor];
 lbl.text=_selectedItem;
 lbl.textAlignment = NSTextAlignmentCenter;
@@ -256,6 +257,9 @@ enabled = YES;
 - (void)didSelectedMenu:(DOPNavbarMenu *)menu atIndex:(NSInteger)index {
 // UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"you selected" message:[NSString stringWithFormat:@"number %@", @(index+1)] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
 //[av show];
+    lbl.text=parent[index];
+    
+  
 }
 
 - (void)didReceiveMemoryWarning {
