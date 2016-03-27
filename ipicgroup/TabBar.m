@@ -13,7 +13,7 @@
 - (void)drawRect:(CGRect)rect {
     // Drawing code
 
-    UITabBar *tabbar=[[UITabBar alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width, 100)];
+    UITabBar *tabbar=[[UITabBar alloc]initWithFrame:CGRectMake(0, 8, self.frame.size.width, 100)];
     UIImage *imge=[UIImage imageNamed:@"sportstabw.jpg"];
    [[UITabBar appearance]setBackgroundColor:[UIColor whiteColor]];
     [[UITabBar appearance] setTintColor:[UIColor colorWithRed:0.14 green:0.57 blue:0.22 alpha:1.00]]; // for
