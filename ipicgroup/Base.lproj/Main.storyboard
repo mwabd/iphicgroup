@@ -9,7 +9,7 @@
         <!--Menu Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController modalPresentationStyle="formSheet" id="BYZ-38-t0r" customClass="MenuController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="menu" modalPresentationStyle="formSheet" id="BYZ-38-t0r" customClass="MenuController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -112,7 +112,7 @@
         <!--View Controller-->
         <scene sceneID="5fT-F2-zGx">
             <objects>
-                <viewController id="eJ0-He-PVG" customClass="ViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="viewcontroller" useStoryboardIdentifierAsRestorationIdentifier="YES" id="eJ0-He-PVG" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="XsH-ne-geK"/>
                         <viewControllerLayoutGuide type="bottom" id="7Cf-Pl-4t4"/>
@@ -219,6 +219,7 @@
                         <outlet property="myclubcollectionViewConroller" destination="Qe0-8a-Zoc" id="95s-4d-RL3"/>
                         <outlet property="mycollectionview" destination="goa-wk-UCX" id="vSl-C6-KVM"/>
                         <outlet property="myscrollview" destination="qox-ey-oWg" id="Sam-FC-5b2"/>
+                        <outlet property="tapbar" destination="5IQ-4C-K1E" id="OAe-kj-dzh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hFZ-yM-Hzm" sceneMemberID="firstResponder"/>

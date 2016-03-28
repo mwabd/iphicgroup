@@ -1,18 +1,11 @@
 #import "ViewController.h"
 #import "DOPNavbarMenu.h"
-
-
-
-@interface ViewController () <UITextViewDelegate, DOPNavbarMenuDelegate,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
+#include "TabBar.h"
+@interface ViewController () <UITextViewDelegate, DOPNavbarMenuDelegate,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,SupportDelegate>
 
 @property (assign, nonatomic) NSInteger numberOfItemsInRow;
 @property (strong, nonatomic) DOPNavbarMenu *menu;
-
-
-
 @end
-
-
 @implementation ViewController
 {
 NSInteger counter;
@@ -30,6 +23,12 @@ UILabel *lbl;
 {
 return NO;
 }
+- (instancetype)process
+{
+    
+    return self;
+
+    }
 
 
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations
@@ -71,83 +70,91 @@ _menu.delegate = self;
 }
 return _menu;
 }
+
+-(void)loadMyview
+{
+    //TabBar *tab;
+    _tapbar.delegate=self;
+    counter=0;
+    count=0;;
+    k=0;
+    int name_of_item_count=0;
+    int image_of_item_count=0;
+    /*init array*/
+    
+    parent=[[NSMutableArray alloc]init];
+    image_of_item=[[NSMutableArray alloc]init];
+    name_of_item=[[NSMutableArray alloc]init];
+    NSString *file = [[NSBundle mainBundle] pathForResource:@"data" ofType:@"plist"];
+    NSDictionary *dict = [[NSDictionary alloc] initWithContentsOfFile:file];
+    for (id row  in dict[@"Category Sub Menu"][_selectedItem]) {
+        parent[k++]=row;
+        for(int i=1;i<=[dict[@"Category Sub Menu"][_selectedItem][row] count];i++)
+        {
+            
+            NSString *string = [NSString stringWithFormat:@"%d", i];
+            
+            string=[@"name" stringByAppendingString:string];
+            ;
+            if([dict[@"Category Sub Menu"][_selectedItem][row][string] length]>0)
+            {
+                name_of_item[name_of_item_count++]=dict[@"Category Sub Menu"][_selectedItem][row][string];
+                
+            }
+            
+            string=@"";
+            string = [NSString stringWithFormat:@"%d", i];
+            string=[@"image" stringByAppendingString:string];
+            if([dict[@"Category Sub Menu"][_selectedItem][row][string] length]>0)
+            {
+                
+                image_of_item[image_of_item_count++]=dict[@"Category Sub Menu"][_selectedItem][row][string];
+                
+            }
+            string=@"";
+        }
+    }
+    
+    
+    /*init array*/
+    self.myscrollview.bounces=NO;
+    int numberOfViews = 5;
+    for (int i = 0; i < numberOfViews; i++) {
+        UIImage *images=[UIImage imageNamed:@"slideshow.jpg"];
+        
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(i*self.myscrollview.frame.size.width,0,self.myscrollview.frame.size.width,self.myscrollview.frame.size.height)];
+        [imageView setImage:images];
+        [self.myscrollview addSubview:imageView];
+    }
+    self.myscrollview.contentSize = CGSizeMake(numberOfViews * self.myscrollview.frame.size.width, self.myscrollview.frame.size.height+15);
+    //self.myclubcollectionViewConroller.contentSize = CGSizeMake(numberOfViews * self.myscrollview.frame.size.width, self.myscrollview.frame.size.height+15);
+    self.numberOfItemsInRow = 1;
+    lbl=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 70)];
+    lbl.textColor=[UIColor whiteColor];
+    lbl.text=_selectedItem;
+    lbl.textAlignment = NSTextAlignmentCenter;
+    lbl.textColor=[UIColor whiteColor];
+    [lbl setBackgroundColor:[UIColor colorWithRed:0.031 green:0.231 blue:0.102 alpha:1]];
+    btn=[[UIButton alloc]initWithFrame:CGRectMake(self.view.frame.size.width/2+50,20, 40, 40)];
+    [btn setImage:[UIImage imageNamed:@"downarrow.png"] forState:UIControlStateNormal];
+    [btn addTarget:self action:@selector(openMenu:) forControlEvents:UIControlEventTouchUpInside];
+    [self.navigationController.view addSubview:lbl];
+    [self.navigationController.view  addSubview:btn];
+    UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
+    [flowLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
+    [flowLayout setMinimumInteritemSpacing:0.0f];
+    [flowLayout setMinimumLineSpacing:0.0f];
+    //self.mycollectionview.contentSize=CGSizeMake(100,100);
+    //self.myclubcollectionViewConroller.contentSize=CGSizeMake(100,100);
+    [self.mycollectionview setPagingEnabled:YES];
+    [self.mycollectionview setCollectionViewLayout:flowLayout];
+    [self.mycollectionview setBounces:NO];
+    [self.myclubcollectionViewConroller setCollectionViewLayout:flowLayout];
+}
+
 - (void)viewDidLoad {
 [super viewDidLoad];
-counter=0;
-count=0;;
-k=0;
-int name_of_item_count=0;
-int image_of_item_count=0;
-/*init array*/
-//selecteditem=@"SPORTS";
-parent=[[NSMutableArray alloc]init];
-image_of_item=[[NSMutableArray alloc]init];
-name_of_item=[[NSMutableArray alloc]init];
-NSString *file = [[NSBundle mainBundle] pathForResource:@"data" ofType:@"plist"];
-NSDictionary *dict = [[NSDictionary alloc] initWithContentsOfFile:file];
-for (id row  in dict[@"Category Sub Menu"][_selectedItem]) {
-   parent[k++]=row;
-    for(int i=1;i<=[dict[@"Category Sub Menu"][_selectedItem][row] count];i++)
-    {
-      
-       NSString *string = [NSString stringWithFormat:@"%d", i];
-        
-        string=[@"name" stringByAppendingString:string];
-        ;
-        if([dict[@"Category Sub Menu"][_selectedItem][row][string] length]>0)
-        {
-            name_of_item[name_of_item_count++]=dict[@"Category Sub Menu"][_selectedItem][row][string];
-            
-        }
-        
-        string=@"";
-        string = [NSString stringWithFormat:@"%d", i];
-        string=[@"image" stringByAppendingString:string];
-        if([dict[@"Category Sub Menu"][_selectedItem][row][string] length]>0)
-        {
-           
-            image_of_item[image_of_item_count++]=dict[@"Category Sub Menu"][_selectedItem][row][string];
-           
-        }
-    string=@"";
-    }
-}
-
-
-/*init array*/
-self.myscrollview.bounces=NO;
-int numberOfViews = 5;
-for (int i = 0; i < numberOfViews; i++) {
-UIImage *images=[UIImage imageNamed:@"slideshow.jpg"];
-
-UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(i*self.myscrollview.frame.size.width,0,self.myscrollview.frame.size.width,self.myscrollview.frame.size.height)];
-[imageView setImage:images];
-[self.myscrollview addSubview:imageView];
-}
-self.myscrollview.contentSize = CGSizeMake(numberOfViews * self.myscrollview.frame.size.width, self.myscrollview.frame.size.height+15);
-//self.myclubcollectionViewConroller.contentSize = CGSizeMake(numberOfViews * self.myscrollview.frame.size.width, self.myscrollview.frame.size.height+15);
-self.numberOfItemsInRow = 1;
-lbl=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 70)];
-lbl.textColor=[UIColor whiteColor];
-lbl.text=_selectedItem;
-lbl.textAlignment = NSTextAlignmentCenter;
-lbl.textColor=[UIColor whiteColor];
-[lbl setBackgroundColor:[UIColor colorWithRed:0.031 green:0.231 blue:0.102 alpha:1]];
-btn=[[UIButton alloc]initWithFrame:CGRectMake(self.view.frame.size.width/2+50,20, 40, 40)];
-[btn setImage:[UIImage imageNamed:@"downarrow.png"] forState:UIControlStateNormal];
-[btn addTarget:self action:@selector(openMenu:) forControlEvents:UIControlEventTouchUpInside];
-[self.navigationController.view addSubview:lbl];
-[self.navigationController.view  addSubview:btn];
-UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
-[flowLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
-[flowLayout setMinimumInteritemSpacing:0.0f];
-[flowLayout setMinimumLineSpacing:0.0f];
-//self.mycollectionview.contentSize=CGSizeMake(100,100);
-//self.myclubcollectionViewConroller.contentSize=CGSizeMake(100,100);
-[self.mycollectionview setPagingEnabled:YES];
-[self.mycollectionview setCollectionViewLayout:flowLayout];
-[self.mycollectionview setBounces:NO];
-[self.myclubcollectionViewConroller setCollectionViewLayout:flowLayout];
+    [self loadMyview];
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {

@@ -7,12 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <sqlite3.h>
+
 @interface ViewController : UIViewController<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
 @property(nonatomic,weak) IBOutlet UICollectionView *mycollectionview;
 @property (weak, nonatomic) IBOutlet UIScrollView *myscrollview;
 ;
 @property (weak, nonatomic) NSString *selectedItem;
 @property (weak, nonatomic) IBOutlet UICollectionView *myclubcollectionViewConroller;
-
+@property (weak, nonatomic) IBOutlet UITabBar *tapbar;
 @end

@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class TabBar;
+@protocol SupportDelegate<UITabBarDelegate>
+- (instancetype)process;
+@end
 @interface TabBar : UITabBar
 
+//id<SupportDelegate> obj ;
+@property(weak,nonatomic)id <SupportDelegate> delegate;
+@property (strong, nonatomic) UITabBar *tapbar;
 @end
