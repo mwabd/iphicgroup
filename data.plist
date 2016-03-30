@@ -33,14 +33,39 @@
 			</dict>
 			<key>Football</key>
 			<dict>
+				<key>icon3</key>
+				<string>Keith-Gillespie.png</string>
+				<key>player</key>
+				<dict>
+					<key>playername2</key>
+					<string>Paul Walsh</string>
+					<key>club2</key>
+					<string>Arsenal FC</string>
+					<key>logo2</key>
+					<string>paul-walsh.png</string>
+					<key>playername1</key>
+					<string>Rob Lee</string>
+					<key>club1</key>
+					<string>Liverpool FC</string>
+					<key>logo1</key>
+					<string>rob-lee.png</string>
+				</dict>
+				<key>banner2</key>
+				<string>rugby.jpg</string>
+				<key>banner1</key>
+				<string>slideshow.jpg</string>
+				<key>image3</key>
+				<string>mancity_logo.png</string>
 				<key>image2</key>
-				<string>cherryl.png</string>
+				<string>lfc-logo.png</string>
 				<key>image1</key>
-				<string>cherryl.png</string>
+				<string>arsenal-logo.png</string>
 				<key>name1</key>
-				<string>Arsenal</string>
+				<string>Arsenal FC</string>
 				<key>name2</key>
-				<string>Liverpool</string>
+				<string>Liverpool FC</string>
+				<key>name3</key>
+				<string>Manchester City FC</string>
 			</dict>
 		</dict>
 		<key>ENTERTAINMENT</key>
