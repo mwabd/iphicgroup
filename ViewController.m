@@ -1,7 +1,6 @@
 #import "ViewController.h"
 #import "DOPNavbarMenu.h"
-#include "TabBar.h"
-@interface ViewController () <UITextViewDelegate, DOPNavbarMenuDelegate,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,SupportDelegate>
+@interface ViewController () <UITextViewDelegate, DOPNavbarMenuDelegate,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UITabBarDelegate>
 
 @property (assign, nonatomic) NSInteger numberOfItemsInRow;
 @property (strong, nonatomic) DOPNavbarMenu *menu;
@@ -17,8 +16,86 @@ int k;
 NSMutableArray *name_of_item;
 NSMutableArray *image_of_item;
 UILabel *lbl;
+NSMutableArray * colors;
 }
-
+-(void)createTab
+{
+    UIImage *imge=[UIImage imageNamed:@"sportstabw.jpg"];
+    [[UITabBar appearance]setBackgroundColor:[UIColor whiteColor]];
+    [[UITabBar appearance] setTintColor:[UIColor colorWithRed:0.14 green:0.57 blue:0.22 alpha:1.00]]; // for
+    UITabBarItem *tabBarItem1 = [[UITabBarItem alloc]initWithTitle:@"SPORTS" image:imge selectedImage:imge];
+    UITabBarItem *tabBarItem2 = [[UITabBarItem alloc]initWithTitle:@"ENTERTAINMENT" image:nil selectedImage:imge];
+    UITabBarItem *tabBarItem3 = [[UITabBarItem alloc]initWithTitle:@"SERVICE" image:nil selectedImage:imge];
+    
+    tabBarItem1.titlePositionAdjustment=UIOffsetMake(0, -5);
+    [[UITabBarItem appearance] setTitleTextAttributes:@{
+                                                        NSFontAttributeName:[UIFont fontWithName:@"AmericanTypewriter" size:16.0f
+                                                                             
+                                                                             ],
+                                                        NSForegroundColorAttributeName:[UIColor whiteColor]
+                                                        } forState:UIControlStateNormal];
+    
+    
+    
+    
+    
+    
+    tabBarItem1.image=imge;
+    tabBarItem2.image=imge;
+    tabBarItem3.image=imge;
+    [tabBarItem1 setTitlePositionAdjustment:UIOffsetMake(0, -20)];
+    [tabBarItem2 setTitlePositionAdjustment:UIOffsetMake(0, -20)];
+    [tabBarItem3 setTitlePositionAdjustment:UIOffsetMake(0, -20)];
+    NSMutableArray *tabItems=[[NSMutableArray alloc]init];
+    [tabItems insertObject:tabBarItem1 atIndex:0];
+    [tabItems insertObject:tabBarItem2 atIndex:1];
+    [tabItems insertObject:tabBarItem3 atIndex:2];
+    _tapbar.items=tabItems;
+    [_tapbar  setBackgroundColor:[UIColor whiteColor]];
+    [_tapbar   setTintColor:[UIColor colorWithRed:0.14 green:0.57 blue:0.22 alpha:1.00]];
+    // self.tabBarController.delegate;
+    _tapbar.delegate=self;
+}
+-(void) datasource_init:(NSString*)selected
+{
+    int name_of_item_count=0;
+    int image_of_item_count=0;
+    k=0;
+    [image_of_item removeAllObjects];
+    [name_of_item removeAllObjects];
+    [colors removeAllObjects];
+    
+     NSString *file = [[NSBundle mainBundle] pathForResource:@"data" ofType:@"plist"];
+    NSDictionary *dict = [[NSDictionary alloc] initWithContentsOfFile:file];
+    for (id row  in dict[@"Category Sub Menu"][selected]) {
+        parent[k++]=row;
+        for(int i=1;i<=[dict[@"Category Sub Menu"][selected][row] count];i++)
+        {
+            
+            NSString *string = [NSString stringWithFormat:@"%d", i];
+            
+            string=[@"name" stringByAppendingString:string];
+            ;
+            if([dict[@"Category Sub Menu"][selected][row][string] length]>0)
+            {
+                name_of_item[name_of_item_count++]=dict[@"Category Sub Menu"][selected][row][string];
+                
+            }
+            
+            string=@"";
+            string = [NSString stringWithFormat:@"%d", i];
+            string=[@"image" stringByAppendingString:string];
+            if([dict[@"Category Sub Menu"][selected][row][string] length]>0)
+            {
+                
+                image_of_item[image_of_item_count++]=dict[@"Category Sub Menu"][selected][row][string];
+                
+            }
+            string=@"";
+        }
+    }
+    
+}
 -(BOOL)shouldAutorotate
 {
 return NO;
@@ -36,8 +113,9 @@ return NO;
 return UIInterfaceOrientationMaskPortrait;
 }
 - (DOPNavbarMenu *)menu {
+    
 if (_menu == nil) {
-NSMutableArray *colors=[NSMutableArray array];
+colors=[NSMutableArray array];
 UIColor *color = [UIColor colorWithRed:0.031 green:0.231 blue:0.102 alpha:1];
 [colors addObject:color];
 color=[UIColor colorWithRed:0.051 green:0.365 blue:0.165 alpha:1];
@@ -71,10 +149,9 @@ _menu.delegate = self;
 return _menu;
 }
 
--(void)loadMyview
+-(void)loadMyview:(NSString*)selected
 {
     //TabBar *tab;
-    _tapbar.delegate=self;
     counter=0;
     count=0;;
     k=0;
@@ -82,21 +159,19 @@ return _menu;
     int image_of_item_count=0;
     /*init array*/
     
-    parent=[[NSMutableArray alloc]init];
-    image_of_item=[[NSMutableArray alloc]init];
-    name_of_item=[[NSMutableArray alloc]init];
+    
     NSString *file = [[NSBundle mainBundle] pathForResource:@"data" ofType:@"plist"];
     NSDictionary *dict = [[NSDictionary alloc] initWithContentsOfFile:file];
-    for (id row  in dict[@"Category Sub Menu"][_selectedItem]) {
+    for (id row  in dict[@"Category Sub Menu"][selected]) {
         parent[k++]=row;
-        for(int i=1;i<=[dict[@"Category Sub Menu"][_selectedItem][row] count];i++)
+        for(int i=1;i<=[dict[@"Category Sub Menu"][selected][row] count];i++)
         {
             
             NSString *string = [NSString stringWithFormat:@"%d", i];
             
             string=[@"name" stringByAppendingString:string];
             ;
-            if([dict[@"Category Sub Menu"][_selectedItem][row][string] length]>0)
+            if([dict[@"Category Sub Menu"][selected][row][string] length]>0)
             {
                 name_of_item[name_of_item_count++]=dict[@"Category Sub Menu"][_selectedItem][row][string];
                 
@@ -105,10 +180,10 @@ return _menu;
             string=@"";
             string = [NSString stringWithFormat:@"%d", i];
             string=[@"image" stringByAppendingString:string];
-            if([dict[@"Category Sub Menu"][_selectedItem][row][string] length]>0)
+            if([dict[@"Category Sub Menu"][selected][row][string] length]>0)
             {
                 
-                image_of_item[image_of_item_count++]=dict[@"Category Sub Menu"][_selectedItem][row][string];
+                image_of_item[image_of_item_count++]=dict[@"Category Sub Menu"][selected][row][string];
                 
             }
             string=@"";
@@ -127,7 +202,6 @@ return _menu;
         [self.myscrollview addSubview:imageView];
     }
     self.myscrollview.contentSize = CGSizeMake(numberOfViews * self.myscrollview.frame.size.width, self.myscrollview.frame.size.height+15);
-    //self.myclubcollectionViewConroller.contentSize = CGSizeMake(numberOfViews * self.myscrollview.frame.size.width, self.myscrollview.frame.size.height+15);
     self.numberOfItemsInRow = 1;
     lbl=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 70)];
     lbl.textColor=[UIColor whiteColor];
@@ -144,8 +218,6 @@ return _menu;
     [flowLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
     [flowLayout setMinimumInteritemSpacing:0.0f];
     [flowLayout setMinimumLineSpacing:0.0f];
-    //self.mycollectionview.contentSize=CGSizeMake(100,100);
-    //self.myclubcollectionViewConroller.contentSize=CGSizeMake(100,100);
     [self.mycollectionview setPagingEnabled:YES];
     [self.mycollectionview setCollectionViewLayout:flowLayout];
     [self.mycollectionview setBounces:NO];
@@ -153,8 +225,20 @@ return _menu;
 }
 
 - (void)viewDidLoad {
-[super viewDidLoad];
-    [self loadMyview];
+    [super viewDidLoad];
+    parent=[[NSMutableArray alloc]init];
+    image_of_item=[[NSMutableArray alloc]init];
+    name_of_item=[[NSMutableArray alloc]init];
+    _mycollectionview.delegate=self;
+    _mycollectionview.dataSource=self;
+    parent=[[NSMutableArray alloc]init];
+    image_of_item=[[NSMutableArray alloc]init];
+    name_of_item=[[NSMutableArray alloc]init];
+    
+    [self loadMyview:self.selectedItem];
+    [self createTab];
+    [self datasource_init:self.selectedItem];
+  
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
@@ -183,6 +267,18 @@ else
 {
 return 1;
 }
+
+-(void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
+    [parent removeAllObjects];
+    [self datasource_init:item.title];
+    [_mycollectionview reloadData];
+    [_myclubcollectionViewConroller reloadData];
+    _menu=nil;
+    lbl.text=item.title;
+    [self.navigationController.view addSubview:[self menu]];
+   
+}
+
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
