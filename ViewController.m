@@ -275,7 +275,7 @@ return 1;
     [_myclubcollectionViewConroller reloadData];
     _menu=nil;
     lbl.text=item.title;
-    [self.navigationController.view addSubview:[self menu]];
+   
    
 }
 
