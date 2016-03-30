@@ -26,6 +26,41 @@
 			<dict/>
 			<key>Cricket</key>
 			<dict>
+				<key>player</key>
+				<dict>
+					<key>logo3</key>
+					<string></string>
+					<key>club3</key>
+					<string></string>
+					<key>playername3</key>
+					<string></string>
+					<key>logo2</key>
+					<string></string>
+					<key>club2</key>
+					<string></string>
+					<key>playername2</key>
+					<string></string>
+					<key>logo1</key>
+					<string></string>
+					<key>club1</key>
+					<string></string>
+					<key>playername1</key>
+					<string></string>
+				</dict>
+				<key>banner3</key>
+				<string>hampshire_cricket.jpg</string>
+				<key>name3</key>
+				<string>Hampshire</string>
+				<key>image3</key>
+				<string>Hampshire_CCC_logo.png</string>
+				<key>banner2</key>
+				<string>lestershire_image.jpg</string>
+				<key>name2</key>
+				<string>Lestershire</string>
+				<key>image2</key>
+				<string>Lestershire.png</string>
+				<key>banner1</key>
+				<string>ycc.png</string>
 				<key>name1</key>
 				<string>Yourkshire</string>
 				<key>image1</key>
@@ -33,14 +68,45 @@
 			</dict>
 			<key>Football</key>
 			<dict>
+				<key>player</key>
+				<dict>
+					<key>playername3</key>
+					<string>Aguera</string>
+					<key>club3</key>
+					<string>Man-City</string>
+					<key>logo3</key>
+					<string>Keith-Gillespie.png</string>
+					<key>playername2</key>
+					<string>Paul Walsh</string>
+					<key>club2</key>
+					<string>Arsenal FC</string>
+					<key>logo2</key>
+					<string>paul-walsh.png</string>
+					<key>playername1</key>
+					<string>Rob Lee</string>
+					<key>club1</key>
+					<string>Liverpool FC</string>
+					<key>logo1</key>
+					<string>rob-lee.png</string>
+				</dict>
+				<key>banner3</key>
+				<string>mancity.png</string>
+				<key>banner2</key>
+				<string>slideshow.jpg</string>
+				<key>banner1</key>
+				<string>arcenal.jpg</string>
+				<key>image3</key>
+				<string>mancity_logo.png</string>
 				<key>image2</key>
 				<string>HULL.png</string>
 				<key>image1</key>
 				<string>Halifaxoff.png</string>
 				<key>name1</key>
-				<string>Arsenal</string>
+				<string>Arsenal FC</string>
 				<key>name2</key>
-				<string>Liverpool</string>
+				<string>Liverpool FC</string>
+				<key>name3</key>
+				<string>Manchester City FC</string>
 			</dict>
 		</dict>
 		<key>ENTERTAINMENT</key>
@@ -52,6 +118,16 @@
 				<key>name1</key>
 				<string>Beatles</string>
 			</dict>
+			<key>Movies</key>
+			<dict/>
+			<key>Resturants</key>
+			<dict/>
+			<key>Teature</key>
+			<dict/>
+			<key>Parties</key>
+			<dict/>
+			<key>TV</key>
+			<dict/>
 		</dict>
 	</dict>
 </dict>
