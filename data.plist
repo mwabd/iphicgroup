@@ -37,6 +37,12 @@
 				<string>Keith-Gillespie.png</string>
 				<key>player</key>
 				<dict>
+					<key>playername3</key>
+					<string>Aguera</string>
+					<key>club3</key>
+					<string>Man-City</string>
+					<key>logo3</key>
+					<string>Keith-Gillespie.png</string>
 					<key>playername2</key>
 					<string>Paul Walsh</string>
 					<key>club2</key>
