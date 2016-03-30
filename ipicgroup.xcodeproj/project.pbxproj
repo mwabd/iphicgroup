@@ -31,6 +31,8 @@
 		B4BE549F1CABAD1F001FC896 /* rob-lee.png in Resources */ = {isa = PBXBuildFile; fileRef = B4BE549E1CABAD1F001FC896 /* rob-lee.png */; };
 		B4BE54A11CABAD91001FC896 /* Keith-Gillespie.png in Resources */ = {isa = PBXBuildFile; fileRef = B4BE54A01CABAD91001FC896 /* Keith-Gillespie.png */; };
 		B4BE54A31CABADE8001FC896 /* paul-walsh.png in Resources */ = {isa = PBXBuildFile; fileRef = B4BE54A21CABADE8001FC896 /* paul-walsh.png */; };
+		B4BE54A51CABCE2F001FC896 /* mancity.png in Resources */ = {isa = PBXBuildFile; fileRef = B4BE54A41CABCE2F001FC896 /* mancity.png */; };
+		B4BE54A71CABCF55001FC896 /* arcenal.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B4BE54A61CABCF55001FC896 /* arcenal.jpg */; };
 		B61C496C1C9A7665003B01E7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B61C496B1C9A7665003B01E7 /* main.m */; };
 		B61C496F1C9A7665003B01E7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B61C496E1C9A7665003B01E7 /* AppDelegate.m */; };
 		B61C49721C9A7665003B01E7 /* menu.m in Sources */ = {isa = PBXBuildFile; fileRef = B61C49711C9A7665003B01E7 /* menu.m */; };
@@ -85,6 +87,8 @@
 		B4BE549E1CABAD1F001FC896 /* rob-lee.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rob-lee.png"; sourceTree = "<group>"; };
 		B4BE54A01CABAD91001FC896 /* Keith-Gillespie.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Keith-Gillespie.png"; sourceTree = "<group>"; };
 		B4BE54A21CABADE8001FC896 /* paul-walsh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "paul-walsh.png"; sourceTree = "<group>"; };
+		B4BE54A41CABCE2F001FC896 /* mancity.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mancity.png; sourceTree = "<group>"; };
+		B4BE54A61CABCF55001FC896 /* arcenal.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = arcenal.jpg; sourceTree = "<group>"; };
 		B61C49661C9A7665003B01E7 /* ipicgroup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ipicgroup.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B61C496A1C9A7665003B01E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B61C496B1C9A7665003B01E7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -196,6 +200,8 @@
 		B6E83C2E1CA242AE00C03C0C /* images */ = {
 			isa = PBXGroup;
 			children = (
+				B4BE54A61CABCF55001FC896 /* arcenal.jpg */,
+				B4BE54A41CABCE2F001FC896 /* mancity.png */,
 				B4BE54A21CABADE8001FC896 /* paul-walsh.png */,
 				B4BE54A01CABAD91001FC896 /* Keith-Gillespie.png */,
 				B4BE549E1CABAD1F001FC896 /* rob-lee.png */,
@@ -321,9 +327,11 @@
 				3BF59F1F1C9EC14400B4D414 /* bg.jpg in Resources */,
 				B637BBE11CA101AE00295ECB /* downarrow.png in Resources */,
 				B4BE54991CABAB13001FC896 /* lfc-logo.png in Resources */,
+				B4BE54A51CABCE2F001FC896 /* mancity.png in Resources */,
 				3B22E3A61CA635E70023C1CF /* tabsports.png in Resources */,
 				B4BE54A11CABAD91001FC896 /* Keith-Gillespie.png in Resources */,
 				B4BE54971CABAA2E001FC896 /* singer.jpg in Resources */,
+				B4BE54A71CABCF55001FC896 /* arcenal.jpg in Resources */,
 				B637BBE31CA12FA300295ECB /* logo.png in Resources */,
 				B4BE549D1CABAC00001FC896 /* mancity-logo.png in Resources */,
 				B4BE549F1CABAD1F001FC896 /* rob-lee.png in Resources */,

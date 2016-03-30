@@ -33,8 +33,6 @@
 			</dict>
 			<key>Football</key>
 			<dict>
-				<key>icon3</key>
-				<string>Keith-Gillespie.png</string>
 				<key>player</key>
 				<dict>
 					<key>playername3</key>
@@ -56,10 +54,12 @@
 					<key>logo1</key>
 					<string>rob-lee.png</string>
 				</dict>
+				<key>banner3</key>
+				<string>mancity.png</string>
 				<key>banner2</key>
-				<string>rugby.jpg</string>
-				<key>banner1</key>
 				<string>slideshow.jpg</string>
+				<key>banner1</key>
+				<string>arcenal.jpg</string>
 				<key>image3</key>
 				<string>mancity_logo.png</string>
 				<key>image2</key>
