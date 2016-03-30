@@ -118,6 +118,16 @@
 				<key>name1</key>
 				<string>Beatles</string>
 			</dict>
+			<key>Movies</key>
+			<dict/>
+			<key>Resturants</key>
+			<dict/>
+			<key>Teature</key>
+			<dict/>
+			<key>Parties</key>
+			<dict/>
+			<key>TV</key>
+			<dict/>
 		</dict>
 	</dict>
 </dict>
