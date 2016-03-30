@@ -20,7 +20,7 @@
 				<key>name1</key>
 				<string>NBA</string>
 				<key>image1</key>
-				<string>clubname.png</string>
+				<string>CASTELEFORD.png</string>
 			</dict>
 			<key>Rugby</key>
 			<dict/>
@@ -29,14 +29,14 @@
 				<key>name1</key>
 				<string>Yourkshire</string>
 				<key>image1</key>
-				<string>cherryl.png</string>
+				<string>CASTELEFORD.png</string>
 			</dict>
 			<key>Football</key>
 			<dict>
 				<key>image2</key>
-				<string>cherryl.png</string>
+				<string>HULL.png</string>
 				<key>image1</key>
-				<string>cherryl.png</string>
+				<string>Halifaxoff.png</string>
 				<key>name1</key>
 				<string>Arsenal</string>
 				<key>name2</key>
@@ -48,7 +48,7 @@
 			<key>Music</key>
 			<dict>
 				<key>image2</key>
-				<string>beatles.png</string>
+				<string>CASTELEFORD.png</string>
 				<key>name1</key>
 				<string>Beatles</string>
 			</dict>

@@ -17,6 +17,8 @@ NSMutableArray *name_of_item;
 NSMutableArray *image_of_item;
 UILabel *lbl;
 NSMutableArray * colors;
+UICollectionViewCell *cell;
+UILabel *label;
 }
 -(void)createTab
 {
@@ -100,12 +102,7 @@ NSMutableArray * colors;
 {
 return NO;
 }
-- (instancetype)process
-{
-    
-    return self;
 
-    }
 
 
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations
@@ -193,15 +190,13 @@ return _menu;
     
     /*init array*/
     self.myscrollview.bounces=NO;
-    int numberOfViews = 5;
-    for (int i = 0; i < numberOfViews; i++) {
-        UIImage *images=[UIImage imageNamed:@"slideshow.jpg"];
-        
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(i*self.myscrollview.frame.size.width,0,self.myscrollview.frame.size.width,self.myscrollview.frame.size.height)];
-        [imageView setImage:images];
-        [self.myscrollview addSubview:imageView];
-    }
-    self.myscrollview.contentSize = CGSizeMake(numberOfViews * self.myscrollview.frame.size.width, self.myscrollview.frame.size.height+15);
+    UIImage *images=[UIImage imageNamed:@"slideshow.jpg"];
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0,0,self.view.frame.size.width,294)];//slideshow
+    [imageView setImage:images];
+    imageView.contentMode = UIViewContentModeScaleAspectFit;
+    //imageView.center=self.view.center;
+    [self.view addSubview:imageView];
+    
     self.numberOfItemsInRow = 1;
     lbl=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 70)];
     lbl.textColor=[UIColor whiteColor];
@@ -209,7 +204,7 @@ return _menu;
     lbl.textAlignment = NSTextAlignmentCenter;
     lbl.textColor=[UIColor whiteColor];
     [lbl setBackgroundColor:[UIColor colorWithRed:0.031 green:0.231 blue:0.102 alpha:1]];
-    btn=[[UIButton alloc]initWithFrame:CGRectMake(self.view.frame.size.width/2+50,20, 40, 40)];
+    btn=[[UIButton alloc]initWithFrame:CGRectMake(self.view.frame.size.width/2+80,30, 15, 15)];
     [btn setImage:[UIImage imageNamed:@"downarrow.png"] forState:UIControlStateNormal];
     [btn addTarget:self action:@selector(openMenu:) forControlEvents:UIControlEventTouchUpInside];
     [self.navigationController.view addSubview:lbl];
@@ -226,6 +221,7 @@ return _menu;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    ;
     parent=[[NSMutableArray alloc]init];
     image_of_item=[[NSMutableArray alloc]init];
     name_of_item=[[NSMutableArray alloc]init];
@@ -242,11 +238,11 @@ return _menu;
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
-return UIEdgeInsetsMake(30, 30, 30, 30);;//UIEdgeInsetsMake(50, 20, 50, 20);
+return UIEdgeInsetsMake(10 , 10, 10,10);;//UIEdgeInsetsMake(50, 20, 50, 20);
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-CGSize retval =CGSizeMake(80,80);
+CGSize retval =CGSizeMake(100,120);
 return retval;
 }
 
@@ -273,6 +269,7 @@ return 1;
     [self datasource_init:item.title];
     [_mycollectionview reloadData];
     [_myclubcollectionViewConroller reloadData];
+    //[cell.contentView.layer removeFromSuperlayer];
     _menu=nil;
     lbl.text=item.title;
    
@@ -283,22 +280,26 @@ return 1;
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
 
-UICollectionViewCell *cell;
+    label=[[UILabel alloc]initWithFrame:CGRectMake(0,100, 80, 20)];
+
 if(collectionView==self.myclubcollectionViewConroller)
 {
 cell=[collectionView dequeueReusableCellWithReuseIdentifier:@"club" forIndexPath:indexPath];
 UIImage *img=[UIImage imageNamed:image_of_item[indexPath.section]];
-
-
-UIImageView *imageview=[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 40, 40)];
+    //UIImage *img=[UIImage imageNamed:@"HULL.png"];
+UIImageView *imageview=[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 80,80)];
 imageview.image=img;
-UILabel *label=[[UILabel alloc]initWithFrame:CGRectMake(0 , 60, 100, 20)];
-[imageview addSubview:label];
+
+//[imageview addSubview:label];
 imageview.contentMode = UIViewContentModeScaleAspectFit;
-imageview.center=cell.center;
+//imageview.center=cell.center;
+    label.text=nil;
 label.text=name_of_item[indexPath.section];
-[label setBackgroundColor:[UIColor whiteColor]];
-[cell setBackgroundView:imageview];
+[label setBackgroundColor:[UIColor colorWithRed:0.055 green:0.255 blue:0.125 alpha:1]];
+    label.textColor=[UIColor whiteColor];
+                     [cell.contentView clearsContextBeforeDrawing];
+[cell.contentView addSubview:imageview];
+[cell.contentView addSubview:label];
 return cell;
 }
 else if(collectionView==self.mycollectionview)
@@ -314,7 +315,13 @@ imageview.image=img;
 
 imageview.contentMode = UIViewContentModeScaleAspectFit;
 imageview.center=cell.center;
-[cell setBackgroundView:imageview];
+    label.text=name_of_item[indexPath.section];
+    [label setBackgroundColor:[UIColor colorWithRed:0.055 green:0.255 blue:0.125 alpha:1]];
+    label.textColor=[UIColor blackColor];
+    [cell.contentView clearsContextBeforeDrawing];
+    //[cell.contentView addSubview:imageview];
+    [cell.contentView addSubview:label];
+
 
 count++;
 return cell;
