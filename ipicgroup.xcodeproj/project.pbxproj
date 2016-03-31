@@ -23,6 +23,9 @@
 		3BF59F2E1C9ECD1D00B4D414 /* left in Resources */ = {isa = PBXBuildFile; fileRef = 3BF59F271C9ECD1D00B4D414 /* left */; };
 		3BF59F2F1C9ECD1D00B4D414 /* DOPNavbarMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BF59F281C9ECD1D00B4D414 /* DOPNavbarMenu.m */; };
 		3BF59F301C9ECD1D00B4D414 /* UIView+DOPExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BF59F2A1C9ECD1D00B4D414 /* UIView+DOPExtension.m */; };
+		B41B34911CAD027500C41474 /* Logo-LFC.png in Resources */ = {isa = PBXBuildFile; fileRef = B41B34901CAD027500C41474 /* Logo-LFC.png */; };
+		B41B34931CAD02F600C41474 /* arsenal-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = B41B34921CAD02F600C41474 /* arsenal-logo.png */; };
+		B41B34951CAD040900C41474 /* mancity-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = B41B34941CAD040900C41474 /* mancity-logo.png */; };
 		B61C496C1C9A7665003B01E7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B61C496B1C9A7665003B01E7 /* main.m */; };
 		B61C496F1C9A7665003B01E7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B61C496E1C9A7665003B01E7 /* AppDelegate.m */; };
 		B61C49721C9A7665003B01E7 /* menu.m in Sources */ = {isa = PBXBuildFile; fileRef = B61C49711C9A7665003B01E7 /* menu.m */; };
@@ -72,6 +75,9 @@
 		3BF59F281C9ECD1D00B4D414 /* DOPNavbarMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOPNavbarMenu.m; sourceTree = "<group>"; };
 		3BF59F291C9ECD1D00B4D414 /* UIView+DOPExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+DOPExtension.h"; sourceTree = "<group>"; };
 		3BF59F2A1C9ECD1D00B4D414 /* UIView+DOPExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+DOPExtension.m"; sourceTree = "<group>"; };
+		B41B34901CAD027500C41474 /* Logo-LFC.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Logo-LFC.png"; sourceTree = "<group>"; };
+		B41B34921CAD02F600C41474 /* arsenal-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arsenal-logo.png"; sourceTree = "<group>"; };
+		B41B34941CAD040900C41474 /* mancity-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mancity-logo.png"; sourceTree = "<group>"; };
 		B61C49661C9A7665003B01E7 /* ipicgroup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ipicgroup.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B61C496A1C9A7665003B01E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B61C496B1C9A7665003B01E7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -186,6 +192,9 @@
 		B6E83C2E1CA242AE00C03C0C /* images */ = {
 			isa = PBXGroup;
 			children = (
+				B41B34941CAD040900C41474 /* mancity-logo.png */,
+				B41B34921CAD02F600C41474 /* arsenal-logo.png */,
+				B41B34901CAD027500C41474 /* Logo-LFC.png */,
 				B644E4201CABC0C300628C24 /* Halifaxoff.png */,
 				B644E41E1CABC0AA00628C24 /* CASTELEFORD.png */,
 				B644E41C1CABB71E00628C24 /* HULL.png */,
@@ -309,6 +318,7 @@
 				3B22E3A61CA635E70023C1CF /* tabsports.png in Resources */,
 				B637BBE31CA12FA300295ECB /* logo.png in Resources */,
 				3B22E3A81CA636980023C1CF /* sportstab.jpg in Resources */,
+				B41B34951CAD040900C41474 /* mancity-logo.png in Resources */,
 				B637BBE71CA13E7200295ECB /* cherryl.png in Resources */,
 				B61C49751C9A7665003B01E7 /* Main.storyboard in Resources */,
 				3BF59F2B1C9ECD1D00B4D414 /* slideshow.jpg in Resources */,
@@ -323,8 +333,10 @@
 				3BF59F2D1C9ECD1D00B4D414 /* right.jpg in Resources */,
 				B61C497A1C9A7665003B01E7 /* LaunchScreen.xib in Resources */,
 				B62AD7A01C9FEE86008E3B35 /* players-template-rugby.png in Resources */,
+				B41B34911CAD027500C41474 /* Logo-LFC.png in Resources */,
 				3BF59F2E1C9ECD1D00B4D414 /* left in Resources */,
 				3B22E3AC1CA639680023C1CF /* sportstabw.jpg in Resources */,
+				B41B34931CAD02F600C41474 /* arsenal-logo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -484,7 +496,7 @@
 				INFOPLIST_FILE = ipicgroup/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ipdicgroup.com.ipicgroup.ird2.bdsa.ussa;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ipdicgroup.w.com.ipicgroup.ird2.bdsa.ussa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -499,7 +511,7 @@
 				INFOPLIST_FILE = ipicgroup/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ipdicgroup.com.ipicgroup.ird2.bdsa.ussa;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ipdicgroup.w.com.ipicgroup.ird2.bdsa.ussa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

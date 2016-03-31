@@ -18,29 +18,29 @@
 			<key>Basket Ball</key>
 			<dict>
 				<key>name1</key>
-				<string>NBA</string>
+				<string>Man-City</string>
 				<key>image1</key>
-				<string>CASTELEFORD.png</string>
+				<string>mancity-logo.png</string>
 			</dict>
 			<key>Rugby</key>
 			<dict/>
 			<key>Cricket</key>
 			<dict>
 				<key>name1</key>
-				<string>Yourkshire</string>
+				<string>Liverpool</string>
 				<key>image1</key>
-				<string>CASTELEFORD.png</string>
+				<string>Logo-LFC.png</string>
 			</dict>
 			<key>Football</key>
 			<dict>
 				<key>image2</key>
 				<string>HULL.png</string>
 				<key>image1</key>
-				<string>Halifaxoff.png</string>
+				<string>arsenal-logo.png</string>
 				<key>name1</key>
 				<string>Arsenal</string>
 				<key>name2</key>
-				<string>Liverpool</string>
+				<string>HULL F.C.</string>
 			</dict>
 		</dict>
 		<key>ENTERTAINMENT</key>
