@@ -201,6 +201,7 @@ return _menu;
     [lbl setUserInteractionEnabled:YES];
     [lbl addGestureRecognizer:gesture];
     lbl.textColor=[UIColor whiteColor];
+    lbl.font=[UIFont fontWithName:@"Cervo-Light" size:25.0f];
     lbl.text=_selectedItem;
     lbl.textAlignment = NSTextAlignmentCenter;
     lbl.textColor=[UIColor whiteColor];

@@ -26,7 +26,7 @@
 @end
 
 static NSInteger rowHeight = 100;
-static CGFloat titleFontSize = 22.0;
+//static CGFloat titleFontSize = 22.0;
 
 @interface DOPNavbarMenu ()
 
