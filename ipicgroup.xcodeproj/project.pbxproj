@@ -26,6 +26,18 @@
 		B41B34911CAD027500C41474 /* Logo-LFC.png in Resources */ = {isa = PBXBuildFile; fileRef = B41B34901CAD027500C41474 /* Logo-LFC.png */; };
 		B41B34931CAD02F600C41474 /* arsenal-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = B41B34921CAD02F600C41474 /* arsenal-logo.png */; };
 		B41B34951CAD040900C41474 /* mancity-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = B41B34941CAD040900C41474 /* mancity-logo.png */; };
+		B41B34981CAD08FB00C41474 /* BrowserController.m in Sources */ = {isa = PBXBuildFile; fileRef = B41B34971CAD08FB00C41474 /* BrowserController.m */; };
+		B461D46C1CAD2A78004F2ED8 /* Comfortaa-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B461D4691CAD2190004F2ED8 /* Comfortaa-Bold.ttf */; };
+		B461D46D1CAD2A78004F2ED8 /* Comfortaa-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B461D46A1CAD2190004F2ED8 /* Comfortaa-Light.ttf */; };
+		B461D46E1CAD2A78004F2ED8 /* Comfortaa-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B461D46B1CAD2190004F2ED8 /* Comfortaa-Regular.ttf */; };
+		B461D46F1CAD2A78004F2ED8 /* Cervo-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = B461D45F1CAD204E004F2ED8 /* Cervo-Light.otf */; };
+		B461D4701CAD2A78004F2ED8 /* Cervo-LightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = B461D4601CAD204E004F2ED8 /* Cervo-LightItalic.otf */; };
+		B461D4711CAD2A78004F2ED8 /* Cervo-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = B461D4611CAD204E004F2ED8 /* Cervo-Medium.otf */; };
+		B461D4721CAD2A78004F2ED8 /* Cervo-MediumItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = B461D4621CAD204E004F2ED8 /* Cervo-MediumItalic.otf */; };
+		B461D4731CAD2A78004F2ED8 /* Cervo-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = B461D4631CAD204E004F2ED8 /* Cervo-Regular.otf */; };
+		B461D4741CAD2A78004F2ED8 /* Cervo-RegularItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = B461D4641CAD204E004F2ED8 /* Cervo-RegularItalic.otf */; };
+		B461D4751CAD2A78004F2ED8 /* Cervo-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = B461D4651CAD204E004F2ED8 /* Cervo-Thin.otf */; };
+		B461D4761CAD2A78004F2ED8 /* Cervo-ThinItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = B461D4661CAD204E004F2ED8 /* Cervo-ThinItalic.otf */; };
 		B61C496C1C9A7665003B01E7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B61C496B1C9A7665003B01E7 /* main.m */; };
 		B61C496F1C9A7665003B01E7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B61C496E1C9A7665003B01E7 /* AppDelegate.m */; };
 		B61C49721C9A7665003B01E7 /* menu.m in Sources */ = {isa = PBXBuildFile; fileRef = B61C49711C9A7665003B01E7 /* menu.m */; };
@@ -78,6 +90,19 @@
 		B41B34901CAD027500C41474 /* Logo-LFC.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Logo-LFC.png"; sourceTree = "<group>"; };
 		B41B34921CAD02F600C41474 /* arsenal-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arsenal-logo.png"; sourceTree = "<group>"; };
 		B41B34941CAD040900C41474 /* mancity-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mancity-logo.png"; sourceTree = "<group>"; };
+		B41B34961CAD08FB00C41474 /* BrowserController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrowserController.h; sourceTree = "<group>"; };
+		B41B34971CAD08FB00C41474 /* BrowserController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrowserController.m; sourceTree = "<group>"; };
+		B461D45F1CAD204E004F2ED8 /* Cervo-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cervo-Light.otf"; sourceTree = "<group>"; };
+		B461D4601CAD204E004F2ED8 /* Cervo-LightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cervo-LightItalic.otf"; sourceTree = "<group>"; };
+		B461D4611CAD204E004F2ED8 /* Cervo-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cervo-Medium.otf"; sourceTree = "<group>"; };
+		B461D4621CAD204E004F2ED8 /* Cervo-MediumItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cervo-MediumItalic.otf"; sourceTree = "<group>"; };
+		B461D4631CAD204E004F2ED8 /* Cervo-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cervo-Regular.otf"; sourceTree = "<group>"; };
+		B461D4641CAD204E004F2ED8 /* Cervo-RegularItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cervo-RegularItalic.otf"; sourceTree = "<group>"; };
+		B461D4651CAD204E004F2ED8 /* Cervo-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cervo-Thin.otf"; sourceTree = "<group>"; };
+		B461D4661CAD204E004F2ED8 /* Cervo-ThinItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cervo-ThinItalic.otf"; sourceTree = "<group>"; };
+		B461D4691CAD2190004F2ED8 /* Comfortaa-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Comfortaa-Bold.ttf"; sourceTree = "<group>"; };
+		B461D46A1CAD2190004F2ED8 /* Comfortaa-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Comfortaa-Light.ttf"; sourceTree = "<group>"; };
+		B461D46B1CAD2190004F2ED8 /* Comfortaa-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Comfortaa-Regular.ttf"; sourceTree = "<group>"; };
 		B61C49661C9A7665003B01E7 /* ipicgroup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ipicgroup.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B61C496A1C9A7665003B01E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B61C496B1C9A7665003B01E7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -122,12 +147,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B461D4681CAD20A0004F2ED8 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				B461D4691CAD2190004F2ED8 /* Comfortaa-Bold.ttf */,
+				B461D46A1CAD2190004F2ED8 /* Comfortaa-Light.ttf */,
+				B461D46B1CAD2190004F2ED8 /* Comfortaa-Regular.ttf */,
+				B461D45F1CAD204E004F2ED8 /* Cervo-Light.otf */,
+				B461D4601CAD204E004F2ED8 /* Cervo-LightItalic.otf */,
+				B461D4611CAD204E004F2ED8 /* Cervo-Medium.otf */,
+				B461D4621CAD204E004F2ED8 /* Cervo-MediumItalic.otf */,
+				B461D4631CAD204E004F2ED8 /* Cervo-Regular.otf */,
+				B461D4641CAD204E004F2ED8 /* Cervo-RegularItalic.otf */,
+				B461D4651CAD204E004F2ED8 /* Cervo-Thin.otf */,
+				B461D4661CAD204E004F2ED8 /* Cervo-ThinItalic.otf */,
+			);
+			name = Font;
+			sourceTree = "<group>";
+		};
 		B61C495D1C9A7665003B01E7 = {
 			isa = PBXGroup;
 			children = (
 				B61C49681C9A7665003B01E7 /* ipicgroup */,
 				B61C49821C9A7665003B01E7 /* ipicgroupTests */,
 				B61C49671C9A7665003B01E7 /* Products */,
+				B461D4681CAD20A0004F2ED8 /* Font */,
 			);
 			sourceTree = "<group>";
 		};
@@ -227,6 +271,8 @@
 				3BF59F211C9ECCCF00B4D414 /* ViewController.m */,
 				B61C7DC21C9BB5CC001FE9FB /* mainscreenViewController.m */,
 				B61C49711C9A7665003B01E7 /* menu.m */,
+				B41B34961CAD08FB00C41474 /* BrowserController.h */,
+				B41B34971CAD08FB00C41474 /* BrowserController.m */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -312,6 +358,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B461D46C1CAD2A78004F2ED8 /* Comfortaa-Bold.ttf in Resources */,
+				B461D46D1CAD2A78004F2ED8 /* Comfortaa-Light.ttf in Resources */,
+				B461D46E1CAD2A78004F2ED8 /* Comfortaa-Regular.ttf in Resources */,
+				B461D46F1CAD2A78004F2ED8 /* Cervo-Light.otf in Resources */,
+				B461D4701CAD2A78004F2ED8 /* Cervo-LightItalic.otf in Resources */,
+				B461D4711CAD2A78004F2ED8 /* Cervo-Medium.otf in Resources */,
+				B461D4721CAD2A78004F2ED8 /* Cervo-MediumItalic.otf in Resources */,
+				B461D4731CAD2A78004F2ED8 /* Cervo-Regular.otf in Resources */,
+				B461D4741CAD2A78004F2ED8 /* Cervo-RegularItalic.otf in Resources */,
+				B461D4751CAD2A78004F2ED8 /* Cervo-Thin.otf in Resources */,
+				B461D4761CAD2A78004F2ED8 /* Cervo-ThinItalic.otf in Resources */,
 				B644E41F1CABC0AA00628C24 /* CASTELEFORD.png in Resources */,
 				3BF59F1F1C9EC14400B4D414 /* bg.jpg in Resources */,
 				B637BBE11CA101AE00295ECB /* downarrow.png in Resources */,
@@ -360,6 +417,7 @@
 				B61C496F1C9A7665003B01E7 /* AppDelegate.m in Sources */,
 				3BF59F301C9ECD1D00B4D414 /* UIView+DOPExtension.m in Sources */,
 				B61C496C1C9A7665003B01E7 /* main.m in Sources */,
+				B41B34981CAD08FB00C41474 /* BrowserController.m in Sources */,
 				3B3E52501CA03A1B002753CC /* NavController.m in Sources */,
 				3BF59F2F1C9ECD1D00B4D414 /* DOPNavbarMenu.m in Sources */,
 				3BF59F221C9ECCD000B4D414 /* ViewController.m in Sources */,

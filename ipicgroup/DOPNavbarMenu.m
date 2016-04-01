@@ -82,7 +82,7 @@ static CGFloat titleFontSize = 22.0;
         label.text = obj.title;
         label.textAlignment = NSTextAlignmentCenter;
         label.textColor = self.textColor;
-        label.font = [UIFont systemFontOfSize:titleFontSize];
+        label.font = [UIFont fontWithName:@"Cervo-Light" size:25.0f];
         [button addSubview:label];
         if ((idx+1)%self.maximumNumberInRow != 0) {
             UIView *separatar = [[UIView alloc] initWithFrame:CGRectMake(buttonWidth-0.5, 0, 0.5, buttonHeight)];

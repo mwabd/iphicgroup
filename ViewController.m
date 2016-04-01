@@ -26,12 +26,15 @@ UILabel *label;
     [[UITabBar appearance]setBackgroundColor:[UIColor whiteColor]];
     [[UITabBar appearance] setTintColor:[UIColor colorWithRed:0.14 green:0.57 blue:0.22 alpha:1.00]]; // for
     UITabBarItem *tabBarItem1 = [[UITabBarItem alloc]initWithTitle:@"SPORTS" image:imge selectedImage:imge];
+    
+    
     UITabBarItem *tabBarItem2 = [[UITabBarItem alloc]initWithTitle:@"ENTERTAINMENT" image:nil selectedImage:imge];
     UITabBarItem *tabBarItem3 = [[UITabBarItem alloc]initWithTitle:@"SERVICE" image:nil selectedImage:imge];
     
-    tabBarItem1.titlePositionAdjustment=UIOffsetMake(0, -5);
+    
+   // tabBarItem1.titlePositionAdjustment=UIOffsetMake(0, -5);
     [[UITabBarItem appearance] setTitleTextAttributes:@{
-                                                        NSFontAttributeName:[UIFont fontWithName:@"AmericanTypewriter" size:16.0f
+                                                        NSFontAttributeName:[UIFont fontWithName:@"Cervo-Light" size:16.0f
                                                                              
                                                                              ],
                                                         NSForegroundColorAttributeName:[UIColor whiteColor]
@@ -48,6 +51,7 @@ UILabel *label;
     [tabBarItem1 setTitlePositionAdjustment:UIOffsetMake(0, -20)];
     [tabBarItem2 setTitlePositionAdjustment:UIOffsetMake(0, -20)];
     [tabBarItem3 setTitlePositionAdjustment:UIOffsetMake(0, -20)];
+    
     NSMutableArray *tabItems=[[NSMutableArray alloc]init];
     [tabItems insertObject:tabBarItem1 atIndex:0];
     [tabItems insertObject:tabBarItem2 atIndex:1];
@@ -55,7 +59,9 @@ UILabel *label;
     _tapbar.items=tabItems;
     [_tapbar  setBackgroundColor:[UIColor whiteColor]];
     [_tapbar   setTintColor:[UIColor colorWithRed:0.14 green:0.57 blue:0.22 alpha:1.00]];
+    
     // self.tabBarController.delegate;
+    
     _tapbar.delegate=self;
 }
 -(void) datasource_init:(NSString*)selected
@@ -188,15 +194,7 @@ return _menu;
     }
     
     
-    /*init array*/
-    self.myscrollview.bounces=NO;
-    UIImage *images=[UIImage imageNamed:@"slideshow.jpg"];
-    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0,0,self.view.frame.size.width,294)];//slideshow
-    [imageView setImage:images];
-    imageView.contentMode = UIViewContentModeScaleAspectFit;
-    //imageView.center=self.view.center;
-    [self.view addSubview:imageView];
-    
+ 
     self.numberOfItemsInRow = 1;
     lbl=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 70)];
     lbl.textColor=[UIColor whiteColor];
@@ -280,7 +278,7 @@ return 1;
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
 
-    label=[[UILabel alloc]initWithFrame:CGRectMake(0,100, 80, 20)];
+    label=[[UILabel alloc]initWithFrame:CGRectMake(5,80, 80, 20)];
 
 if(collectionView==self.myclubcollectionViewConroller)
 {
@@ -293,9 +291,9 @@ imageview.image=img;
 //[imageview addSubview:label];
 imageview.contentMode = UIViewContentModeScaleAspectFit;
 //imageview.center=cell.center;
-    label.text=nil;
+label.text=nil;
 label.text=name_of_item[indexPath.section];
-[label setBackgroundColor:[UIColor colorWithRed:0.055 green:0.255 blue:0.125 alpha:1]];
+[label setBackgroundColor:[UIColor colorWithRed:0 green:0.4 blue:0 alpha:1]];
     label.textColor=[UIColor whiteColor];
                      [cell.contentView clearsContextBeforeDrawing];
 [cell.contentView addSubview:imageview];
@@ -306,21 +304,23 @@ else if(collectionView==self.mycollectionview)
 {
 
 
-cell=[collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
-UIImage *img=[UIImage imageNamed:@"players-template-rugby.png"];
-
-UIImageView *imageview=[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 40, 40)];
-imageview.image=img;
-[imageview setBackgroundColor:[UIColor whiteColor]];
-
-imageview.contentMode = UIViewContentModeScaleAspectFit;
-imageview.center=cell.center;
+    cell=[collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
+    UIImage *img=[UIImage imageNamed:image_of_item[indexPath.section]];
+    //UIImage *img=[UIImage imageNamed:@"HULL.png"];
+    UIImageView *imageview=[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 80,80)];
+    imageview.image=img;
+    
+    //[imageview addSubview:label];
+    imageview.contentMode = UIViewContentModeScaleAspectFit;
+    //imageview.center=cell.center;
+    label.text=nil;
     label.text=name_of_item[indexPath.section];
-    [label setBackgroundColor:[UIColor colorWithRed:0.055 green:0.255 blue:0.125 alpha:1]];
+    [label setBackgroundColor:[UIColor whiteColor]];
     label.textColor=[UIColor blackColor];
     [cell.contentView clearsContextBeforeDrawing];
-    //[cell.contentView addSubview:imageview];
+    [cell.contentView addSubview:imageview];
     [cell.contentView addSubview:label];
+    
 
 
 count++;
