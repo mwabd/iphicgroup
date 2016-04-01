@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "DOPNavbarMenu.h"
 @interface HelpController : UIViewController<DOPNavbarMenuDelegate>
+@property (weak, nonatomic) IBOutlet UITabBar *tapbar;
+
+
+@property (weak, nonatomic) IBOutlet UICollectionView *mycollectionview;
 
 @end
