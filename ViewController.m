@@ -197,6 +197,9 @@ return _menu;
  
     self.numberOfItemsInRow = 1;
     lbl=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 70)];
+    UITapGestureRecognizer* gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(openMenu:)];
+    [lbl setUserInteractionEnabled:YES];
+    [lbl addGestureRecognizer:gesture];
     lbl.textColor=[UIColor whiteColor];
     lbl.text=_selectedItem;
     lbl.textAlignment = NSTextAlignmentCenter;
