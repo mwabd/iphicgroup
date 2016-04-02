@@ -90,14 +90,7 @@
     _tapbar.delegate=self;
     UIImage *imge=[UIImage imageNamed:@"sportstabw.jpg"];
     [[UITabBar appearance]setBackgroundColor:[UIColor whiteColor]];
-    //[[UITabBar appearance] setTintColor:[UIColor colorWithRed:0.14 green:0.57 blue:0.22 alpha:1.00]]; // for
     UITabBarItem *tabBarItem1 = [[UITabBarItem alloc]initWithTitle:@"SPORTS" image:imge selectedImage:imge];
-    
-    
-    //UIColor *backgroundColor = [UIColor greenColor];
-    
-    // set the bar background color
-    //[[UITabBar appearance] setBackgroundImage:imge];
     UITabBarItem *tabBarItem2 = [[UITabBarItem alloc]initWithTitle:@"ENTERTAINMENT" image:imge selectedImage:imge];
     UITabBarItem *tabBarItem3 = [[UITabBarItem alloc]initWithTitle:@"SERVICE" image:imge selectedImage:imge];
    
@@ -114,12 +107,8 @@
     
     [[UITabBar appearance]setBackgroundColor:[UIColor whiteColor]];
     [UITabBar appearance].itemPositioning=UITabBarItemPositioningFill ;
-    
-    //[UITabBarItem appearance]
     [_tapbar   setTintColor:[UIColor colorWithRed:0.14 green:0.57 blue:0.22 alpha:1.00]];
     _tapbar.itemPositioning=UITabBarItemPositioningFill;;
-    
-  
     [tabBarItem1 setTitlePositionAdjustment:UIOffsetMake(0, -20)];
     [tabBarItem2 setTitlePositionAdjustment:UIOffsetMake(0, -20)];
     [tabBarItem3 setTitlePositionAdjustment:UIOffsetMake(0, -20)];
@@ -128,11 +117,7 @@
     [tabItems insertObject:tabBarItem2 atIndex:1];
     [tabItems insertObject:tabBarItem3 atIndex:2];
     _tapbar.items=tabItems;
-    
-    //[_tapbar setItemPositioning: ];
-    // self.tabBarController.delegate;
-    
-    
+    [_tapbar setSelectedItem:_tapbar.items[0]];
 }
 /*-(void) datasource_init:(NSString*)string
 {

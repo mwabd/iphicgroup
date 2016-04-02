@@ -398,12 +398,15 @@
                                 <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eZX-aL-qym">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="370"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="257"/>
                                         <subviews>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="utj-VS-1ly">
-                                                <rect key="frame" x="22" y="8" width="373" height="413"/>
+                                                <rect key="frame" x="22" y="8" width="373" height="300"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="300" id="TXu-Ly-esX"/>
+                                                </constraints>
+                                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -412,14 +415,18 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="utj-VS-1ly" firstAttribute="leading" secondItem="eZX-aL-qym" secondAttribute="leading" constant="22" id="0VV-97-B3P"/>
+                                            <constraint firstItem="utj-VS-1ly" firstAttribute="leading" secondItem="eZX-aL-qym" secondAttribute="leadingMargin" constant="14" id="JGp-OA-3DP"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="utj-VS-1ly" secondAttribute="trailing" constant="11" id="Ur6-vn-sEg"/>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="350" id="Wc4-d8-bDG"/>
                                             <constraint firstItem="utj-VS-1ly" firstAttribute="top" secondItem="eZX-aL-qym" secondAttribute="topMargin" id="YhQ-pS-pfr"/>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="370" id="cIZ-fb-GWq"/>
-                                            <constraint firstAttribute="height" constant="370" id="fKC-g9-I4Y"/>
+                                            <constraint firstItem="utj-VS-1ly" firstAttribute="top" secondItem="eZX-aL-qym" secondAttribute="topMargin" id="ZDC-sd-6Jy"/>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" priority="750" constant="350" id="cIZ-fb-GWq"/>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="370" id="fKC-g9-I4Y"/>
                                             <constraint firstAttribute="trailing" secondItem="utj-VS-1ly" secondAttribute="trailing" constant="19" id="gfT-7M-9rN"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qkU-Cj-6e9">
-                                        <rect key="frame" x="0.0" y="370" width="414" height="253"/>
+                                        <rect key="frame" x="0.0" y="257" width="414" height="366"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="STAR PLAYERS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CpX-tG-cgT">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="37"/>
@@ -435,7 +442,8 @@
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="216" id="ubo-2q-Lmc"/>
+                                                    <constraint firstAttribute="height" constant="216" id="fGf-29-TDj"/>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="216" id="ubo-2q-Lmc"/>
                                                 </constraints>
                                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="uZB-PL-Mmr">
                                                     <size key="itemSize" width="50" height="50"/>
@@ -478,6 +486,7 @@
                                 <constraints>
                                     <constraint firstItem="CpX-tG-cgT" firstAttribute="top" secondItem="utj-VS-1ly" secondAttribute="bottom" constant="-51" id="iQn-aA-7Iu"/>
                                     <constraint firstItem="CpX-tG-cgT" firstAttribute="top" secondItem="eZX-aL-qym" secondAttribute="bottom" id="jip-AF-mP8"/>
+                                    <constraint firstItem="qkU-Cj-6e9" firstAttribute="top" secondItem="Irf-pk-arf" secondAttribute="top" constant="257" id="zGk-yl-yLz"/>
                                 </constraints>
                             </stackView>
                         </subviews>
