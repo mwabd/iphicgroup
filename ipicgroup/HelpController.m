@@ -8,6 +8,7 @@
 
 #import "HelpController.h"
 #import "DOPNavbarMenu.h"
+#import  "BackgroundLayer.h"
 @interface HelpController ()<UITabBarDelegate>
 {
     BOOL enabled;
@@ -57,7 +58,10 @@
     [super viewDidLoad];
     _menu=nil;
     _numberOfItemsInRow=1;
-    
+    CAGradientLayer *bgLayer = [BackgroundLayer greenGradient];
+    bgLayer.frame = self.view.bounds;
+    [_textview.layer insertSublayer:bgLayer atIndex:0];
+    [self.view.layer insertSublayer:bgLayer atIndex:0];
     name_of_item=[NSMutableArray array];
     header=[NSMutableArray array];
     image_of_item=[NSMutableArray array];

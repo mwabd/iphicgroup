@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B1912F01CAF78D6006BAF3D /* BackgroundLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B1912EF1CAF78D6006BAF3D /* BackgroundLayer.m */; };
+		3B1912F21CAF7990006BAF3D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B1912F11CAF7990006BAF3D /* QuartzCore.framework */; };
 		3B22E3A61CA635E70023C1CF /* tabsports.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B22E3A51CA635E70023C1CF /* tabsports.png */; };
 		3B22E3A81CA636980023C1CF /* sportstab.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3B22E3A71CA636980023C1CF /* sportstab.jpg */; };
 		3B22E3AA1CA638CE0023C1CF /* tabbg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3B22E3A91CA638CE0023C1CF /* tabbg.jpg */; };
@@ -67,6 +69,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3B1912EE1CAF78D6006BAF3D /* BackgroundLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BackgroundLayer.h; path = ../BackgroundLayer.h; sourceTree = "<group>"; };
+		3B1912EF1CAF78D6006BAF3D /* BackgroundLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BackgroundLayer.m; path = ../BackgroundLayer.m; sourceTree = "<group>"; };
+		3B1912F11CAF7990006BAF3D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		3B22E3A51CA635E70023C1CF /* tabsports.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tabsports.png; path = ../tabsports.png; sourceTree = "<group>"; };
 		3B22E3A71CA636980023C1CF /* sportstab.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sportstab.jpg; sourceTree = "<group>"; };
 		3B22E3A91CA638CE0023C1CF /* tabbg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tabbg.jpg; sourceTree = "<group>"; };
@@ -134,6 +139,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B1912F21CAF7990006BAF3D /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -168,6 +174,7 @@
 		B61C495D1C9A7665003B01E7 = {
 			isa = PBXGroup;
 			children = (
+				3B1912F11CAF7990006BAF3D /* QuartzCore.framework */,
 				B61C49681C9A7665003B01E7 /* ipicgroup */,
 				B61C49821C9A7665003B01E7 /* ipicgroupTests */,
 				B61C49671C9A7665003B01E7 /* Products */,
@@ -191,6 +198,7 @@
 				3B3E524E1CA03A1B002753CC /* NavController.h */,
 				B671A0DB1CAE85200094B40E /* HelpController.h */,
 				3BF59F261C9ECD1D00B4D414 /* DOPNavbarMenu.h */,
+				3B1912EE1CAF78D6006BAF3D /* BackgroundLayer.h */,
 				3BF59F291C9ECD1D00B4D414 /* UIView+DOPExtension.h */,
 				3BF59F201C9ECCCF00B4D414 /* ViewController.h */,
 				B61C7DC11C9BB5CC001FE9FB /* mainscreenViewController.h */,
@@ -265,6 +273,7 @@
 			isa = PBXGroup;
 			children = (
 				B671A0D91CAE85150094B40E /* HelpController.m */,
+				3B1912EF1CAF78D6006BAF3D /* BackgroundLayer.m */,
 				3BF59F2A1C9ECD1D00B4D414 /* UIView+DOPExtension.m */,
 				3B3E524F1CA03A1B002753CC /* NavController.m */,
 				3BF59F281C9ECD1D00B4D414 /* DOPNavbarMenu.m */,
@@ -411,6 +420,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B1912F01CAF78D6006BAF3D /* BackgroundLayer.m in Sources */,
 				B61C49721C9A7665003B01E7 /* menu.m in Sources */,
 				B61C7DC31C9BB5CC001FE9FB /* mainscreenViewController.m in Sources */,
 				B61C496F1C9A7665003B01E7 /* AppDelegate.m in Sources */,
