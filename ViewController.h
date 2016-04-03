@@ -16,4 +16,7 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *myclubcollectionViewConroller;
 @property (strong, nonatomic) IBOutlet UITabBar *tapbar;
 @property (weak, nonatomic) IBOutlet UIButton *searchbtn;
+@property (weak, nonatomic) IBOutlet UIView *clubview;
+@property (weak, nonatomic) IBOutlet UIView *starplayers;
+
 @end

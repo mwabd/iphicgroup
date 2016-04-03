@@ -1,6 +1,7 @@
 #import "ViewController.h"
 #import "DOPNavbarMenu.h"
 #import "HelpController.h"
+#include "BackgroundLayer.h"
 @interface ViewController () <UITextViewDelegate, DOPNavbarMenuDelegate,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UITabBarDelegate>
 
 @property (assign, nonatomic) NSInteger numberOfItemsInRow;
@@ -204,7 +205,9 @@ return _menu;
     self.numberOfItemsInRow = 1;
     
     ///
-    CAGradientLayer *bgLayer = [BackgroundLayer greenGradient];
+    CAGradientLayer *bgLayer = [BackgroundLayer clubGradient ];
+   
+    
     UIButton *searchbtn=[[UIButton alloc]initWithFrame:CGRectMake(self.view.frame.size.width-50, 0, 50, 65)];
     [searchbtn setBackgroundColor:[UIColor clearColor]];
     UIImage *search =[UIImage imageNamed:@"SEARCH.png"];
@@ -239,6 +242,11 @@ return _menu;
     [self.mycollectionview setCollectionViewLayout:flowLayout];
     [self.mycollectionview setBounces:NO];
     [self.myclubcollectionViewConroller setCollectionViewLayout:flowLayout];
+    bgLayer = [BackgroundLayer greenGradient];
+    bgLayer.frame = self.view.bounds;
+    bgLayer.frame=self.clubview.bounds;
+    [self.clubview.layer insertSublayer:bgLayer atIndex:0];
+    
 }
 
 - (void)viewDidLoad {
@@ -301,7 +309,8 @@ return 1;
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-
+   
+    //[_textview.layer insertSublayer:bgLayer atIndex:0];
     label=[[UILabel alloc]initWithFrame:CGRectMake(5,80, 80, 20)];
 
 if(collectionView==self.myclubcollectionViewConroller)

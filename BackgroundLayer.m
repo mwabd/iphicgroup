@@ -73,4 +73,28 @@
     return headerLayer;
 
 }
+
++(CAGradientLayer*) clubGradient {
+    
+    
+    UIColor *colorOne = [UIColor colorWithRed:(27/255.0) green:(106/255.0) blue:(49/255.0) alpha:.8];
+    UIColor *colorTwo = [UIColor colorWithRed:(22/255.0)  green:(100/255.0)  blue:(42/255.0)  alpha:1.0];
+    UIColor *colorThree = [UIColor colorWithRed:(15/255.0)  green:(78/255.0)  blue:(33/255.0)  alpha:1.0];
+    
+    NSArray *colors = [NSArray arrayWithObjects:(id)colorOne.CGColor,  colorTwo.CGColor, colorThree.CGColor,nil];
+    NSNumber *stopOne = [NSNumber numberWithFloat:0.0];
+    NSNumber *stopTwo = [NSNumber numberWithFloat:.8];
+    NSNumber *stopThree = [NSNumber numberWithFloat:1];
+    
+    NSArray *locations = [NSArray arrayWithObjects:stopOne,stopTwo,stopThree,nil];
+    
+    CAGradientLayer *headerLayer = [CAGradientLayer layer];
+    headerLayer.startPoint = CGPointMake(0.0, 0.5);
+    headerLayer.endPoint = CGPointMake(1.0, 0.5);
+    headerLayer.colors = colors;
+    headerLayer.locations = locations;
+    
+    return headerLayer;
+    
+}
 @end

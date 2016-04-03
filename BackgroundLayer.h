@@ -13,4 +13,5 @@
 +(CAGradientLayer*) greyGradient;
 +(CAGradientLayer*) blueGradient;
 +(CAGradientLayer*) greenGradient;
++(CAGradientLayer*) clubGradient;
 @end
