@@ -326,12 +326,13 @@ imageview.contentMode = UIViewContentModeScaleAspectFit;
 //imageview.center=cell.center;
 label.text=nil;
 label.text=name_of_item[indexPath.section];
-[label setBackgroundColor:[UIColor colorWithRed:0 green:0.4 blue:0 alpha:1]];
+//[label setBackgroundColor:[UIColor colorWithRed:0 green:0.4 blue:0 alpha:1]];
+    [label setBackgroundColor:[UIColor clearColor]];
     label.textColor=[UIColor whiteColor];
                      [cell.contentView clearsContextBeforeDrawing];
 [cell.contentView addSubview:imageview];
 [cell.contentView addSubview:label];
-return cell;
+//return cell;
 }
 else if(collectionView==self.mycollectionview)
 {
@@ -348,7 +349,7 @@ else if(collectionView==self.mycollectionview)
     //imageview.center=cell.center;
     label.text=nil;
     label.text=name_of_item[indexPath.section];
-    [label setBackgroundColor:[UIColor whiteColor]];
+    [label setBackgroundColor:[UIColor clearColor]];
     label.textColor=[UIColor blackColor];
     [cell.contentView clearsContextBeforeDrawing];
     [cell.contentView addSubview:imageview];
@@ -357,7 +358,7 @@ else if(collectionView==self.mycollectionview)
 
 
 count++;
-return cell;
+//return cell;
 
 }
 
