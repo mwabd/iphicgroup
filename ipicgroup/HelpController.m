@@ -93,19 +93,14 @@
     UITabBarItem *tabBarItem1 = [[UITabBarItem alloc]initWithTitle:@"SPORTS" image:imge selectedImage:imge];
     UITabBarItem *tabBarItem2 = [[UITabBarItem alloc]initWithTitle:@"ENTERTAINMENT" image:imge selectedImage:imge];
     UITabBarItem *tabBarItem3 = [[UITabBarItem alloc]initWithTitle:@"SERVICE" image:imge selectedImage:imge];
-   
-    
-    // tabBarItem1.titlePositionAdjustment=UIOffsetMake(0, -5);
-    [[UITabBarItem appearance] setTitleTextAttributes:@{
+   [[UITabBarItem appearance] setTitleTextAttributes:@{
                                                         NSFontAttributeName:[UIFont fontWithName:@"Cervo-Light" size:16.0f
                                                                              
                                                                              ],
                                                         NSForegroundColorAttributeName:[UIColor whiteColor]
                                                         } forState:UIControlStateNormal];
     
-  
-    
-    [[UITabBar appearance]setBackgroundColor:[UIColor whiteColor]];
+   [[UITabBar appearance]setBackgroundColor:[UIColor whiteColor]];
     [UITabBar appearance].itemPositioning=UITabBarItemPositioningFill ;
     [_tapbar   setTintColor:[UIColor colorWithRed:0.14 green:0.57 blue:0.22 alpha:1.00]];
     _tapbar.itemPositioning=UITabBarItemPositioningFill;;
@@ -118,30 +113,11 @@
     [tabItems insertObject:tabBarItem3 atIndex:2];
     _tapbar.items=tabItems;
     [_tapbar setSelectedItem:_tapbar.items[0]];
+    
+
+
+    
 }
-/*-(void) datasource_init:(NSString*)string
-{
-    
-    k=0;
-    count=0;
-    
-    [image_of_item removeAllObjects];
-    [name_of_item removeAllObjects];
-    [colors removeAllObjects];
-//   / [parent removeAllObjects];
-    
-    NSString *file = [[NSBundle mainBundle] pathForResource:@"data" ofType:@"plist"];
-    NSDictionary *dict = [[NSDictionary alloc] initWithContentsOfFile:file];
-  
-    for (id row  in dict[@"Category Sub Menu"][string]) {
-        [header addObject:row];
-        
-        k++;
-        
-    }
-    
-    }
-*/
 -(void) datasource_init:(NSString*)selected
 {
     int name_of_item_count=0;

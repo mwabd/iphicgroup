@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "BackgroundLayer.h"
 @interface ViewController : UIViewController<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
 @property(nonatomic,weak) IBOutlet UICollectionView *mycollectionview;
 @property (weak, nonatomic) IBOutlet UIScrollView *myscrollview;
@@ -15,4 +15,5 @@
 @property (weak, nonatomic) NSString *selectedItem;
 @property (weak, nonatomic) IBOutlet UICollectionView *myclubcollectionViewConroller;
 @property (strong, nonatomic) IBOutlet UITabBar *tapbar;
+@property (weak, nonatomic) IBOutlet UIButton *searchbtn;
 @end

@@ -16,6 +16,7 @@
 		3B3E52501CA03A1B002753CC /* NavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B3E524F1CA03A1B002753CC /* NavController.m */; };
 		3BB2EA7D1CA2F1B200A2EF32 /* data.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3BB2EA7C1CA2F1B200A2EF32 /* data.plist */; };
 		3BC032021CA5458800057847 /* beatles.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BC032011CA5458800057847 /* beatles.png */; };
+		3BEFF2A01CB0BD3B00B9899F /* SEARCH.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BEFF29F1CB0BD3B00B9899F /* SEARCH.png */; };
 		3BF59F1D1C9EB43F00B4D414 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BF59F1C1C9EB43F00B4D414 /* Images.xcassets */; };
 		3BF59F1F1C9EC14400B4D414 /* bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3BF59F1E1C9EC14400B4D414 /* bg.jpg */; };
 		3BF59F221C9ECCD000B4D414 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BF59F211C9ECCCF00B4D414 /* ViewController.m */; };
@@ -80,6 +81,7 @@
 		3B3E524F1CA03A1B002753CC /* NavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NavController.m; path = ../NavController.m; sourceTree = "<group>"; };
 		3BB2EA7C1CA2F1B200A2EF32 /* data.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = data.plist; path = ../data.plist; sourceTree = "<group>"; };
 		3BC032011CA5458800057847 /* beatles.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = beatles.png; sourceTree = "<group>"; };
+		3BEFF29F1CB0BD3B00B9899F /* SEARCH.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SEARCH.png; sourceTree = "<group>"; };
 		3BF59F1C1C9EB43F00B4D414 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3BF59F1E1C9EC14400B4D414 /* bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = bg.jpg; path = ../bg.jpg; sourceTree = "<group>"; };
 		3BF59F201C9ECCCF00B4D414 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = ../ViewController.h; sourceTree = "<group>"; };
@@ -244,6 +246,7 @@
 		B6E83C2E1CA242AE00C03C0C /* images */ = {
 			isa = PBXGroup;
 			children = (
+				3BEFF29F1CB0BD3B00B9899F /* SEARCH.png */,
 				B41B34941CAD040900C41474 /* mancity-logo.png */,
 				B41B34921CAD02F600C41474 /* arsenal-logo.png */,
 				B41B34901CAD027500C41474 /* Logo-LFC.png */,
@@ -335,7 +338,7 @@
 				TargetAttributes = {
 					B61C49651C9A7665003B01E7 = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = 57C7CRQS77;
+						DevelopmentTeam = MD9V5L4AYS;
 					};
 					B61C497E1C9A7665003B01E7 = {
 						CreatedOnToolsVersion = 6.4;
@@ -379,6 +382,7 @@
 				B461D4751CAD2A78004F2ED8 /* Cervo-Thin.otf in Resources */,
 				B461D4761CAD2A78004F2ED8 /* Cervo-ThinItalic.otf in Resources */,
 				B644E41F1CABC0AA00628C24 /* CASTELEFORD.png in Resources */,
+				3BEFF2A01CB0BD3B00B9899F /* SEARCH.png in Resources */,
 				3BF59F1F1C9EC14400B4D414 /* bg.jpg in Resources */,
 				B637BBE11CA101AE00295ECB /* downarrow.png in Resources */,
 				3B22E3A61CA635E70023C1CF /* tabsports.png in Resources */,
@@ -564,7 +568,7 @@
 				INFOPLIST_FILE = ipicgroup/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ipdicgroup.w.com.ipicgroup.ird2.bdsa.ussa;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ipdicgroup.wd.com.ipicgroup.ird2.bdsa.ussa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -579,7 +583,7 @@
 				INFOPLIST_FILE = ipicgroup/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ipdicgroup.w.com.ipicgroup.ird2.bdsa.ussa;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ipdicgroup.wd.com.ipicgroup.ird2.bdsa.ussa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

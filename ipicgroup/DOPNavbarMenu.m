@@ -25,7 +25,7 @@
 
 @end
 
-static NSInteger rowHeight = 100;
+static NSInteger rowHeight = 70;
 //static CGFloat titleFontSize = 22.0;
 
 @interface DOPNavbarMenu ()
@@ -98,6 +98,13 @@ static NSInteger rowHeight = 100;
 }
 
 - (void)showInNavigationController:(UINavigationController *)nvc {
+    UIImage *search =[UIImage imageNamed:@"SEARCH.png"];
+    UIButton *barbutton=[[UIButton alloc]initWithFrame:CGRectMake(0, 0, 20, 25)];
+    //[barbutton setBackgroundColor:[UIColor redColor]];
+    barbutton.imageView.image=search;
+    UIBarButtonItem * customItem = [[UIBarButtonItem alloc] initWithCustomView:barbutton];
+    //self.navigationItem.leftBarButtonItem=[[UIButton alloc]initWithFrame:CGRectMake(0,0,20,20)];
+    [nvc.navigationItem.leftBarButtonItem setTitle:@"tttt"];
     [nvc.view insertSubview:self.background belowSubview:nvc.navigationBar];
     [nvc.view insertSubview:self belowSubview:nvc.navigationBar];
     if (CGRectEqualToRect(self.beforeAnimationFrame, self.afterAnimationFrame)) {

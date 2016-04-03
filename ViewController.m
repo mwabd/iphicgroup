@@ -1,5 +1,6 @@
 #import "ViewController.h"
 #import "DOPNavbarMenu.h"
+#import "HelpController.h"
 @interface ViewController () <UITextViewDelegate, DOPNavbarMenuDelegate,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UITabBarDelegate>
 
 @property (assign, nonatomic) NSInteger numberOfItemsInRow;
@@ -152,6 +153,11 @@ _menu.delegate = self;
 return _menu;
 }
 
+-(IBAction)searchBtn:(id)sender {
+    HelpController *help = [self.storyboard instantiateViewControllerWithIdentifier:@"helpviewcontroller"];
+    [self presentViewController:help animated:NO completion:nil];
+}
+
 -(void)loadMyview:(NSString*)selected
 {
     //TabBar *tab;
@@ -196,8 +202,21 @@ return _menu;
     
  
     self.numberOfItemsInRow = 1;
-    lbl=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 70)];
+    
+    ///
+    CAGradientLayer *bgLayer = [BackgroundLayer greenGradient];
+    UIButton *searchbtn=[[UIButton alloc]initWithFrame:CGRectMake(self.view.frame.size.width-50, 0, 50, 65)];
+    [searchbtn setBackgroundColor:[UIColor clearColor]];
+    UIImage *search =[UIImage imageNamed:@"SEARCH.png"];
+    [searchbtn setImage:search forState:UIControlStateNormal];
+    [searchbtn addTarget:self action:@selector(searchBtn:) forControlEvents:UIControlEventTouchUpInside];
+    [searchbtn setBackgroundColor:[UIColor clearColor]];
+    lbl=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width-50,65)];
     UITapGestureRecognizer* gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(openMenu:)];
+    bgLayer.frame =self.myclubcollectionViewConroller.bounds;
+    //[lbl.layer insertSublayer:bgLayer atIndex:0];
+    [self.view.layer insertSublayer:bgLayer atIndex:0];
+    [lbl addSubview:searchbtn];
     [lbl setUserInteractionEnabled:YES];
     [lbl addGestureRecognizer:gesture];
     lbl.textColor=[UIColor whiteColor];
@@ -211,6 +230,7 @@ return _menu;
     [btn addTarget:self action:@selector(openMenu:) forControlEvents:UIControlEventTouchUpInside];
     [self.navigationController.view addSubview:lbl];
     [self.navigationController.view  addSubview:btn];
+    [self.navigationController.view addSubview:searchbtn];
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
     [flowLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
     [flowLayout setMinimumInteritemSpacing:0.0f];
