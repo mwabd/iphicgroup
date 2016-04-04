@@ -169,12 +169,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aQQ-qC-zPP">
                                 <rect key="frame" x="0.0" y="218" width="414" height="205"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="CLUB" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="maG-Kf-kyZ">
-                                        <rect key="frame" x="0.0" y="10" width="144" height="29"/>
-                                        <fontDescription key="fontDescription" name="Cervo-Light" family="Cervo" pointSize="17"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="SEE ALL" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qBs-rd-qU5">
                                         <rect key="frame" x="262" y="10" width="144" height="29"/>
                                         <fontDescription key="fontDescription" name="Cervo-Light" family="Cervo" pointSize="14"/>
@@ -208,13 +202,20 @@
                                             <outlet property="delegate" destination="eJ0-He-PVG" id="q3O-U0-3C0"/>
                                         </connections>
                                     </collectionView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="CLUBS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="maG-Kf-kyZ">
+                                        <rect key="frame" x="0.0" y="16" width="144" height="29"/>
+                                        <fontDescription key="fontDescription" name="Cervo-Light" family="Cervo" pointSize="20"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="quy-TU-d1O" firstAttribute="top" secondItem="maG-Kf-kyZ" secondAttribute="bottom" constant="2" id="DOm-2s-gUE"/>
                                     <constraint firstAttribute="height" constant="205" id="DiF-eu-fRN"/>
                                     <constraint firstItem="qBs-rd-qU5" firstAttribute="top" secondItem="aQQ-qC-zPP" secondAttribute="top" constant="10" id="G3x-Qp-INv"/>
-                                    <constraint firstItem="quy-TU-d1O" firstAttribute="top" secondItem="maG-Kf-kyZ" secondAttribute="bottom" constant="8" id="NAJ-dx-9cZ"/>
+                                    <constraint firstItem="quy-TU-d1O" firstAttribute="top" secondItem="maG-Kf-kyZ" secondAttribute="bottom" constant="2" id="NAJ-dx-9cZ"/>
                                     <constraint firstItem="qBs-rd-qU5" firstAttribute="leading" secondItem="maG-Kf-kyZ" secondAttribute="trailing" constant="118" id="l8a-B5-MO5"/>
                                     <constraint firstAttribute="trailing" secondItem="qBs-rd-qU5" secondAttribute="trailing" constant="8" id="mwx-Ij-hxC"/>
                                 </constraints>
