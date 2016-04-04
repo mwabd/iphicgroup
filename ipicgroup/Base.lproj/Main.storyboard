@@ -169,14 +169,14 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aQQ-qC-zPP">
                                 <rect key="frame" x="0.0" y="218" width="414" height="205"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SEE ALL" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qBs-rd-qU5">
-                                        <rect key="frame" x="373" y="10" width="33" height="14"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="SEE ALL" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qBs-rd-qU5">
+                                        <rect key="frame" x="262" y="10" width="144" height="29"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="Cervo-Light" family="Cervo" pointSize="14"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="quy-TU-d1O">
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="quy-TU-d1O">
                                         <rect key="frame" x="2" y="47" width="412" height="172"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -203,23 +203,23 @@
                                             <outlet property="delegate" destination="eJ0-He-PVG" id="q3O-U0-3C0"/>
                                         </connections>
                                     </collectionView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v8H-T3-mXh">
-                                        <rect key="frame" x="360" y="10" width="46" height="30"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <state key="normal" title="Button">
-                                            <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <segue destination="m1C-1e-49D" kind="showDetail" id="f5S-fq-3hI"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CLUBS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="maG-Kf-kyZ">
-                                        <rect key="frame" x="0.0" y="10" width="38" height="35"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="CLUBS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="maG-Kf-kyZ">
+                                        <rect key="frame" x="0.0" y="16" width="144" height="29"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="Cervo-Light" family="Cervo" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v8H-T3-mXh">
+                                        <rect key="frame" x="336" y="10" width="70" height="30"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <state key="normal" title="Button">
+                                            <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="m1C-1e-49D" kind="showDetail" id="Tih-E4-v8C"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -232,31 +232,27 @@
                                     <constraint firstItem="qBs-rd-qU5" firstAttribute="top" secondItem="aQQ-qC-zPP" secondAttribute="top" constant="10" id="G3x-Qp-INv"/>
                                     <constraint firstItem="quy-TU-d1O" firstAttribute="top" secondItem="maG-Kf-kyZ" secondAttribute="bottom" constant="2" id="NAJ-dx-9cZ"/>
                                     <constraint firstItem="quy-TU-d1O" firstAttribute="top" secondItem="maG-Kf-kyZ" secondAttribute="bottom" constant="2" id="PYn-35-FDj"/>
-                                    <constraint firstItem="v8H-T3-mXh" firstAttribute="top" secondItem="maG-Kf-kyZ" secondAttribute="top" id="Qye-3z-Wqe"/>
+                                    <constraint firstItem="v8H-T3-mXh" firstAttribute="top" secondItem="maG-Kf-kyZ" secondAttribute="top" constant="-6" id="Qye-3z-Wqe"/>
                                     <constraint firstItem="maG-Kf-kyZ" firstAttribute="leading" secondItem="aQQ-qC-zPP" secondAttribute="leading" id="RVu-Rz-IOx"/>
-                                    <constraint firstItem="quy-TU-d1O" firstAttribute="top" secondItem="maG-Kf-kyZ" secondAttribute="bottom" constant="2" id="ZFZ-fQ-Tve"/>
                                     <constraint firstItem="quy-TU-d1O" firstAttribute="top" secondItem="maG-Kf-kyZ" secondAttribute="bottom" constant="2" id="byF-wq-fJl"/>
-                                    <constraint firstItem="quy-TU-d1O" firstAttribute="leading" secondItem="aQQ-qC-zPP" secondAttribute="leading" constant="2" id="cCz-Rd-jmE"/>
-                                    <constraint firstItem="v8H-T3-mXh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="maG-Kf-kyZ" secondAttribute="trailing" constant="220" id="g30-Fv-80U"/>
+                                    <constraint firstItem="v8H-T3-mXh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="maG-Kf-kyZ" secondAttribute="trailing" constant="192" id="g30-Fv-80U"/>
                                     <constraint firstItem="maG-Kf-kyZ" firstAttribute="leading" secondItem="aQQ-qC-zPP" secondAttribute="leading" id="iaQ-cy-znY"/>
                                     <constraint firstAttribute="trailing" secondItem="qBs-rd-qU5" secondAttribute="trailing" constant="8" id="mwx-Ij-hxC"/>
                                     <constraint firstItem="quy-TU-d1O" firstAttribute="top" secondItem="v8H-T3-mXh" secondAttribute="bottom" constant="7" id="q3o-uA-bI4"/>
-                                    <constraint firstAttribute="trailing" secondItem="quy-TU-d1O" secondAttribute="trailing" id="zH5-jn-Yi5"/>
-                                    <constraint firstAttribute="bottom" secondItem="quy-TU-d1O" secondAttribute="bottom" constant="-14" id="zWO-fg-i4c"/>
                                     <constraint firstItem="maG-Kf-kyZ" firstAttribute="top" secondItem="aQQ-qC-zPP" secondAttribute="top" constant="16" id="zoI-1M-tc9"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="r0d-Gk-Voh">
-                                <rect key="frame" x="0.0" y="423" width="414" height="200"/>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="r0d-Gk-Voh">
+                                <rect key="frame" x="0.0" y="430" width="414" height="200"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="STAR PLAYERS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tQQ-xs-BTV">
-                                        <rect key="frame" x="175" y="-423" width="117" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="STAR PLAYERS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tQQ-xs-BTV">
+                                        <rect key="frame" x="8" y="8" width="169" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="06m-ne-8Z0">
-                                        <rect key="frame" x="0.0" y="-423" width="414" height="172"/>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="06m-ne-8Z0">
+                                        <rect key="frame" x="0.0" y="37" width="414" height="172"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="414" id="gn2-Zl-juB"/>
@@ -284,8 +280,8 @@
                                             <outlet property="delegate" destination="eJ0-He-PVG" id="dmS-oX-MqM"/>
                                         </connections>
                                     </collectionView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="SEE ALL" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RwB-bU-cDx">
-                                        <rect key="frame" x="352" y="8" width="54" height="17"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="SEE ALL" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RwB-bU-cDx">
+                                        <rect key="frame" x="237" y="8" width="169" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -665,6 +661,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="2N8-y1-4ZO"/>
-        <segue reference="f5S-fq-3hI"/>
+        <segue reference="Tih-E4-v8C"/>
     </inferredMetricsTieBreakers>
 </document>
