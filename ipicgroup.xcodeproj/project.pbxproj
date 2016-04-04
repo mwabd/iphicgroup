@@ -56,6 +56,7 @@
 		B644E41D1CABB71E00628C24 /* HULL.png in Resources */ = {isa = PBXBuildFile; fileRef = B644E41C1CABB71E00628C24 /* HULL.png */; };
 		B644E41F1CABC0AA00628C24 /* CASTELEFORD.png in Resources */ = {isa = PBXBuildFile; fileRef = B644E41E1CABC0AA00628C24 /* CASTELEFORD.png */; };
 		B644E4211CABC0C300628C24 /* Halifaxoff.png in Resources */ = {isa = PBXBuildFile; fileRef = B644E4201CABC0C300628C24 /* Halifaxoff.png */; };
+		B6501F621CB228FD0093AE1E /* SeeAllController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6501F611CB228FD0093AE1E /* SeeAllController.m */; };
 		B671A0DA1CAE85150094B40E /* HelpController.m in Sources */ = {isa = PBXBuildFile; fileRef = B671A0D91CAE85150094B40E /* HelpController.m */; };
 /* End PBXBuildFile section */
 
@@ -132,6 +133,8 @@
 		B644E41C1CABB71E00628C24 /* HULL.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HULL.png; sourceTree = "<group>"; };
 		B644E41E1CABC0AA00628C24 /* CASTELEFORD.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CASTELEFORD.png; sourceTree = "<group>"; };
 		B644E4201CABC0C300628C24 /* Halifaxoff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Halifaxoff.png; sourceTree = "<group>"; };
+		B6501F601CB228FD0093AE1E /* SeeAllController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeeAllController.h; sourceTree = "<group>"; };
+		B6501F611CB228FD0093AE1E /* SeeAllController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeeAllController.m; sourceTree = "<group>"; };
 		B671A0D91CAE85150094B40E /* HelpController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpController.m; sourceTree = "<group>"; };
 		B671A0DB1CAE85200094B40E /* HelpController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelpController.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -199,6 +202,7 @@
 				B6E83C2F1CA242E700C03C0C /* controllers */,
 				3B3E524E1CA03A1B002753CC /* NavController.h */,
 				B671A0DB1CAE85200094B40E /* HelpController.h */,
+				B6501F601CB228FD0093AE1E /* SeeAllController.h */,
 				3BF59F261C9ECD1D00B4D414 /* DOPNavbarMenu.h */,
 				3B1912EE1CAF78D6006BAF3D /* BackgroundLayer.h */,
 				3BF59F291C9ECD1D00B4D414 /* UIView+DOPExtension.h */,
@@ -285,6 +289,7 @@
 				B61C49711C9A7665003B01E7 /* menu.m */,
 				B41B34961CAD08FB00C41474 /* BrowserController.h */,
 				B41B34971CAD08FB00C41474 /* BrowserController.m */,
+				B6501F611CB228FD0093AE1E /* SeeAllController.m */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -435,6 +440,7 @@
 				3B3E52501CA03A1B002753CC /* NavController.m in Sources */,
 				3BF59F2F1C9ECD1D00B4D414 /* DOPNavbarMenu.m in Sources */,
 				3BF59F221C9ECCD000B4D414 /* ViewController.m in Sources */,
+				B6501F621CB228FD0093AE1E /* SeeAllController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

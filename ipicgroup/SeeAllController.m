@@ -1,26 +1,26 @@
-#import "ViewController.h"
+#import "SeeAllController.h"
 #import "DOPNavbarMenu.h"
 #import "HelpController.h"
 #include "BackgroundLayer.h"
-@interface ViewController () <UITextViewDelegate, DOPNavbarMenuDelegate,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UITabBarDelegate>
+@interface SeeAllController () <UITextViewDelegate, UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UITabBarDelegate>
 
 @property (assign, nonatomic) NSInteger numberOfItemsInRow;
 @property (strong, nonatomic) DOPNavbarMenu *menu;
 @end
-@implementation ViewController
+@implementation SeeAllController
 {
-NSInteger counter;
-UIButton *btn;
-BOOL enabled;
-NSInteger count;
-NSMutableArray *parent;
-int k;
-NSMutableArray *name_of_item;
-NSMutableArray *image_of_item;
-UILabel *lbl;
-NSMutableArray * colors;
-UICollectionViewCell *cell;
-UILabel *label;
+    NSInteger counter;
+    UIButton *btn;
+    BOOL enabled;
+    NSInteger count;
+    NSMutableArray *parent;
+    int k;
+    NSMutableArray *name_of_item;
+    NSMutableArray *image_of_item;
+    UILabel *lbl;
+    NSMutableArray * colors;
+    UICollectionViewCell *cell;
+    UILabel *label;
 }
 -(void)createTab
 {
@@ -34,7 +34,7 @@ UILabel *label;
     UITabBarItem *tabBarItem3 = [[UITabBarItem alloc]initWithTitle:@"SERVICE" image:nil selectedImage:imge];
     
     
-   // tabBarItem1.titlePositionAdjustment=UIOffsetMake(0, -5);
+    // tabBarItem1.titlePositionAdjustment=UIOffsetMake(0, -5);
     [[UITabBarItem appearance] setTitleTextAttributes:@{
                                                         NSFontAttributeName:[UIFont fontWithName:@"Cervo-Light" size:16.0f
                                                                              
@@ -66,16 +66,8 @@ UILabel *label;
     
     _tapbar.delegate=self;
     
-    if(([self.selectedItem isEqual:@"SPORTS"]))
-    {
-        [_tapbar setSelectedItem:[[_tapbar items] objectAtIndex:0]];
-    }
-    else  if(([self.selectedItem isEqual:@"ENTERTAINMENT"]))
-    {
-        
-        [_tapbar setSelectedItem:[[_tapbar items] objectAtIndex:1]];
-    }
-    else [_tapbar setSelectedItem:[[_tapbar items] objectAtIndex:2]];
+    
+    [_tapbar setSelectedItem:[[_tapbar items] objectAtIndex:0]];
 }
 -(void) datasource_init:(NSString*)selected
 {
@@ -86,7 +78,7 @@ UILabel *label;
     [name_of_item removeAllObjects];
     [colors removeAllObjects];
     
-     NSString *file = [[NSBundle mainBundle] pathForResource:@"data" ofType:@"plist"];
+    NSString *file = [[NSBundle mainBundle] pathForResource:@"data" ofType:@"plist"];
     NSDictionary *dict = [[NSDictionary alloc] initWithContentsOfFile:file];
     for (id row  in dict[@"Category Sub Menu"][selected]) {
         parent[k++]=row;
@@ -119,50 +111,14 @@ UILabel *label;
 }
 -(BOOL)shouldAutorotate
 {
-return NO;
+    return NO;
 }
 
 
 
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations
 {
-return UIInterfaceOrientationMaskPortrait;
-}
-- (DOPNavbarMenu *)menu {
-    
-if (_menu == nil) {
-colors=[NSMutableArray array];
-UIColor *color = [UIColor colorWithRed:0.031 green:0.231 blue:0.102 alpha:1];
-[colors addObject:color];
-color=[UIColor colorWithRed:0.051 green:0.365 blue:0.165 alpha:1];
-[colors addObject:color];
-color=[UIColor colorWithRed:0.071 green:0.533 blue:0.235 alpha:1];
-[colors addObject:color];
-color=[UIColor colorWithRed:0.051 green:0.365 blue:0.165 alpha:1];
-[colors addObject:color];
-color=[UIColor colorWithRed:0.071 green:0.533 blue:0.235 alpha:1];
-[colors addObject:color];
-color=[UIColor colorWithRed:0.051 green:0.365 blue:0.165 alpha:1];
-[colors addObject:color];
-color=[UIColor colorWithRed:0.071 green:0.533 blue:0.235 alpha:1];
-[colors addObject:color];
-color=[UIColor colorWithRed:0.051 green:0.365 blue:0.165 alpha:1];
-[colors addObject:color];
-DOPNavbarMenuItem *item1[[parent count]];
-for (int t=0; t<k; t++) {
-item1[t]=[DOPNavbarMenuItem ItemWithTitle:parent[t]];
-}
-
-NSMutableArray *item2;
-item2=[[NSMutableArray alloc]init];
-for (int i=0; i<[parent count]; i++) {
-[item2 insertObject:item1[i] atIndex:i];
-}
-_menu =[[DOPNavbarMenu alloc] initWithItems:item2 width:self.view.dop_width maximumNumberInRow:_numberOfItemsInRow color:colors];;
-_menu.separatarColor = [UIColor colorWithRed:0.129 green:0.569 blue:0.208 alpha:1];
-_menu.delegate = self;
-}
-return _menu;
+    return UIInterfaceOrientationMaskPortrait;
 }
 
 -(IBAction)searchBtn:(id)sender {
@@ -194,7 +150,7 @@ return _menu;
             ;
             if([dict[@"Category Sub Menu"][selected][row][string] length]>0)
             {
-                name_of_item[name_of_item_count++]=dict[@"Category Sub Menu"][_selectedItem][row][string];
+                name_of_item[name_of_item_count++]=dict[@"Category Sub Menu"][@"SPORTS"][row][string];
                 
             }
             
@@ -212,12 +168,12 @@ return _menu;
     }
     
     
- 
+    
     self.numberOfItemsInRow = 1;
     
     ///
     CAGradientLayer *bgLayer = [BackgroundLayer clubGradient ];
-   
+    
     
     UIButton *searchbtn=[[UIButton alloc]initWithFrame:CGRectMake(self.view.frame.size.width-50, 0, 50, 65)];
     [searchbtn setBackgroundColor:[UIColor clearColor]];
@@ -225,39 +181,17 @@ return _menu;
     [searchbtn setImage:search forState:UIControlStateNormal];
     [searchbtn addTarget:self action:@selector(searchBtn:) forControlEvents:UIControlEventTouchUpInside];
     [searchbtn setBackgroundColor:[UIColor clearColor]];
-    lbl=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width-50,65)];
-    UITapGestureRecognizer* gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(openMenu:)];
     bgLayer.frame =self.myclubcollectionViewConroller.bounds;
-    //[lbl.layer insertSublayer:bgLayer atIndex:0];
-    [self.view.layer insertSublayer:bgLayer atIndex:0];
-    [lbl addSubview:searchbtn];
-    [lbl setUserInteractionEnabled:YES];
-    [lbl addGestureRecognizer:gesture];
     lbl.textColor=[UIColor whiteColor];
     lbl.font=[UIFont fontWithName:@"Cervo-Light" size:25.0f];
-    lbl.text=_selectedItem;
-    lbl.textAlignment = NSTextAlignmentCenter;
-    lbl.textColor=[UIColor whiteColor];
-    [lbl setBackgroundColor:[UIColor colorWithRed:0.031 green:0.231 blue:0.102 alpha:1]];
-    btn=[[UIButton alloc]initWithFrame:CGRectMake(self.view.frame.size.width/2+80,30, 15, 15)];
-    [btn setImage:[UIImage imageNamed:@"downarrow.png"] forState:UIControlStateNormal];
-    [btn addTarget:self action:@selector(openMenu:) forControlEvents:UIControlEventTouchUpInside];
-    [self.navigationController.view addSubview:lbl];
+    
     [self.navigationController.view  addSubview:btn];
     [self.navigationController.view addSubview:searchbtn];
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
-    [flowLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
+    [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
     [flowLayout setMinimumInteritemSpacing:0.0f];
     [flowLayout setMinimumLineSpacing:0.0f];
-    [self.mycollectionview setPagingEnabled:YES];
-    [self.mycollectionview setCollectionViewLayout:flowLayout];
-    [self.mycollectionview setBounces:NO];
-    [self.myclubcollectionViewConroller setCollectionViewLayout:flowLayout];
-    bgLayer = [BackgroundLayer clubGradient];
-    bgLayer.frame = self.view.bounds;
-    bgLayer.frame=self.clubview.bounds;
-    [self.clubview.layer insertSublayer:bgLayer atIndex:0];
-    
+   
 }
 
 - (void)viewDidLoad {
@@ -266,179 +200,143 @@ return _menu;
     parent=[[NSMutableArray alloc]init];
     image_of_item=[[NSMutableArray alloc]init];
     name_of_item=[[NSMutableArray alloc]init];
-    _mycollectionview.delegate=self;
-    _mycollectionview.dataSource=self;
+    //_mycollectionview.delegate=self;
+    //_mycollectionview.dataSource=self;
     parent=[[NSMutableArray alloc]init];
     image_of_item=[[NSMutableArray alloc]init];
     name_of_item=[[NSMutableArray alloc]init];
     
-    [self loadMyview:self.selectedItem];
+    [self loadMyview:@"SPORTS"];
     [self createTab];
-    [self datasource_init:self.selectedItem];
-  
+    [self datasource_init:@"SPORTS"];
+    
+}
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
+    return UIEdgeInsetsMake(5 , 5, 10,5);;//UIEdgeInsetsMake(50, 20, 50, 20);
 }
 
-- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
-return UIEdgeInsetsMake(10 , 10, 10,10);;//UIEdgeInsetsMake(50, 20, 50, 20);
-}
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-CGSize retval =CGSizeMake(100,120);
-return retval;
+    CGSize retval =CGSizeMake(100,120);
+    return retval;
 }
 
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-if(collectionView==self.mycollectionview)
-{
-
-return [image_of_item count];
-}
-else
-{   return [name_of_item count];
-}
+    
+    return [image_of_item count];
+;
+    
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-return 1;
+    return 3;
 }
 
 -(void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
     [parent removeAllObjects];
     [self datasource_init:item.title];
-    [_mycollectionview reloadData];
     [_myclubcollectionViewConroller reloadData];
     //[cell.contentView.layer removeFromSuperlayer];
     _menu=nil;
     lbl.text=item.title;
-   
-   
+    
+    
 }
 
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-   
+    
     //[_textview.layer insertSublayer:bgLayer atIndex:0];
     
-
-if(collectionView==self.myclubcollectionViewConroller)
-{
-UILabel *label1=[[UILabel alloc]initWithFrame:CGRectMake(0, 90, 80,20)];
-cell=[collectionView dequeueReusableCellWithReuseIdentifier:@"club" forIndexPath:indexPath];
-[[cell.contentView viewWithTag:123]removeFromSuperview] ;
-UIImage *img=[UIImage imageNamed:image_of_item[indexPath.section]];
-    //UIImage *img=[UIImage imageNamed:@"HULL.png"];
-UIImageView *imageview=[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 80,80)];
-imageview.image=img;
-
-//[imageview addSubview:label];
-imageview.contentMode = UIViewContentModeScaleAspectFit;
-//imageview.center=cell.center;
-label1.text=nil;
-label1.text=name_of_item[indexPath.section];
-//[label setBackgroundColor:[UIColor colorWithRed:0 green:0.4 blue:0 alpha:1]];
-[label1 setBackgroundColor:[UIColor clearColor]];
-label1.textColor=[UIColor whiteColor];
-label1.tag=123;
-[cell.contentView clearsContextBeforeDrawing];
-[cell.contentView addSubview:imageview];
-[cell.contentView addSubview:label1];
-//return cell;
-}
-else if(collectionView==self.mycollectionview)
-{
-
     
-    cell=[collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
-    [[cell.contentView viewWithTag:1234]removeFromSuperview] ;
-    ;
-    UIImage *img=[UIImage imageNamed:image_of_item[indexPath.section]];
-    //UIImage *img=[UIImage imageNamed:@"HULL.png"];
-    UIImageView *imageview=[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 80,80)];
-    imageview.image=img;
-    UILabel *label2=[[UILabel alloc]initWithFrame:CGRectMake(0,self.mycollectionview.frame.origin.y+50,cell.frame.size.width ,20)];
-    //[imageview addSubview:label];
-    imageview.contentMode = UIViewContentModeScaleAspectFit;
-    //imageview.center=cell.center;
-    label2.text=nil;
-    label2.text=name_of_item[indexPath.section];
-    [label2 setBackgroundColor:[UIColor clearColor]];
-    label2.textColor=[UIColor blackColor];
-    [cell.contentView clearsContextBeforeDrawing];
-    [cell.contentView addSubview:imageview];
-    label2.tag=1234;
-    [cell.contentView addSubview:label2];
     
-
-
-count++;
-//return cell;
-
-}
-
-return cell;
-
-
-
+        UILabel *label1=[[UILabel alloc]initWithFrame:CGRectMake(0, 90, 80,20)];
+        cell=[collectionView dequeueReusableCellWithReuseIdentifier:@"club" forIndexPath:indexPath];
+        [[cell.contentView viewWithTag:123]removeFromSuperview] ;
+        UIImage *img=[UIImage imageNamed:image_of_item[indexPath.section]];
+        //UIImage *img=[UIImage imageNamed:@"HULL.png"];
+        UIImageView *imageview=[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 80,80)];
+        imageview.image=img;
+        
+        //[imageview addSubview:label];
+        imageview.contentMode = UIViewContentModeScaleAspectFit;
+        //imageview.center=cell.center;
+        label1.text=nil;
+        label1.text=name_of_item[indexPath.section];
+        //[label setBackgroundColor:[UIColor colorWithRed:0 green:0.4 blue:0 alpha:1]];
+        [label1 setBackgroundColor:[UIColor clearColor]];
+        label1.textColor=[UIColor blackColor];
+        label1.tag=123;
+        [cell.contentView addSubview:imageview];
+        [cell.contentView addSubview:label1];
+        //return cell;
+    
+    
+    
+    return cell;
+    
+    
+    
 }
 
 
 
 - (void)viewWillDisappear:(BOOL)animated {
-[super viewWillDisappear:animated];
-if (self.menu) {
-[self.menu dismissWithAnimation:NO];
-}
+    [super viewWillDisappear:animated];
+    if (self.menu) {
+        [self.menu dismissWithAnimation:NO];
+    }
 }
 
 - (IBAction)openMenu:(id)sender {
-
-enabled = NO;
-if (self.menu.isOpen) {
-[self.menu dismissWithAnimation:YES];
-} else {
-[self.menu showInNavigationController:self.navigationController];
-
-}
+    
+    enabled = NO;
+    if (self.menu.isOpen) {
+        [self.menu dismissWithAnimation:YES];
+    } else {
+        [self.menu showInNavigationController:self.navigationController];
+        
+    }
 }
 
 - (void)didShowMenu:(DOPNavbarMenu *)menu {
-//[self.navigationItem.rightBarButtonItem setTitle:@"dismiss"];
-enabled = YES;
+    //[self.navigationItem.rightBarButtonItem setTitle:@"dismiss"];
+    enabled = YES;
 }
 
 - (void)didDismissMenu:(DOPNavbarMenu *)menu {
-//[self.navigationItem.rightBarButtonItem setTitle:@"menu"];
-enabled = YES;
+    //[self.navigationItem.rightBarButtonItem setTitle:@"menu"];
+    enabled = YES;
 }
 
 - (void)didSelectedMenu:(DOPNavbarMenu *)menu atIndex:(NSInteger)index {
-// UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"you selected" message:[NSString stringWithFormat:@"number %@", @(index+1)] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-//[av show];
+    // UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"you selected" message:[NSString stringWithFormat:@"number %@", @(index+1)] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    //[av show];
     lbl.text=parent[index];
     
-  
+    
 }
 
 - (void)didReceiveMemoryWarning {
-[super didReceiveMemoryWarning];
-// Dispose of any resources that can be recreated.
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
-return UIStatusBarStyleLightContent;
+    return UIStatusBarStyleLightContent;
 }
 
 - (void)textViewDidChange:(UITextView *)textView {
-self.numberOfItemsInRow = [textView.text integerValue];
-self.menu = nil;
+    self.numberOfItemsInRow = [textView.text integerValue];
+    self.menu = nil;
 }
 
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
-self.menu = nil;
+    self.menu = nil;
 }
 
 
