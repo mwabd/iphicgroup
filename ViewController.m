@@ -311,11 +311,13 @@ return 1;
 {
    
     //[_textview.layer insertSublayer:bgLayer atIndex:0];
-    label=[[UILabel alloc]initWithFrame:CGRectMake(5,80, 80, 20)];
+    
 
 if(collectionView==self.myclubcollectionViewConroller)
 {
+UILabel *label1=[[UILabel alloc]initWithFrame:CGRectMake(0, 90, 80,20)];
 cell=[collectionView dequeueReusableCellWithReuseIdentifier:@"club" forIndexPath:indexPath];
+[[cell.contentView viewWithTag:123]removeFromSuperview] ;
 UIImage *img=[UIImage imageNamed:image_of_item[indexPath.section]];
     //UIImage *img=[UIImage imageNamed:@"HULL.png"];
 UIImageView *imageview=[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 80,80)];
@@ -324,36 +326,40 @@ imageview.image=img;
 //[imageview addSubview:label];
 imageview.contentMode = UIViewContentModeScaleAspectFit;
 //imageview.center=cell.center;
-label.text=nil;
-label.text=name_of_item[indexPath.section];
+label1.text=nil;
+label1.text=name_of_item[indexPath.section];
 //[label setBackgroundColor:[UIColor colorWithRed:0 green:0.4 blue:0 alpha:1]];
-    [label setBackgroundColor:[UIColor clearColor]];
-    label.textColor=[UIColor whiteColor];
-                     [cell.contentView clearsContextBeforeDrawing];
+[label1 setBackgroundColor:[UIColor clearColor]];
+label1.textColor=[UIColor whiteColor];
+label1.tag=123;
+[cell.contentView clearsContextBeforeDrawing];
 [cell.contentView addSubview:imageview];
-[cell.contentView addSubview:label];
+[cell.contentView addSubview:label1];
 //return cell;
 }
 else if(collectionView==self.mycollectionview)
 {
 
-
+    
     cell=[collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
+    [[cell.contentView viewWithTag:1234]removeFromSuperview] ;
+    ;
     UIImage *img=[UIImage imageNamed:image_of_item[indexPath.section]];
     //UIImage *img=[UIImage imageNamed:@"HULL.png"];
     UIImageView *imageview=[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 80,80)];
     imageview.image=img;
-    
+    UILabel *label2=[[UILabel alloc]initWithFrame:CGRectMake(0,self.mycollectionview.frame.origin.y+50,cell.frame.size.width ,20)];
     //[imageview addSubview:label];
     imageview.contentMode = UIViewContentModeScaleAspectFit;
     //imageview.center=cell.center;
-    label.text=nil;
-    label.text=name_of_item[indexPath.section];
-    [label setBackgroundColor:[UIColor clearColor]];
-    label.textColor=[UIColor blackColor];
+    label2.text=nil;
+    label2.text=name_of_item[indexPath.section];
+    [label2 setBackgroundColor:[UIColor clearColor]];
+    label2.textColor=[UIColor blackColor];
     [cell.contentView clearsContextBeforeDrawing];
     [cell.contentView addSubview:imageview];
-    [cell.contentView addSubview:label];
+    label2.tag=1234;
+    [cell.contentView addSubview:label2];
     
 
 
