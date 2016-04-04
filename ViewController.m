@@ -242,7 +242,7 @@ return _menu;
     [self.mycollectionview setCollectionViewLayout:flowLayout];
     [self.mycollectionview setBounces:NO];
     [self.myclubcollectionViewConroller setCollectionViewLayout:flowLayout];
-    bgLayer = [BackgroundLayer greenGradient];
+    bgLayer = [BackgroundLayer clubGradient];
     bgLayer.frame = self.view.bounds;
     bgLayer.frame=self.clubview.bounds;
     [self.clubview.layer insertSublayer:bgLayer atIndex:0];
