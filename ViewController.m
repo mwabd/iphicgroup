@@ -65,6 +65,18 @@ UILabel *label;
     // self.tabBarController.delegate;
     
     _tapbar.delegate=self;
+    
+    
+    if(([self.selectedItem isEqual:@"SPORTS"]))
+    {
+        [_tapbar setSelectedItem:[[_tapbar items] objectAtIndex:0]];
+    }
+    else  if(([self.selectedItem isEqual:@"ENTERTAINMENT"]))
+    {
+        
+        [_tapbar setSelectedItem:[[_tapbar items] objectAtIndex:1]];
+    }
+    else [_tapbar setSelectedItem:[[_tapbar items] objectAtIndex:2]];
 }
 -(void) datasource_init:(NSString*)selected
 {
