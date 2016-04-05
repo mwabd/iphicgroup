@@ -19,6 +19,33 @@
     // Override point for customization after application launch.
     //_window=[[UIWindow alloc]initWithFrame:[[UIScreen mainScreen] bounds]];
    // NSLog(@"%f",[[UIScreen mainScreen] bounds].size.width);
+    
+    
+    
+    if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone)
+    {
+        CGSize iOSDeviceScreenSize = [[UIScreen mainScreen] bounds].size;
+        if (iOSDeviceScreenSize.height >= 600)
+        {
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+            UIViewController *vc =[storyboard instantiateInitialViewController];
+            
+            // Set root view controller and make windows visible
+            self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+            self.window.rootViewController = vc;
+            [self.window makeKeyAndVisible];
+
+        }else{
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"5s" bundle:[NSBundle mainBundle]];
+            UIViewController *vc =[storyboard instantiateInitialViewController];
+            
+            // Set root view controller and make windows visible
+            self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+            self.window.rootViewController = vc;
+            [self.window makeKeyAndVisible];
+        }
+    }
+
     return YES;
 }
 

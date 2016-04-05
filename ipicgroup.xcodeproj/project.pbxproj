@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B088A1B1CB3F25F00128711 /* 5s.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B088A1A1CB3F25F00128711 /* 5s.storyboard */; };
 		3B1912F01CAF78D6006BAF3D /* BackgroundLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B1912EF1CAF78D6006BAF3D /* BackgroundLayer.m */; };
 		3B1912F21CAF7990006BAF3D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B1912F11CAF7990006BAF3D /* QuartzCore.framework */; };
 		3B22E3A61CA635E70023C1CF /* tabsports.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B22E3A51CA635E70023C1CF /* tabsports.png */; };
@@ -71,6 +72,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3B088A1A1CB3F25F00128711 /* 5s.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = 5s.storyboard; path = ../5s.storyboard; sourceTree = "<group>"; };
 		3B1912EE1CAF78D6006BAF3D /* BackgroundLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BackgroundLayer.h; path = ../BackgroundLayer.h; sourceTree = "<group>"; };
 		3B1912EF1CAF78D6006BAF3D /* BackgroundLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BackgroundLayer.m; path = ../BackgroundLayer.m; sourceTree = "<group>"; };
 		3B1912F11CAF7990006BAF3D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -212,6 +214,7 @@
 				B6E83C2E1CA242AE00C03C0C /* images */,
 				B61C496D1C9A7665003B01E7 /* AppDelegate.h */,
 				B61C496E1C9A7665003B01E7 /* AppDelegate.m */,
+				3B088A1A1CB3F25F00128711 /* 5s.storyboard */,
 				B61C49731C9A7665003B01E7 /* Main.storyboard */,
 				B61C49781C9A7665003B01E7 /* LaunchScreen.xib */,
 				3BF59F1C1C9EB43F00B4D414 /* Images.xcassets */,
@@ -387,6 +390,7 @@
 				B461D4751CAD2A78004F2ED8 /* Cervo-Thin.otf in Resources */,
 				B461D4761CAD2A78004F2ED8 /* Cervo-ThinItalic.otf in Resources */,
 				B644E41F1CABC0AA00628C24 /* CASTELEFORD.png in Resources */,
+				3B088A1B1CB3F25F00128711 /* 5s.storyboard in Resources */,
 				3BEFF2A01CB0BD3B00B9899F /* SEARCH.png in Resources */,
 				3BF59F1F1C9EC14400B4D414 /* bg.jpg in Resources */,
 				B637BBE11CA101AE00295ECB /* downarrow.png in Resources */,
