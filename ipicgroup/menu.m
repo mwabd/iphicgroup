@@ -14,9 +14,10 @@ NSArray *_pickerData;
 //UIPickerView *picker;
     NSString *selecteditem;
 }
-@end
 
+@end
 @implementation MenuController
+
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations
 {
     return UIInterfaceOrientationMaskPortrait;
@@ -24,6 +25,8 @@ NSArray *_pickerData;
 -(BOOL)shouldAutorotate{
     return NO;
 }
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
@@ -35,7 +38,7 @@ NSArray *_pickerData;
     selecteditem=@"ENTERTAINMENT";
     [_picker selectRow:1 inComponent:0 animated:YES];
     self.view.opaque=NO;
-    
+    //[self loadData];
       
     
 }
@@ -45,7 +48,12 @@ NSArray *_pickerData;
 {
 
     ViewController *vc=segue.destinationViewController.childViewControllers[0];
-    vc.selectedItem=selecteditem;
+    if([selecteditem isEqual:(@"SPORTS")])
+        vc.selectedItem=@"0";
+    if([selecteditem isEqual:(@"ENTERTAINMENT")])
+        vc.selectedItem=@"1";
+    if([selecteditem isEqual:(@"SERVICES")])
+        vc.selectedItem=@"2";
 }
 
 - (void)didReceiveMemoryWarning {

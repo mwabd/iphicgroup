@@ -13,6 +13,6 @@
 @property (strong, nonatomic) IBOutlet UIPickerView *picker;
 
 @property (weak, nonatomic) IBOutlet UIImageView *bluimage;
-
+-(void)loadData;
 @end
 
