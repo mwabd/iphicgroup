@@ -50,6 +50,10 @@
                                     </segue>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="center" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="d5M-UP-uWt">
+                                <rect key="frame" x="129" y="265" width="37" height="37"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -69,6 +73,7 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="activity_indicator" destination="d5M-UP-uWt" id="y79-yn-uZU"/>
                         <outlet property="bluimage" destination="K8d-N9-HET" id="mKV-9g-JUU"/>
                         <outlet property="picker" destination="FSP-Ld-UzU" id="dac-Vb-nom"/>
                     </connections>

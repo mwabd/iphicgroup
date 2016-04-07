@@ -14,7 +14,8 @@ NSInteger counter;
 UIButton *btn;
 BOOL enabled;
 NSInteger count;
-NSMutableArray *parent;
+NSMutableDictionary *parent;
+    NSMutableArray *head;
 //int k;
 NSMutableArray *name_of_item;
 NSMutableArray *image_of_item;
@@ -29,10 +30,14 @@ UILabel *label;
     NSDictionary *pdataDictionary;
     NSMutableArray *name_of_player;
     NSMutableArray *image_of_player;
+    
+   // UIActivityIndicatorView *indicator;
 }
+
+
 -(void)persemenu:(NSDictionary*) items
 {
-   int k=0;
+   NSInteger k=0;
     BOOL flag;
     flag=YES;
     NSLog(@"%@sel",_selectedItem);
@@ -45,13 +50,22 @@ UILabel *label;
                  selecdmenuItem=[[item objectForKey:@"category_id"] intValue];
                  flag=NO;
              }
-             
-             parent[k++]=[item objectForKey:@"category_name"];
-        
+             parent=[[NSMutableDictionary alloc]init];
+             [parent setObject:[item objectForKey:@"category_name"] forKey:@"name"  ];
+             [parent setObject:[item objectForKey:@"category_id"] forKey:@"cat_id"];
+             [head insertObject:parent atIndex:k];
+             k++;
+           
          }
+   
         
-}
+        
 
+    }
+   // NSMutableArray *temp=[[NSMutableArray alloc]init];
+   // temp=[head objectAtIndex:0];
+   // NSLog(@"%@",[temp valueForKey:@"name"]);
+    //exit(0);
 }
 -(void)persestarplayers:(NSDictionary*) items
 {
@@ -100,9 +114,10 @@ UILabel *label;
 
 -(void)loadData
 {
-    NSURL *mURL = [NSURL URLWithString:@"http://192.168.0.63/php/ipic/json.php?menu_id=-1"];
-    NSURL *cURL = [NSURL URLWithString:@"http://192.168.0.63/php/ipic/json.php?cat_id=0"];
-    NSURL *pURL = [NSURL URLWithString:@"http://192.168.0.63/php/ipic/json.php?sid=0"];
+    NSLog(@"LOAD DATA");
+    NSURL *mURL = [NSURL URLWithString:@"http://83.138.133.168/ipic/json.php?menu_id=-1"];
+    NSURL *cURL = [NSURL URLWithString:@"http://83.138.133.168/ipic/json.php?cat_id=0"];
+    NSURL *pURL = [NSURL URLWithString:@"http://83.138.133.168/ipic/json.php?sid=0"];
     
     NSData *mjsonData = [NSData dataWithContentsOfURL:mURL];
     NSData *cjsonData = [NSData dataWithContentsOfURL:cURL];
@@ -205,15 +220,17 @@ color=[UIColor colorWithRed:0.051 green:0.365 blue:0.165 alpha:1];
 [colors addObject:color];
  
     
+    NSMutableArray *temp=[[NSMutableArray alloc]init];
     
-    DOPNavbarMenuItem *item1[[parent count]];
-    for (int t=0; t<[parent count]; t++) {
-        item1[t]=[DOPNavbarMenuItem ItemWithTitle:parent[t]];
+    DOPNavbarMenuItem *item1[[head count]];
+    for (int t=0; t<[head count]; t++) {
+        temp=[head objectAtIndex:t];
+        item1[t]=[DOPNavbarMenuItem ItemWithTitle:[temp valueForKey:@"name"]];
     }
     
     NSMutableArray *item2;
     item2=[[NSMutableArray alloc]init];
-    for (int i=0; i<[parent count]; i++) {
+    for (int i=0; i<[head count]; i++) {
         [item2 insertObject:item1[i] atIndex:i];
     }
     _menu =[[DOPNavbarMenu alloc] initWithItems:item2 width:self.view.dop_width maximumNumberInRow:_numberOfItemsInRow color:colors];;
@@ -261,7 +278,10 @@ color=[UIColor colorWithRed:0.051 green:0.365 blue:0.165 alpha:1];
     [lbl addGestureRecognizer:gesture];
     lbl.textColor=[UIColor whiteColor];
     lbl.font=[UIFont fontWithName:@"Cervo-Light" size:25.0f];
-    lbl.text=parent[0];
+    NSMutableArray *temp=[[NSMutableArray alloc]init];
+    temp=[head objectAtIndex:0];
+    selecdmenuItem=[[temp valueForKey:@"cat_id"] intValue];
+    lbl.text=[temp valueForKey:@"name"];
     lbl.textAlignment = NSTextAlignmentCenter;
     lbl.textColor=[UIColor whiteColor];
     [lbl setBackgroundColor:[UIColor colorWithRed:0.031 green:0.231 blue:0.102 alpha:1]];
@@ -288,22 +308,26 @@ color=[UIColor colorWithRed:0.051 green:0.365 blue:0.165 alpha:1];
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    parent=[[NSMutableArray alloc]init];
+    [self.instance stopAnimating];
+    [_activityindicator stopAnimating];
+    parent=[[NSMutableDictionary alloc]init];
     image_of_item=[[NSMutableArray alloc]init];
     name_of_item=[[NSMutableArray alloc]init];
-    
+    head=[[NSMutableArray alloc]init];
     image_of_player=[[NSMutableArray alloc]init];
     name_of_player=[[NSMutableArray alloc]init];
     
     _mycollectionview.delegate=self;
     _mycollectionview.dataSource=self;
-    parent=[[NSMutableArray alloc]init];
+    parent=[[NSMutableDictionary alloc]init];
     image_of_item=[[NSMutableArray alloc]init];
     name_of_item=[[NSMutableArray alloc]init];
+   ;
     [self loadData];
+    
     [self loadMyview:self.selectedItem];
     [self createTab];
-    
+    //
   
 }
 
@@ -322,10 +346,10 @@ return retval;
 if(collectionView==self.mycollectionview)
 {
 
-return [image_of_item count];
+return [name_of_item count];
 }
 else
-{   return [image_of_player count];
+{   return [name_of_player count];
 }
 }
 
@@ -445,15 +469,34 @@ enabled = YES;
 - (void)didSelectedMenu:(DOPNavbarMenu *)menu atIndex:(NSInteger)index {
 // UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"you selected" message:[NSString stringWithFormat:@"number %@", @(index+1)] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
 //[av show];
-    lbl.text=parent[index];
+    //lbl.text=parent[index][@"name"];
     selecdmenuItem=(int)index;
     [parent removeAllObjects];
+    //[head removeAllObjects];
     
     [image_of_player removeAllObjects];
     [name_of_player removeAllObjects];
     [name_of_item removeAllObjects];
     [image_of_item removeAllObjects];
-    [self loadMyview:_selectedItem];
+    //head=[[NSMutableArray alloc]init];
+    NSLog(@"----");
+    NSMutableArray *temp=[[NSMutableArray alloc]init];
+    temp=[head objectAtIndex:selecdmenuItem];
+    selecdmenuItem=[[temp valueForKey:@"cat_id"] intValue];
+    lbl.text=[temp valueForKey:@"name"];
+    
+    [self perseclub:cdataDictionary];
+    [self persestarplayers:pdataDictionary];
+    [_activityindicator startAnimating];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [_mycollectionview reloadData];
+        [_myclubcollectionViewConroller reloadData];
+    });
+    [_activityindicator stopAnimating];
+    [_activityindicator setHidden:YES];
+   // [self createTab];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {

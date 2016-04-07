@@ -26,11 +26,12 @@ NSArray *_pickerData;
     return NO;
 }
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     _pickerData = @[@"SPORTS", @"ENTERTAINMENT", @"SERVICES"];
+    [self.activity_indicator stopAnimating];
+    [self.activity_indicator setHidden:YES];
    _picker.autoresizingMask = UIViewAutoresizingFlexibleHeight;
     _picker.showsSelectionIndicator=NO;
     _picker.dataSource = self;
@@ -47,13 +48,19 @@ NSArray *_pickerData;
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
 
+    //[self.activity_indicator startAnimating];
     ViewController *vc=segue.destinationViewController.childViewControllers[0];
+    vc.instance=self.activity_indicator;
+    //[_activity_indicator startAnimating];
     if([selecteditem isEqual:(@"SPORTS")])
         vc.selectedItem=@"0";
     if([selecteditem isEqual:(@"ENTERTAINMENT")])
         vc.selectedItem=@"1";
     if([selecteditem isEqual:(@"SERVICES")])
         vc.selectedItem=@"2";
+    
+    
+;
 }
 
 - (void)didReceiveMemoryWarning {
