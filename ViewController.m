@@ -32,9 +32,11 @@ UILabel *label;
     NSMutableArray *name_of_player;
     NSMutableArray *image_of_player;
     
-    UIActivityIndicatorView *indicator;
+    AFHTTPRequestOperationManager *operation;
+    
+    //UIActivityIndicatorView *indicator;
 }
-
+/*
 -(void)createloader
 {
     indicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
@@ -47,6 +49,7 @@ UILabel *label;
     indicator.hidden=NO;
     NSLog(@"%@",indicator);
 }
+*/
 
 -(void)persemenu:(NSDictionary*) items
 {
@@ -54,7 +57,7 @@ UILabel *label;
     BOOL flag;
     flag=YES;
     NSLog(@"%@sel",_selectedItem);
-    for (NSDictionary *item in items) {
+    for (NSDictionary *item in items[@"menu"]) {
         
          if([[item objectForKey:@"category_menu"]isEqualToString:_selectedItem])//sports
          {
@@ -87,7 +90,7 @@ UILabel *label;
    if(selecdmenuItem>0)
     myString =  [NSString stringWithFormat: @"%d",selecdmenuItem];;
     NSLog(@"%@Menuitem",myString);
-    for (NSDictionary *item in items) {
+    for (NSDictionary *item in items[@"info"]) {
         if([[item objectForKey:@"category_id"]isEqualToString:myString])
         {//sports
             name_of_player[k]=[item objectForKey:@"star_name"];
@@ -108,7 +111,7 @@ UILabel *label;
     if(selecdmenuItem>0)
         myString =  [NSString stringWithFormat: @"%d",(selecdmenuItem)];
     
-    for (NSDictionary *item in items) {
+    for (NSDictionary *item in items[@"category"]) {
          [item objectForKey:@"category_id"];
         if([(NSString*)[item objectForKey:@"category_id"]isEqualToString:myString])
             //football
@@ -127,92 +130,22 @@ UILabel *label;
 
 -(void)loadData
 {
-    NSLog(@"LOAD DATA");
-    NSURL *mURL = [NSURL URLWithString:@"http://83.138.133.168/ipic/json.php?menu_id=-1"];
-    NSURL *cURL = [NSURL URLWithString:@"http://83.138.133.168/ipic/json.php?cat_id=0"];
-    NSURL *pURL = [NSURL URLWithString:@"http://83.138.133.168/ipic/json.php?sid=0"];
+    NSString *docPath=[NSSearchPathForDirectoriesInDomains(NSDocumentationDirectory, NSUserDomainMask, YES)objectAtIndex:0];
+    NSLog(@"%@",docPath);
+    NSString *servey=[docPath stringByAppendingPathComponent:@"results.plist"];
+    NSLog(@"%@",servey);
     
-    //NSData *mjsonData = [NSData dataWithContentsOfURL:mURL];
-    //NSData *cjsonData = [NSData dataWithContentsOfURL:cURL];
-    //NSData *pjsonData = [NSData dataWithContentsOfURL:pURL];
+    if([[NSFileManager defaultManager]fileExistsAtPath:servey])
+    {
+        NSFileHandle *fileHandle=[NSFileHandle fileHandleForReadingAtPath:servey];
+        //NSString *surveresult=[[NSString alloc]initWithData:[fileHandle availableData] encoding:NSUTF8StringEncoding];
+        NSString *file = [[NSBundle mainBundle] pathForResource:servey ofType:@"plist"];
+        mdataDictionary = [[NSDictionary alloc] initWithContentsOfFile:servey];
+       
+        [fileHandle closeFile];
+        [self loadMyview:self.selectedItem];
+    }
     
-    NSError *error = nil;
-    
-   ;
-    //cdataDictionary = [NSJSONSerialization JSONObjectWithData:cjsonData options:0 error:&error];
-    //pdataDictionary = [NSJSONSerialization JSONObjectWithData:pjsonData options:0 error:&error];
-    
-   
-   // NSLog(@"%@",dataDictionary);NSLog(@"%@",cdataDictionary);NSLog(@"%@",pdataDictionary);
-    
-    
-    //NSString *string = BaseURLString;
-    //NSURL *url = [NSURL URLWithString:string];
-    NSURLRequest *request = [NSURLRequest requestWithURL:mURL];
-    
-    // 2
-    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-    operation.responseSerializer = [AFJSONResponseSerializer serializer];
-    
-    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
-        mdataDictionary=responseObject;
-        NSLog(@"%@",mdataDictionary);
-        
-        
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
-        // 4
-        
-    }];
-    
-    // 5
-    [operation start];
-    //exit(0);
-    
-    operation = [[AFHTTPRequestOperation alloc] initWithRequest:request = [NSURLRequest requestWithURL:cURL]];
-    operation.responseSerializer = [AFJSONResponseSerializer serializer];
-    
-    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
-       cdataDictionary =responseObject;
-        
-        
-        
-        
-        
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
-        // 4
-        
-    }];
-    
-    // 5
-    [operation start];
-    
-    
-    operation = [[AFHTTPRequestOperation alloc] initWithRequest:request = [NSURLRequest requestWithURL:pURL]];
-    operation.responseSerializer = [AFJSONResponseSerializer serializer];
-    
-    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
-        pdataDictionary =responseObject;
-        
-        NSLog(@"%@",pdataDictionary);
-        
-        
-        
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
-        // 4
-        
-    }];
-    
-    // 5
-    [operation start];
 
     
 }
@@ -337,8 +270,8 @@ color=[UIColor colorWithRed:0.051 green:0.365 blue:0.165 alpha:1];
     
     /*init array*/
     [self persemenu:mdataDictionary];
-    [self perseclub:cdataDictionary];
-    [self persestarplayers:pdataDictionary];
+    [self perseclub:mdataDictionary];
+    [self persestarplayers:mdataDictionary];
     
     self.numberOfItemsInRow = 1;
     
@@ -392,8 +325,8 @@ color=[UIColor colorWithRed:0.051 green:0.365 blue:0.165 alpha:1];
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [indicator startAnimating];
-    [self createloader];
+    //[indicator startAnimating];
+    //[self createloader];
     parent=[[NSMutableDictionary alloc]init];
     image_of_item=[[NSMutableArray alloc]init];
     name_of_item=[[NSMutableArray alloc]init];
@@ -406,7 +339,7 @@ color=[UIColor colorWithRed:0.051 green:0.365 blue:0.165 alpha:1];
     parent=[[NSMutableDictionary alloc]init];
     image_of_item=[[NSMutableArray alloc]init];
     name_of_item=[[NSMutableArray alloc]init];
-    [indicator startAnimating];
+   // [indicator startAnimating];
     [self loadData];
     
     //[self loadMyview:self.selectedItem];
@@ -453,7 +386,16 @@ return 1;
    
    
 }
-
+- (AFHTTPRequestOperationManager *)operationManager
+{
+    if (!operation)
+    {
+        operation = [[AFHTTPRequestOperationManager alloc] init];
+        operation.responseSerializer = [AFImageResponseSerializer serializer];
+    };
+    
+    return operation;
+}
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -466,21 +408,39 @@ if(collectionView==self.myclubcollectionViewConroller)
 UILabel *label1=[[UILabel alloc]initWithFrame:CGRectMake(0, 90, 80,20)];
 cell=[collectionView dequeueReusableCellWithReuseIdentifier:@"club" forIndexPath:indexPath];
 [[cell.contentView viewWithTag:123]removeFromSuperview] ;
-    NSURL *url = [NSURL URLWithString:image_of_item[indexPath.section]];
-    NSData *data = [NSData dataWithContentsOfURL:url];
-    UIImage *img = [[UIImage alloc] initWithData:data];
+    
+    ///
+    
+    
+    ///
+    
+    
+    //NSURL *url = [NSURL URLWithString:image_of_item[indexPath.section]];
+    //NSData *data = [NSData dataWithContentsOfURL:url];
+    //UIImage *img = [[UIImage alloc] initWithData:data];
     UIImageView *imageview=[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 80,80)];
-    imageview.image=img;
+    //imageview.image=img;
     imageview.contentMode = UIViewContentModeScaleAspectFit;
     label1.text=nil;
     label1.text=name_of_item[indexPath.section];
     [label1 setBackgroundColor:[UIColor clearColor]];
     label1.textColor=[UIColor whiteColor];
     label1.tag=123;
-    [cell.contentView clearsContextBeforeDrawing];
+    
+    //cell.imageView.image = [UIImage imageNamed:@"placeholder"];
+    
+    [[self operationManager] GET:image_of_item[indexPath.section]
+                    parameters:nil
+                       success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                           imageview.image=responseObject;
+                           
+                       } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                           NSLog(@"Failed with error %@.", error);
+                       }];
+    
     [cell.contentView addSubview:imageview];
     [cell.contentView addSubview:label1];
-//return cell;
+return cell;
 }
 else if(collectionView==self.mycollectionview)
 {
@@ -489,11 +449,21 @@ else if(collectionView==self.mycollectionview)
     cell=[collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
     [[cell.contentView viewWithTag:1234]removeFromSuperview] ;
     ;
-    NSURL *url = [NSURL URLWithString:image_of_player[indexPath.section]];
-    NSData *data = [NSData dataWithContentsOfURL:url];
-    UIImage *img = [[UIImage alloc] initWithData:data];
+   // NSURL *url = [NSURL URLWithString:image_of_player[indexPath.section]];
+    //NSData *data = [NSData dataWithContentsOfURL:url];
+    //UIImage *img = [[UIImage alloc] initWithData:data];
     UIImageView *imageview=[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 80,80)];
-    imageview.image=img;
+    //imageview.image=img;
+    
+    [[self operationManager] GET:image_of_player[indexPath.section]
+                      parameters:nil
+                         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                             imageview.image=responseObject;
+                             
+                         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                             NSLog(@"Failed with error %@.", error);
+                         }];
+
     UILabel *label2=[[UILabel alloc]initWithFrame:CGRectMake(0,self.mycollectionview.frame.origin.y+50,cell.frame.size.width ,20)];
     //[imageview addSubview:label];
     imageview.contentMode = UIViewContentModeScaleAspectFit;
@@ -503,14 +473,14 @@ else if(collectionView==self.mycollectionview)
     [label2 setBackgroundColor:[UIColor clearColor]];
     label2.textColor=[UIColor blackColor];
     [cell.contentView clearsContextBeforeDrawing];
-    [cell.contentView addSubview:imageview];
+    //[cell.contentView addSubview:imageview];
     label2.tag=1234;
     [cell.contentView addSubview:label2];
-    
+    [cell.contentView addSubview:imageview];
 
 
 count++;
-//return cell;
+return cell;
 
 }
 
@@ -571,7 +541,7 @@ enabled = YES;
     
     [self perseclub:cdataDictionary];
     [self persestarplayers:pdataDictionary];
-    [indicator startAnimating];
+    //[indicator startAnimating];
     dispatch_async(dispatch_get_main_queue(), ^{
         [_mycollectionview reloadData];
         [_myclubcollectionViewConroller reloadData];
