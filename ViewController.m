@@ -552,29 +552,18 @@ enabled = YES;
     //lbl.text=parent[index][@"name"];
     selecdmenuItem=(int)index;
     [parent removeAllObjects];
-    //[head removeAllObjects];
-    
     [image_of_player removeAllObjects];
     [name_of_player removeAllObjects];
     [name_of_item removeAllObjects];
     [image_of_item removeAllObjects];
-    //head=[[NSMutableArray alloc]init];
-    NSLog(@"----");
     NSMutableArray *temp=[[NSMutableArray alloc]init];
     temp=[head objectAtIndex:selecdmenuItem];
-    selecdmenuItem=[[temp valueForKey:@"cat_id"] intValue];
+    _selectedItem=[temp valueForKey:@"cat_id"];
     lbl.text=[temp valueForKey:@"name"];
-    
-    [self perseclub:cdataDictionary];
-    [self persestarplayers:pdataDictionary];
-    //[indicator startAnimating];
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [_mycollectionview reloadData];
-        [_myclubcollectionViewConroller reloadData];
-    });
-    //[indicator stopAnimating];
-   // [self createTab];
-    
+    [self perseclub:mdataDictionary];
+    [self persestarplayers:mdataDictionary];
+    [_mycollectionview reloadData];
+    [_myclubcollectionViewConroller reloadData];
     
 }
 
