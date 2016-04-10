@@ -32,7 +32,7 @@ UILabel *label;
     NSDictionary *pdataDictionary;
     NSMutableArray *name_of_player;
     NSMutableArray *image_of_player;
-    
+    NSMutableArray *site_url;
     AFHTTPRequestOperationManager *operation;
     
     //UIActivityIndicatorView *indicator;
@@ -105,6 +105,7 @@ UILabel *label;
         {//sports
             name_of_player[k]=[item objectForKey:@"star_name"];
             image_of_player[k]=[item objectForKey:@"image_path"];;
+            site_url[k]=[item objectForKey:@"url_path"];
         k++;
         }
         
@@ -343,13 +344,15 @@ color=[UIColor colorWithRed:0.051 green:0.365 blue:0.165 alpha:1];
     head=[[NSMutableArray alloc]init];
     image_of_player=[[NSMutableArray alloc]init];
     name_of_player=[[NSMutableArray alloc]init];
-    
+    site_url=[[NSMutableArray alloc]init];
     _mycollectionview.delegate=self;
     _mycollectionview.dataSource=self;
     parent=[[NSMutableDictionary alloc]init];
     image_of_item=[[NSMutableArray alloc]init];
     name_of_item=[[NSMutableArray alloc]init];
-   // [indicator startAnimating];
+    
+    
+    
     [self loadData];
     
     //[self loadMyview:self.selectedItem];
@@ -392,6 +395,7 @@ return 1;
     [image_of_player removeAllObjects];
     [head removeAllObjects];
     [parent removeAllObjects];
+    [site_url removeAllObjects];
     _menu=nil;
     if([item.title isEqual:@"ENTERTAINMENT"])
     {
@@ -557,6 +561,7 @@ enabled = YES;
     [name_of_player removeAllObjects];
     [name_of_item removeAllObjects];
     [image_of_item removeAllObjects];
+    [site_url removeAllObjects];
     NSMutableArray *temp=[[NSMutableArray alloc]init];
     temp=[head objectAtIndex:selecdmenuItem];
     _selectedItem=[temp valueForKey:@"cat_id"];
@@ -599,7 +604,7 @@ self.menu = nil;
         BrowserController *destViewController = segue.destinationViewController;
         NSIndexPath *indexPath = [indexPaths objectAtIndex:0];
         [self.navigationController.navigationBar setHidden:YES];
-        destViewController.url = @"http://snapshot-you.com";//[recipeImages[indexPath.section] objectAtIndex:indexPath.row];
+        destViewController.url = site_url[indexPath.row];
         [self.myclubcollectionViewConroller deselectItemAtIndexPath:indexPath animated:NO];
     }
 }

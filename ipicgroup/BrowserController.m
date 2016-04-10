@@ -21,6 +21,7 @@
     //[[UIApplication sharedApplication] openURL:[NSURL URLWithString: self.url]];
        // Do any additional setup after loading the view.
     //[_webview loadRequest:_urlURL URLWithString: self.url]];
+    NSLog(@"%@",self.url);
     NSURL *url = [NSURL URLWithString:self.url];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
