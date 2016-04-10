@@ -10,9 +10,7 @@
 #import "menu.h"
 #include "AFNetworking.h"
 @interface mainscreenViewController ()
-
 @end
-
 @implementation mainscreenViewController
 -(void)write_file:(NSDictionary*)object
 {
@@ -31,18 +29,8 @@
     }
     NSFileHandle *fileHandle=[NSFileHandle fileHandleForUpdatingAtPath:servey];
     [fileHandle seekToEndOfFile];
-    //[fileHandle writeData:[@"Manzoor Husain" dataUsingEncoding:NSUTF8StringEncoding]];
-    //[[object JSONRepresentation] writeToURL:servey atomically:YES];
-    //[[object ] writeToFile:servey atomically:YES encoding:NSUTF8StringEncoding error:NULL];
-     error=nil;
     NSData *data = [NSPropertyListSerialization dataFromPropertyList:object
-                                                              format:NSPropertyListXMLFormat_v1_0 errorDescription:&error];
-    
-    
-    // Path in the documents directory to save file
-  //  NSString  *path = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/test.xml"];
-    
-    // Write the data to file
+                                                              format:NSPropertyListXMLFormat_v1_0 errorDescription:nil];
     if([data writeToFile:servey atomically:YES])
     {
         NSLog(@"Successfully saved");
@@ -50,45 +38,25 @@
     [fileHandle closeFile];
     
     
-    if([[NSFileManager defaultManager]fileExistsAtPath:servey])
+    /*if([[NSFileManager defaultManager]fileExistsAtPath:servey])
     {
         NSFileHandle *fileHandle=[NSFileHandle fileHandleForReadingAtPath:servey];
         NSString *surveresult=[[NSString alloc]initWithData:[fileHandle availableData] encoding:NSUTF8StringEncoding];
         [fileHandle closeFile];
-        NSLog(@"%@",surveresult);
+        //NSLog(@"%@",surveresult);
     }
+    */
     
 }
 -(void)loadData
 {
     NSLog(@"LOAD DATA");
     NSURL *mURL = [NSURL URLWithString:@"http://83.138.133.168/ipic/json.php"];
-    
-    //NSData *mjsonData = [NSData dataWithContentsOfURL:mURL];
-    //NSData *cjsonData = [NSData dataWithContentsOfURL:cURL];
-    //NSData *pjsonData = [NSData dataWithContentsOfURL:pURL];
-    
-    NSError *error = nil;
-    
-    ;
-    //cdataDictionary = [NSJSONSerialization JSONObjectWithData:cjsonData options:0 error:&error];
-    //pdataDictionary = [NSJSONSerialization JSONObjectWithData:pjsonData options:0 error:&error];
-    
-    
-    // NSLog(@"%@",dataDictionary);NSLog(@"%@",cdataDictionary);NSLog(@"%@",pdataDictionary);
-    
-    
-    //NSString *string = BaseURLString;
-    //NSURL *url = [NSURL URLWithString:string];
     NSURLRequest *request = [NSURLRequest requestWithURL:mURL];
-    
-    // 2
-    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-    operation.responseSerializer = [AFJSONResponseSerializer serializer];
-    
-    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
-     [self write_file:responseObject];
+   AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+   operation.responseSerializer = [AFJSONResponseSerializer serializer];
+   [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+   [self write_file:responseObject];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         

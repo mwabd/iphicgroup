@@ -56,10 +56,21 @@ UILabel *label;
    NSInteger k=0;
     BOOL flag;
     flag=YES;
-    NSLog(@"%@sel",_selectedItem);
+    NSString *menu_Selected;
+    
+    if([_selectedItem isEqualToString:@"1"])
+    {
+        menu_Selected=@"0";
+    }
+    else
+    {
+        menu_Selected=@"1";
+    }
+        
+    
     for (NSDictionary *item in items[@"menu"]) {
         
-         if([[item objectForKey:@"category_menu"]isEqualToString:_selectedItem])//sports
+         if([[item objectForKey:@"category_menu"]isEqualToString:menu_Selected])//sports
          {
              if(flag)
              {
@@ -78,20 +89,18 @@ UILabel *label;
         
 
     }
-   // NSMutableArray *temp=[[NSMutableArray alloc]init];
-   // temp=[head objectAtIndex:0];
-   // NSLog(@"%@",[temp valueForKey:@"name"]);
+   
     //exit(0);
 }
 -(void)persestarplayers:(NSDictionary*) items
 {
     int k=0;
-    NSString *myString=[NSString stringWithFormat: @"%d",(selecdmenuItem)];
-   if(selecdmenuItem>0)
-    myString =  [NSString stringWithFormat: @"%d",selecdmenuItem];;
-    NSLog(@"%@Menuitem",myString);
+   // NSString *myString=[NSString stringWithFormat: @"%d",(selecdmenuItem)];
+  // if(selecdmenuItem>0)
+    //myString =  [NSString stringWithFormat: @"%d",selecdmenuItem];;
+    ///NSLog(@"%@Menuitem",myString);
     for (NSDictionary *item in items[@"info"]) {
-        if([[item objectForKey:@"category_id"]isEqualToString:myString])
+        if([[item objectForKey:@"category_id"]isEqualToString:_selectedItem])
         {//sports
             name_of_player[k]=[item objectForKey:@"star_name"];
             image_of_player[k]=[item objectForKey:@"image_path"];;
@@ -112,8 +121,8 @@ UILabel *label;
         myString =  [NSString stringWithFormat: @"%d",(selecdmenuItem)];
     
     for (NSDictionary *item in items[@"category"]) {
-         [item objectForKey:@"category_id"];
-        if([(NSString*)[item objectForKey:@"category_id"]isEqualToString:myString])
+        // [item objectForKey:@"category_id"];
+        if([[item objectForKey:@"category_id"]isEqualToString:_selectedItem])
             //football
         {
             name_of_item[k]=[item objectForKey:@"sub_category_name"];
@@ -139,7 +148,7 @@ UILabel *label;
     {
         NSFileHandle *fileHandle=[NSFileHandle fileHandleForReadingAtPath:servey];
         //NSString *surveresult=[[NSString alloc]initWithData:[fileHandle availableData] encoding:NSUTF8StringEncoding];
-        NSString *file = [[NSBundle mainBundle] pathForResource:servey ofType:@"plist"];
+       // NSString *file = [[NSBundle mainBundle] pathForResource:servey ofType:@"plist"];
         mdataDictionary = [[NSDictionary alloc] initWithContentsOfFile:servey];
        
         [fileHandle closeFile];
@@ -193,11 +202,11 @@ UILabel *label;
     
     _tapbar.delegate=self;
     
-    if(([self.selectedItem isEqual:@"SPORTS"]))
+    if(([self.selectedItem isEqual:@"1"]))//sports
     {
         [_tapbar setSelectedItem:[[_tapbar items] objectAtIndex:0]];
     }
-    else  if(([self.selectedItem isEqual:@"ENTERTAINMENT"]))
+    else  if(([self.selectedItem isEqual:@"6"]))//Entertainment
     {
         
         [_tapbar setSelectedItem:[[_tapbar items] objectAtIndex:1]];
@@ -376,13 +385,30 @@ return 1;
 }
 
 -(void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
+    [name_of_item removeAllObjects];
+    [name_of_player removeAllObjects];
+    [image_of_item removeAllObjects];
+    [image_of_player removeAllObjects];
+    [head removeAllObjects];
     [parent removeAllObjects];
-    //[self datasource_init:item.title];
+    _menu=nil;
+    if([item.title isEqual:@"ENTERTAINMENT"])
+    {
+    _selectedItem=@"6";
+    }
+    else if([item.title isEqual:@"SPORTS"])
+    {
+       _selectedItem=@"1";
+    }
+    
+    [self persemenu:mdataDictionary];
+    [self perseclub:mdataDictionary];
+    [self persestarplayers:mdataDictionary];
+    lbl.text=item.title;
+    
+    //[self loadMyview:_selectedItem];
     [_mycollectionview reloadData];
     [_myclubcollectionViewConroller reloadData];
-    //[cell.contentView.layer removeFromSuperlayer];
-    _menu=nil;
-    lbl.text=item.title;
    
    
 }

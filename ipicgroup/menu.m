@@ -49,9 +49,9 @@ NSArray *_pickerData;
 
     ViewController *vc=segue.destinationViewController.childViewControllers[0];
     if([selecteditem isEqual:(@"SPORTS")])
-        vc.selectedItem=@"0";
-    if([selecteditem isEqual:(@"ENTERTAINMENT")])
         vc.selectedItem=@"1";
+    if([selecteditem isEqual:(@"ENTERTAINMENT")])
+        vc.selectedItem=@"6";
     if([selecteditem isEqual:(@"SERVICES")])
         vc.selectedItem=@"2";
 }
