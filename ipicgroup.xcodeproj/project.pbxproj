@@ -14,6 +14,8 @@
 		3B22E3A81CA636980023C1CF /* sportstab.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3B22E3A71CA636980023C1CF /* sportstab.jpg */; };
 		3B22E3AA1CA638CE0023C1CF /* tabbg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3B22E3A91CA638CE0023C1CF /* tabbg.jpg */; };
 		3B22E3AC1CA639680023C1CF /* sportstabw.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3B22E3AB1CA639680023C1CF /* sportstabw.jpg */; };
+		3B3680A51CB9FCAA00BC2078 /* ProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3B3680A21CB9FCAA00BC2078 /* ProgressHUD.bundle */; };
+		3B3680A61CB9FCAA00BC2078 /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B3680A41CB9FCAA00BC2078 /* ProgressHUD.m */; };
 		3B3E52501CA03A1B002753CC /* NavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B3E524F1CA03A1B002753CC /* NavController.m */; };
 		3BB2EA7D1CA2F1B200A2EF32 /* data.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3BB2EA7C1CA2F1B200A2EF32 /* data.plist */; };
 		3BC032021CA5458800057847 /* beatles.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BC032011CA5458800057847 /* beatles.png */; };
@@ -97,6 +99,9 @@
 		3B22E3A71CA636980023C1CF /* sportstab.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sportstab.jpg; sourceTree = "<group>"; };
 		3B22E3A91CA638CE0023C1CF /* tabbg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tabbg.jpg; sourceTree = "<group>"; };
 		3B22E3AB1CA639680023C1CF /* sportstabw.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sportstabw.jpg; sourceTree = "<group>"; };
+		3B3680A21CB9FCAA00BC2078 /* ProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ProgressHUD.bundle; sourceTree = "<group>"; };
+		3B3680A31CB9FCAA00BC2078 /* ProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressHUD.h; sourceTree = "<group>"; };
+		3B3680A41CB9FCAA00BC2078 /* ProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressHUD.m; sourceTree = "<group>"; };
 		3B3E524E1CA03A1B002753CC /* NavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NavController.h; path = ../NavController.h; sourceTree = "<group>"; };
 		3B3E524F1CA03A1B002753CC /* NavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NavController.m; path = ../NavController.m; sourceTree = "<group>"; };
 		3BB2EA7C1CA2F1B200A2EF32 /* data.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = data.plist; path = ../data.plist; sourceTree = "<group>"; };
@@ -213,6 +218,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B3680A11CB9FCAA00BC2078 /* ProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				3B3680A21CB9FCAA00BC2078 /* ProgressHUD.bundle */,
+				3B3680A31CB9FCAA00BC2078 /* ProgressHUD.h */,
+				3B3680A41CB9FCAA00BC2078 /* ProgressHUD.m */,
+			);
+			path = ProgressHUD;
+			sourceTree = "<group>";
+		};
 		B461D4681CAD20A0004F2ED8 /* Font */ = {
 			isa = PBXGroup;
 			children = (
@@ -254,6 +269,7 @@
 		B61C49681C9A7665003B01E7 /* ipicgroup */ = {
 			isa = PBXGroup;
 			children = (
+				3B3680A11CB9FCAA00BC2078 /* ProgressHUD */,
 				B63B57621CB655E900AAB0C4 /* UIKit+AFNetworking */,
 				B63B57481CB655BD00AAB0C4 /* AFNetworking */,
 				B6E83C2F1CA242E700C03C0C /* controllers */,
@@ -512,6 +528,7 @@
 				B637BBE51CA135E000295ECB /* clubname.png in Resources */,
 				B644E4211CABC0C300628C24 /* Halifaxoff.png in Resources */,
 				B644E41D1CABB71E00628C24 /* HULL.png in Resources */,
+				3B3680A51CB9FCAA00BC2078 /* ProgressHUD.bundle in Resources */,
 				3BF59F2C1C9ECD1D00B4D414 /* left.jpg in Resources */,
 				3BB2EA7D1CA2F1B200A2EF32 /* data.plist in Resources */,
 				3BF59F2D1C9ECD1D00B4D414 /* right.jpg in Resources */,
@@ -551,6 +568,7 @@
 				B63B57401CB655B300AAB0C4 /* AFHTTPRequestOperationManager.m in Sources */,
 				B61C496F1C9A7665003B01E7 /* AppDelegate.m in Sources */,
 				B63B57421CB655B300AAB0C4 /* AFNetworkReachabilityManager.m in Sources */,
+				3B3680A61CB9FCAA00BC2078 /* ProgressHUD.m in Sources */,
 				3BF59F301C9ECD1D00B4D414 /* UIView+DOPExtension.m in Sources */,
 				B61C496C1C9A7665003B01E7 /* main.m in Sources */,
 				B63B57431CB655B300AAB0C4 /* AFSecurityPolicy.m in Sources */,

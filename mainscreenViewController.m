@@ -9,6 +9,7 @@
 #import "mainscreenViewController.h"
 #import "menu.h"
 #include "AFNetworking.h"
+
 @interface mainscreenViewController ()
 @end
 @implementation mainscreenViewController
@@ -36,7 +37,9 @@
         NSLog(@"Successfully saved");
     }
     [fileHandle closeFile];
-    
+    [self.activity stopAnimating];
+    [self.btn setEnabled:YES];
+    //[ProgressHUD dismiss];
     
     /*if([[NSFileManager defaultManager]fileExistsAtPath:servey])
     {
@@ -72,9 +75,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self.activity startAnimating];
     [self loadData];
     
     }
+
 -(BOOL)shouldAutorotate{
     return NO;
 }

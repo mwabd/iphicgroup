@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "ProgressHUD.h"
 @interface mainscreenViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIButton *btn;
 @property (weak, nonatomic) IBOutlet UIImageView *imgeview;
-
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activity;
 @end
