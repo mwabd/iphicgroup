@@ -3,6 +3,7 @@
 #import "HelpController.h"
 #include "BackgroundLayer.h"
 #import "AFNetworking.h"
+
 @interface ViewController () <UITextViewDelegate, DOPNavbarMenuDelegate,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UITabBarDelegate>
 
 @property (assign, nonatomic) NSInteger numberOfItemsInRow;
@@ -585,5 +586,22 @@ self.menu = nil;
 self.menu = nil;
 }
 
+- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView
+                     withVelocity:(CGPoint)velocity
+              targetContentOffset:(inout CGPoint *)targetContentOffset
+{
+    NSLog(@"DRagg");
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"browser"]) {
+        NSArray *indexPaths = [self.myclubcollectionViewConroller indexPathsForSelectedItems];
+        BrowserController *destViewController = segue.destinationViewController;
+        NSIndexPath *indexPath = [indexPaths objectAtIndex:0];
+        [self.navigationController.navigationBar setHidden:YES];
+        destViewController.url = @"http://snapshot-you.com";//[recipeImages[indexPath.section] objectAtIndex:indexPath.row];
+        [self.myclubcollectionViewConroller deselectItemAtIndexPath:indexPath animated:NO];
+    }
+}
 
 @end

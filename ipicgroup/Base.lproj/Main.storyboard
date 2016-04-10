@@ -87,22 +87,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xhg-kL-N23">
-                                <rect key="frame" x="29" y="97" width="46" height="30"/>
-                                <state key="normal" title="Home"/>
-                                <connections>
-                                    <segue destination="qyk-zA-LSx" kind="show" id="RC1-x3-5d0"/>
-                                </connections>
-                            </button>
+                            <webView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b4M-Aw-liP">
+                                <rect key="frame" x="0.0" y="44" width="414" height="692"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                            </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="b4M-Aw-liP" firstAttribute="centerX" secondItem="hAx-NK-EmB" secondAttribute="centerX" id="4pN-1K-xlV"/>
+                            <constraint firstItem="b4M-Aw-liP" firstAttribute="centerY" secondItem="hAx-NK-EmB" secondAttribute="centerY" id="NTl-7K-rN3"/>
+                            <constraint firstItem="b4M-Aw-liP" firstAttribute="width" secondItem="hAx-NK-EmB" secondAttribute="width" id="VX3-Fr-D3m"/>
+                            <constraint firstItem="b4M-Aw-liP" firstAttribute="height" secondItem="hAx-NK-EmB" secondAttribute="height" id="nT0-84-Z4q"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="rKc-dz-HKX"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="webview" destination="b4M-Aw-liP" id="KeS-mL-oW5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J5I-tm-wAc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1206" y="2040"/>
+            <point key="canvasLocation" x="1319" y="2053"/>
         </scene>
         <!--Mainscreen View Controller-->
         <scene sceneID="ZmJ-CQ-LRj">
@@ -209,6 +215,9 @@
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </view>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <connections>
+                                                    <segue destination="KKc-Fx-ubq" kind="presentation" identifier="browser" modalPresentationStyle="pageSheet" id="Unf-r5-ndW"/>
+                                                </connections>
                                             </collectionViewCell>
                                         </cells>
                                         <connections>
@@ -350,7 +359,6 @@
                         <outlet property="mycollectionview" destination="06m-ne-8Z0" id="iDk-7G-pQ3"/>
                         <outlet property="starplayers" destination="r0d-Gk-Voh" id="Nie-ib-1Ca"/>
                         <outlet property="tapbar" destination="2MX-MX-KY1" id="D58-tR-xVN"/>
-                        <segue destination="KKc-Fx-ubq" kind="show" id="2N8-y1-4ZO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hFZ-yM-Hzm" sceneMemberID="firstResponder"/>
@@ -385,9 +393,6 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="KKc-Fx-ubq" kind="relationship" relationship="rootViewController" id="BwU-qY-Hkc"/>
-                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XLI-Xx-qoh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -410,13 +415,13 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <items/>
                             </tabBar>
-                            <tabBar contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qtj-Yn-H2o">
+                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qtj-Yn-H2o">
                                 <rect key="frame" x="0.0" y="64" width="414" height="49"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <items/>
                                 <color key="selectedImageTintColor" red="0.77889642459999997" green="1" blue="0.6862219745" alpha="1" colorSpace="calibratedRGB"/>
                             </tabBar>
-                            <tabBar contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rNA-aD-Xc4">
+                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rNA-aD-Xc4">
                                 <rect key="frame" x="0.0" y="64" width="414" height="49"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <items>
@@ -424,7 +429,7 @@
                                     <tabBarItem systemItem="more" id="aQb-xp-gQa"/>
                                 </items>
                             </tabBar>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="sZB-ab-ehV">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="sZB-ab-ehV">
                                 <rect key="frame" x="0.0" y="113" width="414" height="574"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ui7-LE-WBx">
@@ -674,7 +679,6 @@
         <image name="slideshow.jpg" width="640" height="292"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="2N8-y1-4ZO"/>
-        <segue reference="Tih-E4-v8C"/>
+        <segue reference="kOq-IK-xWA"/>
     </inferredMetricsTieBreakers>
 </document>

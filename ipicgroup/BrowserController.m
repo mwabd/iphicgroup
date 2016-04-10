@@ -16,8 +16,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString: @"http://snapshot-you.com"]];
+    //NSURL *url;
+    
+    //[[UIApplication sharedApplication] openURL:[NSURL URLWithString: self.url]];
        // Do any additional setup after loading the view.
+    //[_webview loadRequest:_urlURL URLWithString: self.url]];
+    NSURL *url = [NSURL URLWithString:self.url];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    
+    [_webview setScalesPageToFit:YES];
+    [_webview loadRequest:request];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface BrowserController : UIViewController
-
+@property (weak, nonatomic) IBOutlet UIWebView *webview;
+@property (strong, nonatomic) NSString *url;
 @end

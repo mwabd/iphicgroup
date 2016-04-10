@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "BackgroundLayer.h"
+#import "BrowserController.h"
 @interface ViewController : UIViewController<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
 @property(nonatomic,weak) IBOutlet UICollectionView *mycollectionview;
 @property (weak, nonatomic) IBOutlet UIScrollView *myscrollview;
