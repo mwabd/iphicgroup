@@ -16,9 +16,9 @@
 -(void)write_file:(NSDictionary*)object
 {
     NSString *docPath=[NSSearchPathForDirectoriesInDomains(NSDocumentationDirectory, NSUserDomainMask, YES)objectAtIndex:0];
-    NSLog(@"%@",docPath);
+   // NSLog(@"%@",docPath);
     NSString *servey=[docPath stringByAppendingPathComponent:@"results.plist"];
-    NSLog(@"%@",servey);
+    //NSLog(@"%@",servey);
     NSError * error = nil;
     [[NSFileManager defaultManager] createDirectoryAtPath:docPath
                               withIntermediateDirectories:YES
@@ -30,8 +30,10 @@
     }
     NSFileHandle *fileHandle=[NSFileHandle fileHandleForUpdatingAtPath:servey];
     [fileHandle seekToEndOfFile];
-    NSData *data = [NSPropertyListSerialization dataFromPropertyList:object
-                                                              format:NSPropertyListXMLFormat_v1_0 errorDescription:nil];
+    //NSData *data = [NSPropertyListSerialization dataFromPropertyList:object
+    //                                                          format:NSPropertyListXMLFormat_v1_0 errorDescription:nil];
+    NSData *data =[NSPropertyListSerialization dataWithPropertyList:object format:NSPropertyListXMLFormat_v1_0 options:0 error:nil];
+    
     if([data writeToFile:servey atomically:YES])
     {
         NSLog(@"Successfully saved");
