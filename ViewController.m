@@ -243,6 +243,7 @@ color=[UIColor colorWithRed:0.051 green:0.365 blue:0.165 alpha:1];
 -(IBAction)searchBtn:(id)sender {
     HelpController *help = [self.storyboard instantiateViewControllerWithIdentifier:@"helpviewcontroller"];
     [self presentViewController:help animated:NO completion:nil];
+    NSLog(@"search");
 }
 
 -(void)loadMyview:(NSString*)selected
@@ -260,15 +261,17 @@ color=[UIColor colorWithRed:0.051 green:0.365 blue:0.165 alpha:1];
     
     ///
     CAGradientLayer *bgLayer = [BackgroundLayer clubGradient ];
-   
+    CGFloat navBarHeight = 60.0f;
+    CGRect frame = CGRectMake(0.0f, 0.0f,self.navigationController.navigationBar.frame.size.width, navBarHeight);
+    [self.navigationController.navigationBar setFrame:frame];
     
-    UIButton *searchbtn=[[UIButton alloc]initWithFrame:CGRectMake(self.view.frame.size.width-50, 0, 50, 65)];
+    UIButton *searchbtn=[[UIButton alloc]initWithFrame:CGRectMake(self.view.frame.size.width-50, 0, 50, self.navigationController.navigationBar.frame.size.height)];
     [searchbtn setBackgroundColor:[UIColor clearColor]];
     UIImage *search =[UIImage imageNamed:@"SEARCH.png"];
     [searchbtn setImage:search forState:UIControlStateNormal];
-    [searchbtn addTarget:self action:@selector(searchBtn:) forControlEvents:UIControlEventTouchUpInside];
+    
     [searchbtn setBackgroundColor:[UIColor clearColor]];
-    lbl=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width-50,65)];
+    lbl=[[UILabel alloc]initWithFrame:CGRectMake(50, 0, self.view.frame.size.width-100,self.navigationController.navigationBar.frame.size.height)];
     UITapGestureRecognizer* gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(openMenu:)];
     bgLayer.frame =self.myclubcollectionViewConroller.bounds;
     //[lbl.layer insertSublayer:bgLayer atIndex:0];
@@ -311,10 +314,22 @@ color=[UIColor colorWithRed:0.051 green:0.365 blue:0.165 alpha:1];
     bgLayer.frame=self.clubview.bounds;
     [self.clubview.layer insertSublayer:bgLayer atIndex:0];
     
-    bgLayer = [BackgroundLayer greenGradient];
-    bgLayer.frame=self.navigationController.view.bounds;
-    [self.navigationController.view.layer insertSublayer:bgLayer atIndex:0];
+    bgLayer = [BackgroundLayer clubGradient];
+    bgLayer.frame=searchbtn.bounds;
+    [bgLayer.contents addSubview:searchbtn];
+    //[self.navigationController.view.layer insertSublayer:bgLayer below:searchbtn.layer];
+    [searchbtn.layer insertSublayer:bgLayer atIndex:0];
+    [searchbtn bringSubviewToFront:searchbtn.imageView];
     [self.navigationController.view addSubview:searchbtn];
+    
+    
+    UIButton *infobtn=[[UIButton alloc]initWithFrame:CGRectMake(0, 0, 50, self.navigationController.navigationBar.frame.size.height)];
+    [infobtn setBackgroundColor:[UIColor colorWithRed:0.141 green:0.569 blue:0.22 alpha:1] ];
+    //UIImage *info =[UIImage imageNamed:@"SEARCH.png"];
+    [infobtn setImage:[UIImage imageNamed:@"i.png"] forState:UIControlStateNormal];
+    [infobtn addTarget:self action:@selector(searchBtn:) forControlEvents:UIControlEventTouchUpInside];
+    [self.navigationController.view addSubview:infobtn];
+
 }
 
 - (void)viewDidLoad {
@@ -338,12 +353,12 @@ color=[UIColor colorWithRed:0.051 green:0.365 blue:0.165 alpha:1];
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
-return UIEdgeInsetsMake(10 , 10, 10,10);;//UIEdgeInsetsMake(50, 20, 50, 20);
+return UIEdgeInsetsMake(10 , 1, 10,1);;//UIEdgeInsetsMake(50, 20, 50, 20);
 }
 
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-CGSize retval =CGSizeMake(100,120);
+CGSize retval =CGSizeMake(90,120);
 return retval;
 }
 
@@ -447,6 +462,8 @@ cell=[collectionView dequeueReusableCellWithReuseIdentifier:@"club" forIndexPath
     //imageview.image=img;
     imageview.contentMode = UIViewContentModeScaleAspectFit;
     label1.text=nil;
+    label1.font=[UIFont fontWithName:@"Cervo-Light" size:13.0f];
+    label1.textAlignment=NSTextAlignmentCenter;
     label1.text=[item objectForKey:@"sub_category_name"];
     [label1 setBackgroundColor:[UIColor clearColor]];
     label1.textColor=[UIColor whiteColor];
@@ -485,7 +502,7 @@ else if(collectionView==self.mycollectionview)
     [imageview sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"loading_star.png"]];
    imageview.contentMode = UIViewContentModeScaleAspectFit;
     // imageview.image=img;
-    UILabel *label2=[[UILabel alloc]initWithFrame:CGRectMake(10,self.mycollectionview.frame.origin.y+60,cell.frame.size.width ,20)];
+    UILabel *label2=[[UILabel alloc]initWithFrame:CGRectMake(0,self.mycollectionview.frame.origin.y+60,cell.frame.size.width ,20)];
     //[imageview addSubview:label];
     
     //imageview.center=cell.center;
@@ -494,9 +511,9 @@ else if(collectionView==self.mycollectionview)
     label2.text=[item objectForKey:@"star_name"];
     [label2 setBackgroundColor:[UIColor whiteColor]];
     label2.textColor=[UIColor blackColor];
-    label2.textAlignment=NSTextAlignmentLeft;
+    label2.textAlignment=NSTextAlignmentCenter;
     // imageview.image=img;
-    UILabel *label3=[[UILabel alloc]initWithFrame:CGRectMake(10,self.mycollectionview.frame.origin.y+80,cell.frame.size.width ,20)];
+    UILabel *label3=[[UILabel alloc]initWithFrame:CGRectMake(0,self.mycollectionview.frame.origin.y+80,cell.frame.size.width ,20)];
     //[imageview addSubview:label];
     
     //imageview.center=cell.center;
@@ -506,7 +523,7 @@ else if(collectionView==self.mycollectionview)
     label3.text=[item objectForKey:@"sub_category_name"];
     [label3 setBackgroundColor:[UIColor whiteColor]];
     label3.textColor=[UIColor blackColor];
-    label3.textAlignment=NSTextAlignmentLeft;
+    label3.textAlignment=NSTextAlignmentCenter;
     [cell.contentView clearsContextBeforeDrawing];
     [cell.contentView addSubview:imageview];
     label2.tag=1234;
@@ -558,7 +575,7 @@ enabled = YES;
 
 - (void)didSelectedMenu:(DOPNavbarMenu *)menu atIndex:(NSInteger)index {
 
-    temp2=index;//selected menu
+    temp2=(int)index;//selected menu
     
     selecdmenuItem=(int)index;
     [parent removeAllObjects];
@@ -643,6 +660,8 @@ self.menu = nil;
     
     
 }
-
+-(BOOL)prefersStatusBarHidden{
+    return YES;
+}
 
 @end
