@@ -29,7 +29,7 @@ UICollectionViewCell *cell;
 UILabel *label;
     
     int selecdmenuItem;
-    int temp;
+    int temp2;
    // UIActivityIndicatorView *indicator;
 }
 -(void) loadData{}
@@ -558,7 +558,7 @@ enabled = YES;
 
 - (void)didSelectedMenu:(DOPNavbarMenu *)menu atIndex:(NSInteger)index {
 
-    temp=index;//selected menu
+    temp2=index;//selected menu
     
     selecdmenuItem=(int)index;
     [parent removeAllObjects];
@@ -624,7 +624,7 @@ self.menu = nil;
 
     {
         SeeAllController *vc=segue.destinationViewController;
-        vc.selectedButtonText=head[temp][@"name"];;
+        vc.selectedButtonText=head[temp2][@"name"];;
         //vc.head_menu=[[NSMutableArray alloc]init];
         //vc.head_menu=head;
        // NSLog(@"%@",segue.destinationViewController);
