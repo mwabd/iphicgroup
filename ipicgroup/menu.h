@@ -14,6 +14,11 @@
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activity_indicator;
 
 @property (weak, nonatomic) IBOutlet UIImageView *bluimage;
+
+extern NSDictionary *dic_cat;
+extern NSDictionary *dic_sub_cat;
+extern NSDictionary *dic_star;
+
 //-(void)loadData;
 @end
 

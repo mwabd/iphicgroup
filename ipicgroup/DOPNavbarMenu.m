@@ -102,7 +102,7 @@ static NSInteger rowHeight = 70;
     UIButton *barbutton=[[UIButton alloc]initWithFrame:CGRectMake(0, 0, 20, 25)];
     //[barbutton setBackgroundColor:[UIColor redColor]];
     barbutton.imageView.image=search;
-    UIBarButtonItem * customItem = [[UIBarButtonItem alloc] initWithCustomView:barbutton];
+   // UIBarButtonItem * customItem = [[UIBarButtonItem alloc] initWithCustomView:barbutton];
     //self.navigationItem.leftBarButtonItem=[[UIButton alloc]initWithFrame:CGRectMake(0,0,20,20)];
     [nvc.navigationItem.leftBarButtonItem setTitle:@"tttt"];
     [nvc.view insertSubview:self.background belowSubview:nvc.navigationBar];

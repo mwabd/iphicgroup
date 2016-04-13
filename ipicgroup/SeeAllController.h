@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "DOPNavbarMenu.h"
+#import  "menu.h"
 @interface SeeAllController : UIViewController
 @property (weak, nonatomic) IBOutlet UITabBar *tapbar;
 @property (weak, nonatomic) IBOutlet UICollectionView *myclubcollectionViewConroller;
-
+@property (strong, nonatomic) NSString *selectedItem;
 @end

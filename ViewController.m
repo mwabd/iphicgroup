@@ -1,7 +1,11 @@
 #import "ViewController.h"
 #import "DOPNavbarMenu.h"
+#import "menu.h"
 #import "HelpController.h"
+#import "UIImageView+WebCache.h"
 #include "BackgroundLayer.h"
+#include "SeeAllController.h"
+NSMutableArray *head;
 @interface ViewController () <UITextViewDelegate, DOPNavbarMenuDelegate,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UITabBarDelegate>
 
 @property (assign, nonatomic) NSInteger numberOfItemsInRow;
@@ -15,44 +19,56 @@ UIButton *btn;
 BOOL enabled;
 NSInteger count;
 NSMutableDictionary *parent;
-    NSMutableArray *head;
-//int k;
-NSMutableArray *name_of_item;
-NSMutableArray *image_of_item;
+//NSMutableArray *head;
+    NSInteger indexOfTab;
+    NSMutableArray *stars;
+    NSMutableArray *sub_categories;
 UILabel *lbl;
 NSMutableArray * colors;
 UICollectionViewCell *cell;
 UILabel *label;
     
     int selecdmenuItem;
-    NSDictionary *mdataDictionary;
-    NSDictionary *cdataDictionary;
-    NSDictionary *pdataDictionary;
-    NSMutableArray *name_of_player;
-    NSMutableArray *image_of_player;
     
    // UIActivityIndicatorView *indicator;
 }
-
+-(void) loadData{}
 
 -(void)persemenu:(NSDictionary*) items
 {
+    
+    
    NSInteger k=0;
     BOOL flag;
     flag=YES;
-    NSLog(@"%@sel",_selectedItem);
+    NSString *string =_selectedItem;
+    if(indexOfTab >= 0){
+        string = [NSString stringWithFormat: @"%ld", (NSInteger)indexOfTab];
+    }
+   
+    
+    
     for (NSDictionary *item in items) {
         
-         if([[item objectForKey:@"category_menu"]isEqualToString:_selectedItem])//sports
+         if([[item objectForKey:@"category_menu"] isEqualToString:string])//sports
          {
+             
              if(flag)
              {
+                 
                  selecdmenuItem=[[item objectForKey:@"category_id"] intValue];
+                 _starLabel.text = [item objectForKey:@"star_label"];
+                 _clubLabel.text =[item objectForKey:@"category_label"];
+                 lbl.text =[item objectForKey:@"category_name"];
                  flag=NO;
              }
+           //  tmp[k] = item;
+             
              parent=[[NSMutableDictionary alloc]init];
-             [parent setObject:[item objectForKey:@"category_name"] forKey:@"name"  ];
+             [parent setObject:[item objectForKey:@"category_name"] forKey:@"name" ];
              [parent setObject:[item objectForKey:@"category_id"] forKey:@"cat_id"];
+             [parent setObject:[item objectForKey:@"category_label"] forKey:@"category_label"];
+             [parent setObject:[item objectForKey:@"star_label"] forKey:@"star_label"];
              [head insertObject:parent atIndex:k];
              k++;
            
@@ -62,10 +78,7 @@ UILabel *label;
         
 
     }
-   // NSMutableArray *temp=[[NSMutableArray alloc]init];
-   // temp=[head objectAtIndex:0];
-   // NSLog(@"%@",[temp valueForKey:@"name"]);
-    //exit(0);
+  
 }
 -(void)persestarplayers:(NSDictionary*) items
 {
@@ -73,12 +86,13 @@ UILabel *label;
     NSString *myString=[NSString stringWithFormat: @"%d",(selecdmenuItem)];
    if(selecdmenuItem>0)
     myString =  [NSString stringWithFormat: @"%d",selecdmenuItem];;
-    NSLog(@"%@Menuitem",myString);
+    
+    
     for (NSDictionary *item in items) {
         if([[item objectForKey:@"category_id"]isEqualToString:myString])
         {//sports
-            name_of_player[k]=[item objectForKey:@"star_name"];
-            image_of_player[k]=[item objectForKey:@"image_path"];;
+            
+            stars[k] = item;
         k++;
         }
         
@@ -100,9 +114,16 @@ UILabel *label;
         if([(NSString*)[item objectForKey:@"category_id"]isEqualToString:myString])
             //football
         {
-            name_of_item[k]=[item objectForKey:@"sub_category_name"];
-            image_of_item[k]=[item objectForKey:@"logo_path"];
+            if(k== 0){
+                
+                 NSURL *url = [NSURL URLWithString:[item objectForKey:@"image_path"]];
+                [_bannerImage sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"loading_club.png"]];
+                
+                
+            }
+            sub_categories[k] = item;
             k++;
+            
         }
         
        
@@ -112,28 +133,11 @@ UILabel *label;
 
 
 
--(void)loadData
-{
-    NSLog(@"LOAD DATA");
-    NSURL *mURL = [NSURL URLWithString:@"http://83.138.133.168/ipic/json.php?menu_id=-1"];
-    NSURL *cURL = [NSURL URLWithString:@"http://83.138.133.168/ipic/json.php?cat_id=0"];
-    NSURL *pURL = [NSURL URLWithString:@"http://83.138.133.168/ipic/json.php?sid=0"];
-    
-    NSData *mjsonData = [NSData dataWithContentsOfURL:mURL];
-    NSData *cjsonData = [NSData dataWithContentsOfURL:cURL];
-    NSData *pjsonData = [NSData dataWithContentsOfURL:pURL];
-    
-    NSError *error = nil;
-    
-    mdataDictionary = [NSJSONSerialization JSONObjectWithData:mjsonData options:0 error:&error];
-    cdataDictionary = [NSJSONSerialization JSONObjectWithData:cjsonData options:0 error:&error];
-    pdataDictionary = [NSJSONSerialization JSONObjectWithData:pjsonData options:0 error:&error];
-    
-   
-   // NSLog(@"%@",dataDictionary);NSLog(@"%@",cdataDictionary);NSLog(@"%@",pdataDictionary);
-}
+
 -(void)createTab
 {
+
+    
     UIImage *imge=[UIImage imageNamed:@"sportstabw.jpg"];
     [[UITabBar appearance]setBackgroundColor:[UIColor whiteColor]];
     [[UITabBar appearance] setTintColor:[UIColor colorWithRed:0.14 green:0.57 blue:0.22 alpha:1.00]]; // for
@@ -151,10 +155,6 @@ UILabel *label;
                                                                              ],
                                                         NSForegroundColorAttributeName:[UIColor whiteColor]
                                                         } forState:UIControlStateNormal];
-    
-    
-    
-    
     
     
     tabBarItem1.image=imge;
@@ -176,11 +176,11 @@ UILabel *label;
     
     _tapbar.delegate=self;
     
-    if(([self.selectedItem isEqual:@"SPORTS"]))
+    if(([self.selectedItem isEqual:@"0"]))
     {
         [_tapbar setSelectedItem:[[_tapbar items] objectAtIndex:0]];
     }
-    else  if(([self.selectedItem isEqual:@"ENTERTAINMENT"]))
+    else  if(([self.selectedItem isEqual:@"1"]))
     {
         
         [_tapbar setSelectedItem:[[_tapbar items] objectAtIndex:1]];
@@ -252,9 +252,9 @@ color=[UIColor colorWithRed:0.051 green:0.365 blue:0.165 alpha:1];
     count=0;;
     
     /*init array*/
-    [self persemenu:mdataDictionary];
-    [self perseclub:cdataDictionary];
-    [self persestarplayers:pdataDictionary];
+    [self persemenu:dic_cat];
+    [self perseclub:dic_sub_cat];
+    [self persestarplayers:dic_star];
     
     self.numberOfItemsInRow = 1;
     
@@ -285,12 +285,19 @@ color=[UIColor colorWithRed:0.051 green:0.365 blue:0.165 alpha:1];
     lbl.textAlignment = NSTextAlignmentCenter;
     lbl.textColor=[UIColor whiteColor];
     [lbl setBackgroundColor:[UIColor colorWithRed:0.031 green:0.231 blue:0.102 alpha:1]];
-    btn=[[UIButton alloc]initWithFrame:CGRectMake(self.view.frame.size.width/2+80,30, 15, 15)];
+    btn=[[UIButton alloc]initWithFrame:CGRectMake(lbl.center.x+[lbl.text length]+25.0f,30, 15, 15)];
+    float btnwidth =
+    [lbl.text boundingRectWithSize:lbl.frame.size
+                           options:NSStringDrawingUsesLineFragmentOrigin
+                        attributes:@{ NSFontAttributeName:lbl.font }
+                           context:nil].size.width;
+    [btn setCenter:CGPointMake(lbl.center.x+btnwidth-[lbl.text length],lbl.center.y)];
+
     [btn setImage:[UIImage imageNamed:@"downarrow.png"] forState:UIControlStateNormal];
     [btn addTarget:self action:@selector(openMenu:) forControlEvents:UIControlEventTouchUpInside];
     [self.navigationController.view addSubview:lbl];
     [self.navigationController.view  addSubview:btn];
-    [self.navigationController.view addSubview:searchbtn];
+    
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
     [flowLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
     [flowLayout setMinimumInteritemSpacing:0.0f];
@@ -304,27 +311,26 @@ color=[UIColor colorWithRed:0.051 green:0.365 blue:0.165 alpha:1];
     bgLayer.frame=self.clubview.bounds;
     [self.clubview.layer insertSublayer:bgLayer atIndex:0];
     
+    bgLayer = [BackgroundLayer greenGradient];
+    bgLayer.frame=self.navigationController.view.bounds;
+    [self.navigationController.view.layer insertSublayer:bgLayer atIndex:0];
+    [self.navigationController.view addSubview:searchbtn];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.instance stopAnimating];
+    //[self.instance stopAnimating];
     [_activityindicator stopAnimating];
-    parent=[[NSMutableDictionary alloc]init];
-    image_of_item=[[NSMutableArray alloc]init];
-    name_of_item=[[NSMutableArray alloc]init];
+    indexOfTab = -1;
+    
+    sub_categories=[[NSMutableArray alloc]init];
+    stars = [[NSMutableArray alloc] init];
     head=[[NSMutableArray alloc]init];
-    image_of_player=[[NSMutableArray alloc]init];
-    name_of_player=[[NSMutableArray alloc]init];
     
     _mycollectionview.delegate=self;
     _mycollectionview.dataSource=self;
     parent=[[NSMutableDictionary alloc]init];
-    image_of_item=[[NSMutableArray alloc]init];
-    name_of_item=[[NSMutableArray alloc]init];
-   ;
-    [self loadData];
-    
+  
     [self loadMyview:self.selectedItem];
     [self createTab];
     //
@@ -334,6 +340,7 @@ color=[UIColor colorWithRed:0.051 green:0.365 blue:0.165 alpha:1];
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
 return UIEdgeInsetsMake(10 , 10, 10,10);;//UIEdgeInsetsMake(50, 20, 50, 20);
 }
+
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
 CGSize retval =CGSizeMake(100,120);
@@ -346,10 +353,11 @@ return retval;
 if(collectionView==self.mycollectionview)
 {
 
-return [name_of_item count];
+    
+    return sub_categories.count;
 }
 else
-{   return [name_of_player count];
+{   return stars.count;
 }
 }
 
@@ -358,44 +366,104 @@ else
 return 1;
 }
 
+
 -(void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
+    indexOfTab = (int) [[tabBar items] indexOfObject:item];
     [parent removeAllObjects];
-    //[self datasource_init:item.title];
+    [head removeAllObjects];
+    [stars removeAllObjects];
+    [sub_categories removeAllObjects];
+    
+    
+    [self persemenu:dic_cat];
+    [self perseclub:dic_sub_cat];
+    [self persestarplayers:dic_star];
+    
     [_mycollectionview reloadData];
     [_myclubcollectionViewConroller reloadData];
-    //[cell.contentView.layer removeFromSuperlayer];
+   // [cell.contentView.layer removeFromSuperlayer];
     _menu=nil;
-    lbl.text=item.title;
-   
-   
+    
+    float btnwidth =
+    [lbl.text boundingRectWithSize:lbl.frame.size
+     options:NSStringDrawingUsesLineFragmentOrigin
+     attributes:@{ NSFontAttributeName:lbl.font }
+     context:nil].size.width;
+    [btn setCenter:CGPointMake(lbl.center.x+btnwidth-[lbl.text length],lbl.center.y)];
 }
 
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath  {
+
+    
+    NSString *string;
+    if(collectionView==self.myclubcollectionViewConroller){
+        NSDictionary *item = sub_categories[indexPath.section];
+        string = [item objectForKey:@"url_path"];
+        NSURL *url = [NSURL URLWithString:[item objectForKey:@"image_path"]];
+        [_bannerImage sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"loading_club.png"]];
+
+        
+    }
+    else if(collectionView==self.mycollectionview){
+        NSDictionary *item = stars[indexPath.section];
+        string = [item objectForKey:@"url_path"];
+    }
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:string]];
+    //UICollectionViewCell *datasetCell =[collectionView cellForItemAtIndexPath:indexPath];
+    //datasetCell.backgroundColor = [UIColor blueColor]; // highlight selection
+}
+
+-(void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    
+  //  UICollectionViewCell *datasetCell =[collectionView cellForItemAtIndexPath:indexPath];
+  //  datasetCell.backgroundColor = [UIColor redColor]; // Default color
+}
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
    
     //[_textview.layer insertSublayer:bgLayer atIndex:0];
-    
+   
 
 if(collectionView==self.myclubcollectionViewConroller)
 {
 UILabel *label1=[[UILabel alloc]initWithFrame:CGRectMake(0, 90, 80,20)];
 cell=[collectionView dequeueReusableCellWithReuseIdentifier:@"club" forIndexPath:indexPath];
+    
 [[cell.contentView viewWithTag:123]removeFromSuperview] ;
-    NSURL *url = [NSURL URLWithString:image_of_item[indexPath.section]];
-    NSData *data = [NSData dataWithContentsOfURL:url];
-    UIImage *img = [[UIImage alloc] initWithData:data];
+  
+     NSDictionary *item = sub_categories[indexPath.section];
+    [item objectForKey:@"url_path"];
+    NSURL *url = [NSURL URLWithString:[item objectForKey:@"logo_path"]];
+  //  NSData *data = [NSData dataWithContentsOfURL:url];
+    //UIImage *img = [[UIImage alloc] initWithData:data];
+   
+    
+    
     UIImageView *imageview=[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 80,80)];
-    imageview.image=img;
+    [imageview sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"loading_logo.png"]];
+    
+    //imageview.image=img;
     imageview.contentMode = UIViewContentModeScaleAspectFit;
     label1.text=nil;
-    label1.text=name_of_item[indexPath.section];
+    label1.text=[item objectForKey:@"sub_category_name"];
     [label1 setBackgroundColor:[UIColor clearColor]];
     label1.textColor=[UIColor whiteColor];
     label1.tag=123;
     [cell.contentView clearsContextBeforeDrawing];
     [cell.contentView addSubview:imageview];
     [cell.contentView addSubview:label1];
+    /*
+    if (cell.selected) {
+        cell.backgroundColor = [UIColor blueColor]; // highlight selection
+    }
+    else
+    {
+        cell.backgroundColor = [UIColor redColor]; // Default color
+    }
+     */
+    
 //return cell;
 }
 else if(collectionView==self.mycollectionview)
@@ -403,25 +471,49 @@ else if(collectionView==self.mycollectionview)
 
     
     cell=[collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
+
     [[cell.contentView viewWithTag:1234]removeFromSuperview] ;
-    ;
-    NSURL *url = [NSURL URLWithString:image_of_player[indexPath.section]];
-    NSData *data = [NSData dataWithContentsOfURL:url];
-    UIImage *img = [[UIImage alloc] initWithData:data];
+    NSDictionary *item = stars[indexPath.section];
+    
+    
+    
+    NSURL *url = [NSURL URLWithString:[item objectForKey:@"image_path"]];
+   // NSData *data = [NSData dataWithContentsOfURL:url];
+   // UIImage *img = [[UIImage alloc] initWithData:data];
     UIImageView *imageview=[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 80,80)];
-    imageview.image=img;
-    UILabel *label2=[[UILabel alloc]initWithFrame:CGRectMake(0,self.mycollectionview.frame.origin.y+50,cell.frame.size.width ,20)];
+    imageview.image = nil;
+    [imageview sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"loading_star.png"]];
+   imageview.contentMode = UIViewContentModeScaleAspectFit;
+    // imageview.image=img;
+    UILabel *label2=[[UILabel alloc]initWithFrame:CGRectMake(10,self.mycollectionview.frame.origin.y+60,cell.frame.size.width ,20)];
     //[imageview addSubview:label];
-    imageview.contentMode = UIViewContentModeScaleAspectFit;
+    
     //imageview.center=cell.center;
     label2.text=nil;
-    label2.text=name_of_player[indexPath.section];
-    [label2 setBackgroundColor:[UIColor clearColor]];
+    label2.font=[UIFont fontWithName:@"Cervo-Light" size:16.0f];
+    label2.text=[item objectForKey:@"star_name"];
+    [label2 setBackgroundColor:[UIColor whiteColor]];
     label2.textColor=[UIColor blackColor];
+    label2.textAlignment=NSTextAlignmentLeft;
+    // imageview.image=img;
+    UILabel *label3=[[UILabel alloc]initWithFrame:CGRectMake(10,self.mycollectionview.frame.origin.y+80,cell.frame.size.width ,20)];
+    //[imageview addSubview:label];
+    
+    //imageview.center=cell.center;
+    
+    label3.text=nil;
+    label3.font=[UIFont fontWithName:@"Cervo-Light" size:13.0f];
+    label3.text=[item objectForKey:@"sub_category_name"];
+    [label3 setBackgroundColor:[UIColor whiteColor]];
+    label3.textColor=[UIColor blackColor];
+    label3.textAlignment=NSTextAlignmentLeft;
     [cell.contentView clearsContextBeforeDrawing];
     [cell.contentView addSubview:imageview];
     label2.tag=1234;
+    label3.tag=1234;
+    
     [cell.contentView addSubview:label2];
+    [cell.contentView addSubview:label3];
     
 
 
@@ -435,8 +527,6 @@ return cell;
 
 
 }
-
-
 
 - (void)viewWillDisappear:(BOOL)animated {
 [super viewWillDisappear:animated];
@@ -467,26 +557,33 @@ enabled = YES;
 }
 
 - (void)didSelectedMenu:(DOPNavbarMenu *)menu atIndex:(NSInteger)index {
-// UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"you selected" message:[NSString stringWithFormat:@"number %@", @(index+1)] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-//[av show];
-    //lbl.text=parent[index][@"name"];
+
     selecdmenuItem=(int)index;
     [parent removeAllObjects];
-    //[head removeAllObjects];
+    [stars removeAllObjects];
+    [sub_categories removeAllObjects];
     
-    [image_of_player removeAllObjects];
-    [name_of_player removeAllObjects];
-    [name_of_item removeAllObjects];
-    [image_of_item removeAllObjects];
-    //head=[[NSMutableArray alloc]init];
-    NSLog(@"----");
+    
     NSMutableArray *temp=[[NSMutableArray alloc]init];
     temp=[head objectAtIndex:selecdmenuItem];
     selecdmenuItem=[[temp valueForKey:@"cat_id"] intValue];
     lbl.text=[temp valueForKey:@"name"];
     
-    [self perseclub:cdataDictionary];
-    [self persestarplayers:pdataDictionary];
+    
+    float btnwidth =
+    [lbl.text boundingRectWithSize:lbl.frame.size
+                           options:NSStringDrawingUsesLineFragmentOrigin
+                        attributes:@{ NSFontAttributeName:lbl.font }
+                           context:nil].size.width;
+    [btn setCenter:CGPointMake(lbl.center.x+btnwidth-[lbl.text length] ,lbl.center.y)];
+
+    
+    
+    _starLabel.text = [temp valueForKey:@"star_label"];
+    _clubLabel.text =[temp valueForKey:@"category_label"];
+    
+    [self perseclub:dic_sub_cat];
+    [self persestarplayers:dic_star];
     [_activityindicator startAnimating];
     dispatch_async(dispatch_get_main_queue(), ^{
         [_mycollectionview reloadData];
@@ -494,9 +591,11 @@ enabled = YES;
     });
     [_activityindicator stopAnimating];
     [_activityindicator setHidden:YES];
-   // [self createTab];
     
+    [_mycollectionview reloadData];
+    [_myclubcollectionViewConroller reloadData];
     
+    NSLog(@"+++++++++++++++++++++++++++++");
 }
 
 - (void)didReceiveMemoryWarning {
@@ -515,6 +614,33 @@ self.menu = nil;
 
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
 self.menu = nil;
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.identifier isEqualToString:@"seeAll"])
+
+    {
+      NSLog(@"segue2");
+        SeeAllController *vc=segue.destinationViewController;
+        
+        //vc.head_menu=[[NSMutableArray alloc]init];
+        //vc.head_menu=head;
+        NSLog(@"%@",segue.destinationViewController);
+        
+        if(selecdmenuItem>0)
+        {
+           vc.selectedItem = [NSString stringWithFormat:@"%d", selecdmenuItem];
+            
+        }
+        else
+        {
+          vc.selectedItem=@"0";
+        }
+        
+    }
+    
+    
 }
 
 

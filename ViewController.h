@@ -18,6 +18,10 @@
 @property (weak, nonatomic) IBOutlet UIButton *searchbtn;
 @property (weak, nonatomic) IBOutlet UIView *clubview;
 @property (weak, nonatomic) IBOutlet UIView *starplayers;
+@property (weak, nonatomic) IBOutlet UIImageView *bannerImage;
+@property (weak, nonatomic) IBOutlet UILabel *clubLabel;
+@property (weak, nonatomic) IBOutlet UILabel *starLabel;
+
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityindicator;
 @property(weak,nonatomic) id instance;
 @end

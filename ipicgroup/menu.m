@@ -8,6 +8,10 @@
 
 #import "menu.h"
 #include "ViewController.h"
+ NSDictionary *dic_cat;
+ NSDictionary *dic_sub_cat;
+ NSDictionary *dic_star;
+
 @interface MenuController ()
 {
 NSArray *_pickerData;
@@ -39,10 +43,36 @@ NSArray *_pickerData;
     selecteditem=@"ENTERTAINMENT";
     [_picker selectRow:1 inComponent:0 animated:YES];
     self.view.opaque=NO;
-    //[self loadData];
+    [self loadData];
       
     
 }
+
+-(void)loadData
+{
+    
+  //  NSURL *mURL = [NSURL URLWithString:@"http://83.138.133.168/ipic/json.php?menu_id=-1"];
+//    NSURL *cURL = [NSURL URLWithString:@"http://83.138.133.168/ipic/json.php?cat_id=0"];
+ //   NSURL *pURL = [NSURL URLWithString:@"http://83.138.133.168/ipic/json.php?sid=0"];
+ //  NSData *mjsonData = [NSData dataWithContentsOfURL:mURL];
+ //   NSData *cjsonData = [NSData dataWithContentsOfURL:cURL];
+   // NSData *pjsonData = [NSData dataWithContentsOfURL:pURL];
+    //dic_cat = [NSJSONSerialization JSONObjectWithData:mjsonData options:0 error:&error];
+    //dic_sub_cat = [NSJSONSerialization JSONObjectWithData:cjsonData options:0 error:&error];
+    //dic_star = [NSJSONSerialization JSONObjectWithData:pjsonData options:0 error:&error];
+    // NSLog(@"%@",dic_cat);NSLog(@"%@",dic_sub_cat);NSLog(@"%@",dic_star);
+
+    
+     NSURL *mAll = [NSURL URLWithString:@"http://83.138.133.168/ipic/json.php"];
+    NSData *ajsonData = [NSData dataWithContentsOfURL:mAll];
+     NSError *error = nil;
+    NSMutableDictionary *data =[NSJSONSerialization JSONObjectWithData:ajsonData options:0 error:&error];
+    dic_cat =  [data valueForKey:@"menu"];
+    dic_sub_cat =  [data valueForKey:@"category"];
+    dic_star =  [data valueForKey:@"info"];
+    
+   }
+
 
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

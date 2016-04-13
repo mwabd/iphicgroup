@@ -48,11 +48,6 @@
                                     <segue destination="OiU-fM-7Yo" kind="show" id="mQW-yH-p2p"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="ej5-dY-B4y">
-                                <rect key="frame" x="142" y="288" width="37" height="37"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -79,35 +74,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1143" y="1066"/>
-        </scene>
-        <!--Browser Controller-->
-        <scene sceneID="mOa-ik-saM">
-            <objects>
-                <viewController id="KKc-Fx-ubq" customClass="BrowserController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="tUd-nF-lwa"/>
-                        <viewControllerLayoutGuide type="bottom" id="6o9-DC-x5k"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="hAx-NK-EmB">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xhg-kL-N23">
-                                <rect key="frame" x="29" y="97" width="46" height="30"/>
-                                <state key="normal" title="Home"/>
-                                <connections>
-                                    <segue destination="qyk-zA-LSx" kind="show" id="RC1-x3-5d0"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="rKc-dz-HKX"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="J5I-tm-wAc" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1206" y="2040"/>
         </scene>
         <!--Mainscreen View Controller-->
         <scene sceneID="ZmJ-CQ-LRj">
@@ -208,23 +174,23 @@
                                             <outlet property="delegate" destination="eJ0-He-PVG" id="q3O-U0-3C0"/>
                                         </connections>
                                     </collectionView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="CLUBS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="maG-Kf-kyZ">
-                                        <rect key="frame" x="0.0" y="16" width="144" height="29"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" name="Cervo-Light" family="Cervo" pointSize="20"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v8H-T3-mXh">
-                                        <rect key="frame" x="336" y="10" width="70" height="30"/>
+                                        <rect key="frame" x="336" y="15" width="70" height="30"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <state key="normal" title="Button">
                                             <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="m1C-1e-49D" kind="showDetail" id="Tih-E4-v8C"/>
+                                            <segue destination="m1C-1e-49D" kind="presentation" id="Tih-E4-v8C"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="CLUBS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="maG-Kf-kyZ">
+                                        <rect key="frame" x="0.0" y="15" width="38" height="29"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="Cervo-Light" family="Cervo" pointSize="20"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -239,6 +205,7 @@
                                     <constraint firstItem="quy-TU-d1O" firstAttribute="top" secondItem="maG-Kf-kyZ" secondAttribute="bottom" constant="2" id="PYn-35-FDj"/>
                                     <constraint firstItem="v8H-T3-mXh" firstAttribute="top" secondItem="maG-Kf-kyZ" secondAttribute="top" constant="-6" id="Qye-3z-Wqe"/>
                                     <constraint firstItem="maG-Kf-kyZ" firstAttribute="leading" secondItem="aQQ-qC-zPP" secondAttribute="leading" id="RVu-Rz-IOx"/>
+                                    <constraint firstItem="maG-Kf-kyZ" firstAttribute="leading" secondItem="aQQ-qC-zPP" secondAttribute="leading" constant="20" id="S7d-Tb-rDv"/>
                                     <constraint firstItem="quy-TU-d1O" firstAttribute="top" secondItem="maG-Kf-kyZ" secondAttribute="bottom" constant="2" id="byF-wq-fJl"/>
                                     <constraint firstItem="v8H-T3-mXh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="maG-Kf-kyZ" secondAttribute="trailing" constant="192" id="g30-Fv-80U"/>
                                     <constraint firstItem="maG-Kf-kyZ" firstAttribute="leading" secondItem="aQQ-qC-zPP" secondAttribute="leading" id="iaQ-cy-znY"/>
@@ -256,8 +223,14 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="SEE ALL" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RwB-bU-cDx">
+                                        <rect key="frame" x="237" y="8" width="169" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="06m-ne-8Z0">
-                                        <rect key="frame" x="0.0" y="37" width="414" height="172"/>
+                                        <rect key="frame" x="0.0" y="8" width="414" height="172"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="414" id="gn2-Zl-juB"/>
@@ -292,12 +265,6 @@
                                             <outlet property="delegate" destination="eJ0-He-PVG" id="dmS-oX-MqM"/>
                                         </connections>
                                     </collectionView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="SEE ALL" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RwB-bU-cDx">
-                                        <rect key="frame" x="237" y="8" width="169" height="30"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -345,17 +312,19 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="activityindicator" destination="aIm-ar-xri" id="cFL-a0-PaK"/>
+                        <outlet property="bannerImage" destination="hcC-4t-Iwf" id="zqL-bp-YOn"/>
+                        <outlet property="clubLabel" destination="maG-Kf-kyZ" id="E26-HL-wEL"/>
                         <outlet property="clubview" destination="aQQ-qC-zPP" id="GIZ-UF-Ma8"/>
                         <outlet property="myclubcollectionViewConroller" destination="quy-TU-d1O" id="ozo-kv-9gv"/>
                         <outlet property="mycollectionview" destination="06m-ne-8Z0" id="iDk-7G-pQ3"/>
+                        <outlet property="starLabel" destination="tQQ-xs-BTV" id="awV-sU-1hc"/>
                         <outlet property="starplayers" destination="r0d-Gk-Voh" id="Nie-ib-1Ca"/>
                         <outlet property="tapbar" destination="2MX-MX-KY1" id="D58-tR-xVN"/>
-                        <segue destination="KKc-Fx-ubq" kind="show" id="2N8-y1-4ZO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hFZ-yM-Hzm" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2057" y="1150"/>
+            <point key="canvasLocation" x="1745" y="1072"/>
         </scene>
         <!--Nav Controller-->
         <scene sceneID="fgh-oa-u9t">
@@ -385,9 +354,6 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="KKc-Fx-ubq" kind="relationship" relationship="rootViewController" id="BwU-qY-Hkc"/>
-                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XLI-Xx-qoh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -410,13 +376,13 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <items/>
                             </tabBar>
-                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qtj-Yn-H2o">
+                            <tabBar contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qtj-Yn-H2o">
                                 <rect key="frame" x="0.0" y="64" width="414" height="49"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <items/>
                                 <color key="selectedImageTintColor" red="0.77889642459999997" green="1" blue="0.6862219745" alpha="1" colorSpace="calibratedRGB"/>
                             </tabBar>
-                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rNA-aD-Xc4">
+                            <tabBar contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rNA-aD-Xc4">
                                 <rect key="frame" x="0.0" y="64" width="414" height="49"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <items>
@@ -424,7 +390,7 @@
                                     <tabBarItem systemItem="more" id="aQb-xp-gQa"/>
                                 </items>
                             </tabBar>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="sZB-ab-ehV">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="sZB-ab-ehV">
                                 <rect key="frame" x="0.0" y="113" width="414" height="574"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ui7-LE-WBx">
@@ -673,7 +639,6 @@
         <image name="slideshow.jpg" width="640" height="292"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="BwU-qY-Hkc"/>
-        <segue reference="kOq-IK-xWA"/>
+        <segue reference="Tih-E4-v8C"/>
     </inferredMetricsTieBreakers>
 </document>
