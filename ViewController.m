@@ -3,6 +3,7 @@
 #import "menu.h"
 #import "HelpController.h"
 #import "UIImageView+WebCache.h"
+#import "SearchViewController.h"
 #include "BackgroundLayer.h"
 #include "SeeAllController.h"
 NSMutableArray *head;
@@ -43,7 +44,7 @@ UILabel *label;
     flag=YES;
     NSString *string =_selectedItem;
     if(indexOfTab >= 0){
-        string = [NSString stringWithFormat: @"%ld", (NSInteger)indexOfTab];
+        string = [NSString stringWithFormat: @"%d", (NSInteger)indexOfTab];
     }
    
     
@@ -241,10 +242,18 @@ color=[UIColor colorWithRed:0.051 green:0.365 blue:0.165 alpha:1];
 }
 
 -(IBAction)searchBtn:(id)sender {
+    SearchViewController *search = [self.storyboard instantiateViewControllerWithIdentifier:@"searchview"];
+    search.cat_id= [NSString stringWithFormat: @"%d", (NSInteger)selecdmenuItem];
+    search.cat_name = lbl.text;
+    // HelpController *help = [self.storyboard instantiateViewControllerWithIdentifier:@"helpviewcontroller"];
+    [self presentViewController:search animated:NO completion:nil];
+}
+
+-(IBAction)infoBtn:(id)sender {
     HelpController *help = [self.storyboard instantiateViewControllerWithIdentifier:@"helpviewcontroller"];
     [self presentViewController:help animated:NO completion:nil];
-    NSLog(@"search");
 }
+
 
 -(void)loadMyview:(NSString*)selected
 {
@@ -261,17 +270,18 @@ color=[UIColor colorWithRed:0.051 green:0.365 blue:0.165 alpha:1];
     
     ///
     CAGradientLayer *bgLayer = [BackgroundLayer clubGradient ];
-    CGFloat navBarHeight = 60.0f;
-    CGRect frame = CGRectMake(0.0f, 0.0f,self.navigationController.navigationBar.frame.size.width, navBarHeight);
+    CGFloat navBarHeight = 45.0f;
+    CGRect frame = CGRectMake(0.0f, 5,self.navigationController.navigationBar.frame.size.width, navBarHeight);
     [self.navigationController.navigationBar setFrame:frame];
     
-    UIButton *searchbtn=[[UIButton alloc]initWithFrame:CGRectMake(self.view.frame.size.width-50, 0, 50, self.navigationController.navigationBar.frame.size.height)];
+    UIButton *searchbtn=[[UIButton alloc]initWithFrame:CGRectMake(self.view.frame.size.width-40, 0, 40, self.navigationController.navigationBar.frame.size.height)];
     [searchbtn setBackgroundColor:[UIColor clearColor]];
     UIImage *search =[UIImage imageNamed:@"SEARCH.png"];
     [searchbtn setImage:search forState:UIControlStateNormal];
     
     [searchbtn setBackgroundColor:[UIColor clearColor]];
-    lbl=[[UILabel alloc]initWithFrame:CGRectMake(50, 0, self.view.frame.size.width-100,self.navigationController.navigationBar.frame.size.height)];
+    [searchbtn addTarget:self action:@selector(searchBtn:) forControlEvents:UIControlEventTouchUpInside];
+    lbl=[[UILabel alloc]initWithFrame:CGRectMake(40, 0, self.view.frame.size.width-80,self.navigationController.navigationBar.frame.size.height)];
     UITapGestureRecognizer* gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(openMenu:)];
     bgLayer.frame =self.myclubcollectionViewConroller.bounds;
     //[lbl.layer insertSublayer:bgLayer atIndex:0];
@@ -323,11 +333,11 @@ color=[UIColor colorWithRed:0.051 green:0.365 blue:0.165 alpha:1];
     [self.navigationController.view addSubview:searchbtn];
     
     
-    UIButton *infobtn=[[UIButton alloc]initWithFrame:CGRectMake(0, 0, 50, self.navigationController.navigationBar.frame.size.height)];
+    UIButton *infobtn=[[UIButton alloc]initWithFrame:CGRectMake(0, 0, 40, self.navigationController.navigationBar.frame.size.height)];
     [infobtn setBackgroundColor:[UIColor colorWithRed:0.141 green:0.569 blue:0.22 alpha:1] ];
     //UIImage *info =[UIImage imageNamed:@"SEARCH.png"];
     [infobtn setImage:[UIImage imageNamed:@"i.png"] forState:UIControlStateNormal];
-    [infobtn addTarget:self action:@selector(searchBtn:) forControlEvents:UIControlEventTouchUpInside];
+  //  [infobtn addTarget:self action:@selector(searchBtn:) forControlEvents:UIControlEventTouchUpInside];
     [self.navigationController.view addSubview:infobtn];
 
 }
@@ -456,7 +466,7 @@ cell=[collectionView dequeueReusableCellWithReuseIdentifier:@"club" forIndexPath
    
     
     
-    UIImageView *imageview=[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 80,80)];
+    UIImageView *imageview=[[UIImageView alloc]initWithFrame:CGRectMake(5, 0, 80,80)];
     [imageview sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"loading_logo.png"]];
     
     //imageview.image=img;
@@ -497,7 +507,7 @@ else if(collectionView==self.mycollectionview)
     NSURL *url = [NSURL URLWithString:[item objectForKey:@"image_path"]];
    // NSData *data = [NSData dataWithContentsOfURL:url];
    // UIImage *img = [[UIImage alloc] initWithData:data];
-    UIImageView *imageview=[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 80,80)];
+    UIImageView *imageview=[[UIImageView alloc]initWithFrame:CGRectMake(5, 0, 80,80)];
     imageview.image = nil;
     [imageview sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"loading_star.png"]];
    imageview.contentMode = UIViewContentModeScaleAspectFit;
