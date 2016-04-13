@@ -121,6 +121,7 @@
     CAGradientLayer *bgLayer = [BackgroundLayer clubGradient ];
     btn=[[UIButton alloc]initWithFrame:CGRectMake(0, 0, 80, 45)];
     [btn setTitle:self.selectedButtonText forState:UIControlStateNormal];;
+    
     [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [btn addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
     lbl=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 70)];

@@ -78,6 +78,7 @@
 		B644E4211CABC0C300628C24 /* Halifaxoff.png in Resources */ = {isa = PBXBuildFile; fileRef = B644E4201CABC0C300628C24 /* Halifaxoff.png */; };
 		B6501F621CB228FD0093AE1E /* SeeAllController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6501F611CB228FD0093AE1E /* SeeAllController.m */; };
 		B671A0DA1CAE85150094B40E /* HelpController.m in Sources */ = {isa = PBXBuildFile; fileRef = B671A0D91CAE85150094B40E /* HelpController.m */; };
+		B6AEFF4F1CBE0F7600D2926F /* i.png in Resources */ = {isa = PBXBuildFile; fileRef = B6AEFF4E1CBE0F7600D2926F /* i.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -194,6 +195,7 @@
 		B6501F611CB228FD0093AE1E /* SeeAllController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeeAllController.m; sourceTree = "<group>"; };
 		B671A0D91CAE85150094B40E /* HelpController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpController.m; sourceTree = "<group>"; };
 		B671A0DB1CAE85200094B40E /* HelpController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelpController.h; sourceTree = "<group>"; };
+		B6AEFF4E1CBE0F7600D2926F /* i.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = i.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -350,6 +352,7 @@
 			isa = PBXGroup;
 			children = (
 				B47DD0B01CB7C71A00B3FCB0 /* loading_logo.png */,
+				B6AEFF4E1CBE0F7600D2926F /* i.png */,
 				B47DD0AE1CB7C6E300B3FCB0 /* loading_star.png */,
 				B47DD0AC1CB7C6BE00B3FCB0 /* loading_club.png */,
 				3BEFF29F1CB0BD3B00B9899F /* SEARCH.png */,
@@ -504,6 +507,7 @@
 				3B22E3AA1CA638CE0023C1CF /* tabbg.jpg in Resources */,
 				3BC032021CA5458800057847 /* beatles.png in Resources */,
 				3BF59F1D1C9EB43F00B4D414 /* Images.xcassets in Resources */,
+				B6AEFF4F1CBE0F7600D2926F /* i.png in Resources */,
 				B637BBE51CA135E000295ECB /* clubname.png in Resources */,
 				B644E4211CABC0C300628C24 /* Halifaxoff.png in Resources */,
 				B47DD0B11CB7C71A00B3FCB0 /* loading_logo.png in Resources */,
