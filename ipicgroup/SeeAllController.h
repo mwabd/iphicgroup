@@ -13,4 +13,5 @@
 @property (weak, nonatomic) IBOutlet UITabBar *tapbar;
 @property (weak, nonatomic) IBOutlet UICollectionView *myclubcollectionViewConroller;
 @property (strong, nonatomic) NSString *selectedItem;
+@property (strong, nonatomic) NSString *selectedButtonText;
 @end

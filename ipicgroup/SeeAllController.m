@@ -119,8 +119,8 @@
     
     ///
     CAGradientLayer *bgLayer = [BackgroundLayer clubGradient ];
-    btn=[[UIButton alloc]initWithFrame:CGRectMake(0, 0, 50, 45)];
-    [btn setTitle:@"Back" forState:UIControlStateNormal];;
+    btn=[[UIButton alloc]initWithFrame:CGRectMake(0, 0, 80, 45)];
+    [btn setTitle:self.selectedButtonText forState:UIControlStateNormal];;
     [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [btn addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
     lbl=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 70)];
@@ -148,6 +148,9 @@
 {
     [self dismissViewControllerAnimated:YES completion:nil];;
 }
+-(BOOL)prefersStatusBarHidden{
+    return YES;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationController.title=@"Clubs";
@@ -158,7 +161,7 @@
     parent=[[NSMutableArray alloc]init];
     image_of_item=[[NSMutableArray alloc]init];
     name_of_item=[[NSMutableArray alloc]init];
-    [self loadMyview:@"SPORTS"];
+    [self loadMyview:nil];
     [self createTab];
     [self perseclub:dic_sub_cat];
     
@@ -217,16 +220,13 @@
         [imageview sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"loading_logo.png"]];
     
         imageview.contentMode = UIViewContentModeScaleAspectFit;
-    label1.font=[UIFont fontWithName:@"Cervo-Light" size:13.0f];
-    NSLog(@"%@",[item objectForKey:@"sub_category_name"]);
-    label1.text=[item objectForKey:@"sub_category_name"];
-    [label1 setBackgroundColor:[UIColor clearColor]];
-    label1.textColor=[UIColor blackColor];
-    //label1.tag=123;
-    NSLog(@"%@",label1);
-    //[cell.contentView clearsContextBeforeDrawing];
-    [cell.contentView addSubview:imageview];
-    [cell.contentView addSubview:label1];
+        label1.font=[UIFont fontWithName:@"Cervo-Light" size:13.0f];
+        NSLog(@"%@",[item objectForKey:@"sub_category_name"]);
+        label1.text=[item objectForKey:@"sub_category_name"];
+        [label1 setBackgroundColor:[UIColor clearColor]];
+        label1.textColor=[UIColor blackColor];
+        [cell.contentView addSubview:imageview];
+        [cell.contentView addSubview:label1];
     
     
     return cell;

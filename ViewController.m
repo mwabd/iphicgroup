@@ -29,7 +29,7 @@ UICollectionViewCell *cell;
 UILabel *label;
     
     int selecdmenuItem;
-    
+    int temp;
    // UIActivityIndicatorView *indicator;
 }
 -(void) loadData{}
@@ -558,6 +558,8 @@ enabled = YES;
 
 - (void)didSelectedMenu:(DOPNavbarMenu *)menu atIndex:(NSInteger)index {
 
+    temp=index;//selected menu
+    
     selecdmenuItem=(int)index;
     [parent removeAllObjects];
     [stars removeAllObjects];
@@ -595,7 +597,7 @@ enabled = YES;
     [_mycollectionview reloadData];
     [_myclubcollectionViewConroller reloadData];
     
-    NSLog(@"+++++++++++++++++++++++++++++");
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -621,12 +623,11 @@ self.menu = nil;
     if([segue.identifier isEqualToString:@"seeAll"])
 
     {
-      NSLog(@"segue2");
         SeeAllController *vc=segue.destinationViewController;
-        
+        vc.selectedButtonText=head[temp][@"name"];;
         //vc.head_menu=[[NSMutableArray alloc]init];
         //vc.head_menu=head;
-        NSLog(@"%@",segue.destinationViewController);
+       // NSLog(@"%@",segue.destinationViewController);
         
         if(selecdmenuItem>0)
         {
