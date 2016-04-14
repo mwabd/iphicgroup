@@ -446,7 +446,7 @@ return 1;
     
     NSString *string;
     if(collectionView==self.myclubcollectionViewConroller){
-        NSDictionary *item = sub_categories[indexPath.section];
+        NSDictionary *item = sub_categories[indexPath.row];
         string = [item objectForKey:@"url_path"];
         NSURL *url = [NSURL URLWithString:[item objectForKey:@"image_path"]];
         [_bannerImage sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"loading_club.png"]];
