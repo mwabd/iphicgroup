@@ -341,7 +341,7 @@ color=[UIColor colorWithRed:0.051 green:0.365 blue:0.165 alpha:1];
     [infobtn setBackgroundColor:[UIColor colorWithRed:0.141 green:0.569 blue:0.22 alpha:1] ];
     //UIImage *info =[UIImage imageNamed:@"SEARCH.png"];
     [infobtn setImage:[UIImage imageNamed:@"i.png"] forState:UIControlStateNormal];
-  //  [infobtn addTarget:self action:@selector(searchBtn:) forControlEvents:UIControlEventTouchUpInside];
+   [infobtn addTarget:self action:@selector(infoBtn:) forControlEvents:UIControlEventTouchUpInside];
     [self.navigationController.view addSubview:infobtn];
 
 }
