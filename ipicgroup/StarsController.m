@@ -5,18 +5,16 @@
 //  Created by Mind Working Asia on 4/12/16.
 //  Copyright © 2016 Mind Working Asia. All rights reserved.
 //
-
 #import "StarsController.h"
-#include "BackgroundLayer.h"
 #import "UIImageView+WebCache.h"
 
 
-@interface StarsController () <UITextViewDelegate, UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
+@interface StarsController ()
 @end
 
 @implementation StarsController
 
-
+UIButton *btn;
 NSDictionary *dic_star1;
 UICollectionViewCell *cell;
 NSMutableArray *all_stars;
@@ -29,9 +27,9 @@ NSMutableArray *all_stars;
     NSMutableDictionary *data =[NSJSONSerialization JSONObjectWithData:ajsonData options:0 error:&error];
     
     dic_star1 =  [data valueForKey:@"info"];
-   int k=0;
+    int k=0;
     for (NSDictionary *item in dic_star1) {
-       // if([[item objectForKey:@"category_id"]isEqualToString:selected])
+        // if([[item objectForKey:@"category_id"]isEqualToString:selected])
         {//sports
             
             all_stars[k] = item;
@@ -39,34 +37,36 @@ NSMutableArray *all_stars;
         }
         
     }
-
+    
     
 }
--(void)loadMyview:(NSString*)selected
-{
-    //TabBar *tab;
-        ///
-    CAGradientLayer *bgLayer = [BackgroundLayer clubGradient ];
-    
-    
-    bgLayer.frame =self.myStarCollection.bounds;
- //   lbl.textColor=[UIColor whiteColor];
- //   lbl.font=[UIFont fontWithName:@"Cervo-Light" size:25.0f];
-    
-    UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
-    [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
-    [flowLayout setMinimumInteritemSpacing:0.0f];
-    [flowLayout setMinimumLineSpacing:0.0f];
-    [self.myStarCollection setCollectionViewLayout:flowLayout];
 
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     all_stars =[[NSMutableArray alloc]init];
-  //  [self loadMyview:@"1"];
+    //  [self loadMyview:@"1"];
+    
     [self datasource_init:@"1"];
     
+    myTableView.delegate = self;
+    myTableView.dataSource = self;
+    
+    btn=[[UIButton alloc]initWithFrame:CGRectMake(0, 10, 80, 45)];
+    NSString *str = [@"<< " stringByAppendingString:_cat_name];
+    btn.titleLabel.font = [UIFont fontWithName:@"Cervo-Light" size:20];
+    // btn.font=[UIFont fontWithName:@"Cervo-Light" size:16.0f];
+    [btn setTitle:str forState:UIControlStateNormal];;
+    
+    [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [btn addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view  addSubview:btn];
+    
+    
+}
+- (void)buttonClicked:(UIButton*)button
+{
+    [self dismissViewControllerAnimated:YES completion:nil];;
 }
 
 -(BOOL)shouldAutorotate
@@ -74,49 +74,48 @@ NSMutableArray *all_stars;
     return NO;
 }
 
-- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
-    return UIEdgeInsetsMake(0 , 5, 0,0);//UIEdgeInsetsMake(50, 20, 50, 20);
-}
-
-
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    CGSize retval =CGSizeMake(180,80);
-    return retval;
-}
--(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath  {
-    
-    
-    NSString *string;
-    
-        NSDictionary *item = all_stars[indexPath.section];
-        string = [item objectForKey:@"url_path"];
-    
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:string]];
-    //UICollectionViewCell *datasetCell =[collectionView cellForItemAtIndexPath:indexPath];
-    //datasetCell.backgroundColor = [UIColor blueColor]; // highlight selection
-}
-
-
--(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
-{
-    
-    return [all_stars count];
-    ;
-    
-}
-
--(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+-(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
 }
 
--(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+-(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    return [all_stars count];
     
-   cell=[collectionView dequeueReusableCellWithReuseIdentifier:@"star" forIndexPath:indexPath];
-    [[cell.contentView viewWithTag:123]removeFromSuperview] ;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    NSDictionary *item = all_stars[indexPath.section];
+    
+    NSDictionary *item = all_stars[indexPath.row];
+    
+    NSString *string = [item objectForKey:@"url_path"];
+    
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:string]];
+}
+
+
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 80;
+    // This is just Programatic method you can also do that by xib !
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *cellIdentityfier = @"cell";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentityfier];
+    
+    
+    if(!cell)
+    {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentityfier];
+    }
+    
+    NSDictionary *item = all_stars[indexPath.row];
     
     
     NSURL *url = [NSURL URLWithString:[item objectForKey:@"image_path"]];
@@ -124,8 +123,8 @@ NSMutableArray *all_stars;
     imageview.image = nil;
     [imageview sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"loading_star.png"]];
     imageview.contentMode = UIViewContentModeScaleAspectFit;
-   
-
+    
+    
     UILabel *lblStar=[[UILabel alloc]initWithFrame:CGRectMake(82,20,90 ,20)];
     //[imageview addSubview:label];
     
@@ -144,24 +143,19 @@ NSMutableArray *all_stars;
     lblClub.text=[item objectForKey:@"sub_category_name"];
     [lblClub setBackgroundColor:[UIColor whiteColor]];
     lblClub.textColor=[UIColor blackColor];
-
+    
     
     [cell.contentView addSubview:imageview];
     [cell.contentView addSubview:lblStar];
     [cell.contentView addSubview:lblClub];
     
     return cell;
-    
-    
-    
 }
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (UIStatusBarStyle)preferredStatusBarStyle {
-    return UIStatusBarStyleLightContent;
 }
 
 

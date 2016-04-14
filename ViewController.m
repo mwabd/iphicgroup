@@ -5,6 +5,7 @@
 #import "UIImageView+WebCache.h"
 #import "SearchViewController.h"
 #include "BackgroundLayer.h"
+#include "StarsController.h"
 #include "SeeAllController.h"
 NSMutableArray *head;
 @interface ViewController () <UITextViewDelegate, DOPNavbarMenuDelegate,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UITabBarDelegate>
@@ -690,6 +691,16 @@ self.menu = nil;
         }
         
     }
+    else if([segue.identifier isEqualToString:@"all_stars"])
+    {
+        StarsController *stars=segue.destinationViewController;
+        stars.cat_id= [NSString stringWithFormat: @"%d", (NSInteger)selecdmenuItem];
+        stars.cat_name = lbl.text;
+        
+        
+        
+    }
+
     
     
 }

@@ -168,10 +168,6 @@
 		B47444C51CB6818C00233A9A /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		B47444C61CB6818C00233A9A /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		B47444C71CB6818C00233A9A /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
-		B47C356F1CBE250F0098766E /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchViewController.h; path = ../../../Desktop/SearchViewController.h; sourceTree = "<group>"; };
-		B47C35701CBE250F0098766E /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchViewController.m; path = ../../../Desktop/SearchViewController.m; sourceTree = "<group>"; };
-		B47C35711CBE250F0098766E /* StarsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StarsController.h; path = ../../../Desktop/StarsController.h; sourceTree = "<group>"; };
-		B47C35721CBE250F0098766E /* StarsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StarsController.m; path = ../../../Desktop/StarsController.m; sourceTree = "<group>"; };
 		B47DD0AC1CB7C6BE00B3FCB0 /* loading_club.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading_club.png; sourceTree = "<group>"; };
 		B47DD0AE1CB7C6E300B3FCB0 /* loading_star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading_star.png; sourceTree = "<group>"; };
 		B47DD0B01CB7C71A00B3FCB0 /* loading_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading_logo.png; sourceTree = "<group>"; };
@@ -310,16 +306,11 @@
 			children = (
 				B68F76281CBF468400D62530 /* SearchViewController.h */,
 				B68F76291CBF468400D62530 /* SearchViewController.m */,
-				B68F762A1CBF468400D62530 /* StarsController.h */,
-				B68F762B1CBF468400D62530 /* StarsController.m */,
-				B47C356F1CBE250F0098766E /* SearchViewController.h */,
-				B47C35701CBE250F0098766E /* SearchViewController.m */,
-				B47C35711CBE250F0098766E /* StarsController.h */,
-				B47C35721CBE250F0098766E /* StarsController.m */,
 				B47444A61CB6818C00233A9A /* SDWebImage */,
 				B6E83C2F1CA242E700C03C0C /* controllers */,
 				3B3E524E1CA03A1B002753CC /* NavController.h */,
 				B671A0DB1CAE85200094B40E /* HelpController.h */,
+				B68F762A1CBF468400D62530 /* StarsController.h */,
 				B6501F601CB228FD0093AE1E /* SeeAllController.h */,
 				3BF59F261C9ECD1D00B4D414 /* DOPNavbarMenu.h */,
 				3B1912EE1CAF78D6006BAF3D /* BackgroundLayer.h */,
@@ -402,17 +393,18 @@
 		B6E83C2F1CA242E700C03C0C /* controllers */ = {
 			isa = PBXGroup;
 			children = (
-				B671A0D91CAE85150094B40E /* HelpController.m */,
+				B41B34971CAD08FB00C41474 /* BrowserController.m */,
 				3B1912EF1CAF78D6006BAF3D /* BackgroundLayer.m */,
-				3BF59F2A1C9ECD1D00B4D414 /* UIView+DOPExtension.m */,
-				3B3E524F1CA03A1B002753CC /* NavController.m */,
+				B41B34961CAD08FB00C41474 /* BrowserController.h */,
 				3BF59F281C9ECD1D00B4D414 /* DOPNavbarMenu.m */,
-				3BF59F211C9ECCCF00B4D414 /* ViewController.m */,
+				B671A0D91CAE85150094B40E /* HelpController.m */,
 				B61C7DC21C9BB5CC001FE9FB /* mainscreenViewController.m */,
 				B61C49711C9A7665003B01E7 /* menu.m */,
-				B41B34961CAD08FB00C41474 /* BrowserController.h */,
-				B41B34971CAD08FB00C41474 /* BrowserController.m */,
+				3B3E524F1CA03A1B002753CC /* NavController.m */,
 				B6501F611CB228FD0093AE1E /* SeeAllController.m */,
+				B68F762B1CBF468400D62530 /* StarsController.m */,
+				3BF59F2A1C9ECD1D00B4D414 /* UIView+DOPExtension.m */,
+				3BF59F211C9ECCCF00B4D414 /* ViewController.m */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
