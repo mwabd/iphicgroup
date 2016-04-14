@@ -268,6 +268,7 @@
                             <constraint firstItem="cav-ix-VD9" firstAttribute="top" relation="lessThanOrEqual" secondItem="XDd-md-U0v" secondAttribute="bottom" id="aPI-lH-B1W"/>
                             <constraint firstAttribute="trailing" secondItem="cav-ix-VD9" secondAttribute="trailing" constant="-4" id="gWh-z6-9no"/>
                             <constraint firstItem="cav-ix-VD9" firstAttribute="leading" secondItem="kQ7-YU-oSC" secondAttribute="leading" id="hF5-40-AIF"/>
+                            <constraint firstItem="6gX-8S-1kc" firstAttribute="top" secondItem="LaL-Me-ilK" secondAttribute="bottom" id="qFz-rW-BS3"/>
                             <constraint firstItem="6gX-8S-1kc" firstAttribute="top" secondItem="LaL-Me-ilK" secondAttribute="bottom" id="ywD-Yb-khu"/>
                         </constraints>
                     </view>
