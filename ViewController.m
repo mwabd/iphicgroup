@@ -314,15 +314,19 @@ color=[UIColor colorWithRed:0.051 green:0.365 blue:0.165 alpha:1];
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
     [flowLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
     [flowLayout setMinimumInteritemSpacing:0.0f];
-    [flowLayout setMinimumLineSpacing:0.0f];
     [self.mycollectionview setPagingEnabled:YES];
     [self.mycollectionview setCollectionViewLayout:flowLayout];
     [self.mycollectionview setBounces:NO];
-    [self.myclubcollectionViewConroller setCollectionViewLayout:flowLayout];
     bgLayer = [BackgroundLayer clubGradient];
     bgLayer.frame = self.view.bounds;
     bgLayer.frame=self.clubview.bounds;
     [self.clubview.layer insertSublayer:bgLayer atIndex:0];
+    
+    UICollectionViewFlowLayout *flowLayout2 = [[UICollectionViewFlowLayout alloc] init];
+    [flowLayout2 setScrollDirection:UICollectionViewScrollDirectionHorizontal];
+    [flowLayout2 setMinimumInteritemSpacing:0.0f];
+    [flowLayout2 setMinimumLineSpacing:0.0f];
+    [self.myclubcollectionViewConroller setCollectionViewLayout:flowLayout2];
     
     bgLayer = [BackgroundLayer clubGradient];
     bgLayer.frame=searchbtn.bounds;
@@ -372,7 +376,7 @@ CGSize retval =CGSizeMake(90,120);
 return retval;
 }
 
-
+/*
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
 if(collectionView==self.mycollectionview)
@@ -390,7 +394,27 @@ else
 {
 return 1;
 }
+*/
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 
+{
+    //[collectionView.collectionViewLayout invalidateLayout];
+    if(collectionView==self.myclubcollectionViewConroller)
+    {
+        
+        //NSLog(@"%lu",(unsigned long)[sub_categories count]);
+        
+        return [sub_categories count];
+    }
+    else
+    {   return stars.count;
+    }
+}
+
+-(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+{
+    return 1;
+}
 
 -(void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
     indexOfTab = (int) [[tabBar items] indexOfObject:item];
@@ -456,9 +480,9 @@ if(collectionView==self.myclubcollectionViewConroller)
 UILabel *label1=[[UILabel alloc]initWithFrame:CGRectMake(0, 90, 80,20)];
 cell=[collectionView dequeueReusableCellWithReuseIdentifier:@"club" forIndexPath:indexPath];
     
-[[cell.contentView viewWithTag:123]removeFromSuperview] ;
+//[[cell.contentView viewWithTag:123]removeFromSuperview] ;
   
-     NSDictionary *item = sub_categories[indexPath.section];
+     NSDictionary *item = sub_categories[indexPath.row];
     [item objectForKey:@"url_path"];
     NSURL *url = [NSURL URLWithString:[item objectForKey:@"logo_path"]];
   //  NSData *data = [NSData dataWithContentsOfURL:url];
@@ -495,22 +519,22 @@ cell=[collectionView dequeueReusableCellWithReuseIdentifier:@"club" forIndexPath
 }
 else if(collectionView==self.mycollectionview)
 {
-
+    
     
     cell=[collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
-
+    
     [[cell.contentView viewWithTag:1234]removeFromSuperview] ;
-    NSDictionary *item = stars[indexPath.section];
+    NSDictionary *item = stars[indexPath.row];
     
     
     
     NSURL *url = [NSURL URLWithString:[item objectForKey:@"image_path"]];
-   // NSData *data = [NSData dataWithContentsOfURL:url];
-   // UIImage *img = [[UIImage alloc] initWithData:data];
-    UIImageView *imageview=[[UIImageView alloc]initWithFrame:CGRectMake(5, 0, 80,80)];
+    // NSData *data = [NSData dataWithContentsOfURL:url];
+    // UIImage *img = [[UIImage alloc] initWithData:data];
+    UIImageView *imageview=[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 80,80)];
     imageview.image = nil;
     [imageview sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"loading_star.png"]];
-   imageview.contentMode = UIViewContentModeScaleAspectFit;
+    imageview.contentMode = UIViewContentModeScaleAspectFit;
     // imageview.image=img;
     UILabel *label2=[[UILabel alloc]initWithFrame:CGRectMake(0,self.mycollectionview.frame.origin.y+60,cell.frame.size.width ,20)];
     //[imageview addSubview:label];
@@ -542,13 +566,12 @@ else if(collectionView==self.mycollectionview)
     [cell.contentView addSubview:label2];
     [cell.contentView addSubview:label3];
     
-
-
-count++;
-//return cell;
-
+    
+    
+    count++;
+    return cell;
+    
 }
-
 return cell;
 
 

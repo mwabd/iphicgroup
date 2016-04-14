@@ -58,8 +58,6 @@
 		B47444D51CB6818C00233A9A /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = B47444C31CB6818C00233A9A /* UIImageView+HighlightedWebCache.m */; };
 		B47444D61CB6818C00233A9A /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = B47444C51CB6818C00233A9A /* UIImageView+WebCache.m */; };
 		B47444D71CB6818C00233A9A /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = B47444C71CB6818C00233A9A /* UIView+WebCacheOperation.m */; };
-		B47C35731CBE250F0098766E /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B47C35701CBE250F0098766E /* SearchViewController.m */; };
-		B47C35741CBE250F0098766E /* StarsController.m in Sources */ = {isa = PBXBuildFile; fileRef = B47C35721CBE250F0098766E /* StarsController.m */; };
 		B47DD0AD1CB7C6BE00B3FCB0 /* loading_club.png in Resources */ = {isa = PBXBuildFile; fileRef = B47DD0AC1CB7C6BE00B3FCB0 /* loading_club.png */; };
 		B47DD0AF1CB7C6E300B3FCB0 /* loading_star.png in Resources */ = {isa = PBXBuildFile; fileRef = B47DD0AE1CB7C6E300B3FCB0 /* loading_star.png */; };
 		B47DD0B11CB7C71A00B3FCB0 /* loading_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = B47DD0B01CB7C71A00B3FCB0 /* loading_logo.png */; };
@@ -80,6 +78,8 @@
 		B644E4211CABC0C300628C24 /* Halifaxoff.png in Resources */ = {isa = PBXBuildFile; fileRef = B644E4201CABC0C300628C24 /* Halifaxoff.png */; };
 		B6501F621CB228FD0093AE1E /* SeeAllController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6501F611CB228FD0093AE1E /* SeeAllController.m */; };
 		B671A0DA1CAE85150094B40E /* HelpController.m in Sources */ = {isa = PBXBuildFile; fileRef = B671A0D91CAE85150094B40E /* HelpController.m */; };
+		B68F762C1CBF468400D62530 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B68F76291CBF468400D62530 /* SearchViewController.m */; };
+		B68F762D1CBF468400D62530 /* StarsController.m in Sources */ = {isa = PBXBuildFile; fileRef = B68F762B1CBF468400D62530 /* StarsController.m */; };
 		B6AEFF4F1CBE0F7600D2926F /* i.png in Resources */ = {isa = PBXBuildFile; fileRef = B6AEFF4E1CBE0F7600D2926F /* i.png */; };
 /* End PBXBuildFile section */
 
@@ -201,6 +201,10 @@
 		B6501F611CB228FD0093AE1E /* SeeAllController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeeAllController.m; sourceTree = "<group>"; };
 		B671A0D91CAE85150094B40E /* HelpController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpController.m; sourceTree = "<group>"; };
 		B671A0DB1CAE85200094B40E /* HelpController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelpController.h; sourceTree = "<group>"; };
+		B68F76281CBF468400D62530 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		B68F76291CBF468400D62530 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		B68F762A1CBF468400D62530 /* StarsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StarsController.h; sourceTree = "<group>"; };
+		B68F762B1CBF468400D62530 /* StarsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StarsController.m; sourceTree = "<group>"; };
 		B6AEFF4E1CBE0F7600D2926F /* i.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = i.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -304,6 +308,10 @@
 		B61C49681C9A7665003B01E7 /* ipicgroup */ = {
 			isa = PBXGroup;
 			children = (
+				B68F76281CBF468400D62530 /* SearchViewController.h */,
+				B68F76291CBF468400D62530 /* SearchViewController.m */,
+				B68F762A1CBF468400D62530 /* StarsController.h */,
+				B68F762B1CBF468400D62530 /* StarsController.m */,
 				B47C356F1CBE250F0098766E /* SearchViewController.h */,
 				B47C35701CBE250F0098766E /* SearchViewController.m */,
 				B47C35711CBE250F0098766E /* StarsController.h */,
@@ -553,7 +561,7 @@
 				B61C49721C9A7665003B01E7 /* menu.m in Sources */,
 				B47444D41CB6818C00233A9A /* UIImage+WebP.m in Sources */,
 				B61C7DC31C9BB5CC001FE9FB /* mainscreenViewController.m in Sources */,
-				B47C35731CBE250F0098766E /* SearchViewController.m in Sources */,
+				B68F762C1CBF468400D62530 /* SearchViewController.m in Sources */,
 				B47444D11CB6818C00233A9A /* UIButton+WebCache.m in Sources */,
 				B47444CE1CB6818C00233A9A /* SDWebImageDownloaderOperation.m in Sources */,
 				B61C496F1C9A7665003B01E7 /* AppDelegate.m in Sources */,
@@ -568,7 +576,7 @@
 				B47444CB1CB6818C00233A9A /* SDWebImageCompat.m in Sources */,
 				B671A0DA1CAE85150094B40E /* HelpController.m in Sources */,
 				B47444D21CB6818C00233A9A /* UIImage+GIF.m in Sources */,
-				B47C35741CBE250F0098766E /* StarsController.m in Sources */,
+				B68F762D1CBF468400D62530 /* StarsController.m in Sources */,
 				B47444D31CB6818C00233A9A /* UIImage+MultiFormat.m in Sources */,
 				3B3E52501CA03A1B002753CC /* NavController.m in Sources */,
 				B47444D01CB6818C00233A9A /* SDWebImagePrefetcher.m in Sources */,
