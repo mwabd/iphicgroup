@@ -454,7 +454,7 @@ return 1;
         
     }
     else if(collectionView==self.mycollectionview){
-        NSDictionary *item = stars[indexPath.section];
+        NSDictionary *item = stars[indexPath.row];
         string = [item objectForKey:@"url_path"];
     }
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:string]];
