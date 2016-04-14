@@ -479,7 +479,7 @@ if(collectionView==self.myclubcollectionViewConroller)
 {
 UILabel *label1=[[UILabel alloc]initWithFrame:CGRectMake(0, 90, 80,20)];
 cell=[collectionView dequeueReusableCellWithReuseIdentifier:@"club" forIndexPath:indexPath];
-    
+    [[cell.contentView viewWithTag:123]removeFromSuperview];
 //[[cell.contentView viewWithTag:123]removeFromSuperview] ;
   
      NSDictionary *item = sub_categories[indexPath.row];
