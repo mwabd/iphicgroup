@@ -1,7 +1,7 @@
 #import "ViewController.h"
 #import "DOPNavbarMenu.h"
 #import "menu.h"
-#import "HelpController.h"
+#import "infoViewController.h"
 #import "UIImageView+WebCache.h"
 #import "SearchViewController.h"
 #include "BackgroundLayer.h"
@@ -251,8 +251,8 @@ color=[UIColor colorWithRed:0.051 green:0.365 blue:0.165 alpha:1];
 }
 
 -(IBAction)infoBtn:(id)sender {
-    HelpController *help = [self.storyboard instantiateViewControllerWithIdentifier:@"helpviewcontroller"];
-    [self presentViewController:help animated:NO completion:nil];
+    infoViewController *info = [self.storyboard instantiateViewControllerWithIdentifier:@"infocontroller"];
+    [self presentViewController:info animated:NO completion:nil];
 }
 
 

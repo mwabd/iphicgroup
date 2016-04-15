@@ -20,13 +20,25 @@
 -(void) viewDidLoad{
     [super viewDidLoad];
     totalContent=[[NSMutableArray alloc]init];
-
+    filteredContentList=[[NSMutableArray alloc]init];
+     [self loadData];
     myTableView.delegate = self;
     myTableView.dataSource = self;
     mysearchBar.delegate = self;
-    UIBarButtonItem *myBackButton = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleDone target:nil action:nil];
-    self.navigationItem.backBarButtonItem = myBackButton;
-    [self loadData];
+    
+    UIButton *btn=[[UIButton alloc]initWithFrame:CGRectMake(0, 10, 80, 45)];
+    NSString *str = [@"<< " stringByAppendingString:_cat_name];
+    btn.titleLabel.font = [UIFont fontWithName:@"Cervo-Light" size:20];
+    // btn.font=[UIFont fontWithName:@"Cervo-Light" size:16.0f];
+    [btn setTitle:str forState:UIControlStateNormal];;
+    
+    [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [btn addTarget:self action:@selector(returnToPrevious:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.view  addSubview:btn];
+
+    
+   
     
     
 }
@@ -34,7 +46,8 @@
 -(IBAction)returnToPrevious:(id)sender
 {
     
-   // [self ]
+    [self dismissViewControllerAnimated:YES completion:nil];
+
 }
 
 -(void) searchBarSearchButtonClicked:(UISearchBar *)searchBar
@@ -147,7 +160,8 @@
     if(!isSearching)
     {
         [cell.contentView clearsContextBeforeDrawing];
-
+        int index =indexPath.row;
+        
         NSMutableArray *temp=[[NSMutableArray alloc]init];
         temp=[totalContent objectAtIndex:indexPath.row];
         NSString *club = [temp valueForKey:@"club"];
@@ -155,7 +169,7 @@
 
         if(club != nil){
         
-            UILabel *lblClub=[[UILabel alloc]initWithFrame:CGRectMake(20,30,cell.frame.size.width ,20)];
+            UILabel *lblClub=[[UILabel alloc]initWithFrame:CGRectMake(20,30,cell.frame.size.width ,22)];
             lblClub.text=nil;
             lblClub.text=[temp valueForKey:@"club"];
             [lblClub setBackgroundColor:[UIColor whiteColor]];
@@ -177,7 +191,7 @@
         
         if(club != nil){
             
-            UILabel *lblClub=[[UILabel alloc]initWithFrame:CGRectMake(20,30,cell.frame.size.width ,20)];
+            UILabel *lblClub=[[UILabel alloc]initWithFrame:CGRectMake(20,30,cell.frame.size.width ,22)];
             lblClub.text=[temp valueForKey:@"club"];
             [lblClub setBackgroundColor:[UIColor whiteColor]];
             lblClub.textColor=[UIColor grayColor];

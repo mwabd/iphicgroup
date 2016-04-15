@@ -31,6 +31,7 @@
 		B41B34931CAD02F600C41474 /* arsenal-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = B41B34921CAD02F600C41474 /* arsenal-logo.png */; };
 		B41B34951CAD040900C41474 /* mancity-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = B41B34941CAD040900C41474 /* mancity-logo.png */; };
 		B41B34981CAD08FB00C41474 /* BrowserController.m in Sources */ = {isa = PBXBuildFile; fileRef = B41B34971CAD08FB00C41474 /* BrowserController.m */; };
+		B4304DF01CC09F5400792F2E /* infoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4304DEF1CC09F5400792F2E /* infoViewController.m */; };
 		B461D46C1CAD2A78004F2ED8 /* Comfortaa-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B461D4691CAD2190004F2ED8 /* Comfortaa-Bold.ttf */; };
 		B461D46D1CAD2A78004F2ED8 /* Comfortaa-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B461D46A1CAD2190004F2ED8 /* Comfortaa-Light.ttf */; };
 		B461D46E1CAD2A78004F2ED8 /* Comfortaa-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B461D46B1CAD2190004F2ED8 /* Comfortaa-Regular.ttf */; };
@@ -124,6 +125,8 @@
 		B41B34941CAD040900C41474 /* mancity-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mancity-logo.png"; sourceTree = "<group>"; };
 		B41B34961CAD08FB00C41474 /* BrowserController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrowserController.h; sourceTree = "<group>"; };
 		B41B34971CAD08FB00C41474 /* BrowserController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrowserController.m; sourceTree = "<group>"; };
+		B4304DEE1CC09F5400792F2E /* infoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = infoViewController.h; sourceTree = "<group>"; };
+		B4304DEF1CC09F5400792F2E /* infoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = infoViewController.m; sourceTree = "<group>"; };
 		B461D45F1CAD204E004F2ED8 /* Cervo-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cervo-Light.otf"; sourceTree = "<group>"; };
 		B461D4601CAD204E004F2ED8 /* Cervo-LightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cervo-LightItalic.otf"; sourceTree = "<group>"; };
 		B461D4611CAD204E004F2ED8 /* Cervo-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cervo-Medium.otf"; sourceTree = "<group>"; };
@@ -304,17 +307,18 @@
 		B61C49681C9A7665003B01E7 /* ipicgroup */ = {
 			isa = PBXGroup;
 			children = (
-				B68F76281CBF468400D62530 /* SearchViewController.h */,
-				B68F76291CBF468400D62530 /* SearchViewController.m */,
 				B47444A61CB6818C00233A9A /* SDWebImage */,
 				B6E83C2F1CA242E700C03C0C /* controllers */,
 				3B3E524E1CA03A1B002753CC /* NavController.h */,
 				B671A0DB1CAE85200094B40E /* HelpController.h */,
 				B68F762A1CBF468400D62530 /* StarsController.h */,
 				B6501F601CB228FD0093AE1E /* SeeAllController.h */,
+				B4304DEE1CC09F5400792F2E /* infoViewController.h */,
 				3BF59F261C9ECD1D00B4D414 /* DOPNavbarMenu.h */,
 				3B1912EE1CAF78D6006BAF3D /* BackgroundLayer.h */,
+				B41B34961CAD08FB00C41474 /* BrowserController.h */,
 				3BF59F291C9ECD1D00B4D414 /* UIView+DOPExtension.h */,
+				B68F76281CBF468400D62530 /* SearchViewController.h */,
 				3BF59F201C9ECCCF00B4D414 /* ViewController.h */,
 				B61C7DC11C9BB5CC001FE9FB /* mainscreenViewController.h */,
 				B61C49701C9A7665003B01E7 /* menu.h */,
@@ -393,9 +397,9 @@
 		B6E83C2F1CA242E700C03C0C /* controllers */ = {
 			isa = PBXGroup;
 			children = (
+				B4304DEF1CC09F5400792F2E /* infoViewController.m */,
 				B41B34971CAD08FB00C41474 /* BrowserController.m */,
 				3B1912EF1CAF78D6006BAF3D /* BackgroundLayer.m */,
-				B41B34961CAD08FB00C41474 /* BrowserController.h */,
 				3BF59F281C9ECD1D00B4D414 /* DOPNavbarMenu.m */,
 				B671A0D91CAE85150094B40E /* HelpController.m */,
 				B61C7DC21C9BB5CC001FE9FB /* mainscreenViewController.m */,
@@ -403,6 +407,7 @@
 				3B3E524F1CA03A1B002753CC /* NavController.m */,
 				B6501F611CB228FD0093AE1E /* SeeAllController.m */,
 				B68F762B1CBF468400D62530 /* StarsController.m */,
+				B68F76291CBF468400D62530 /* SearchViewController.m */,
 				3BF59F2A1C9ECD1D00B4D414 /* UIView+DOPExtension.m */,
 				3BF59F211C9ECCCF00B4D414 /* ViewController.m */,
 			);
@@ -575,6 +580,7 @@
 				3BF59F2F1C9ECD1D00B4D414 /* DOPNavbarMenu.m in Sources */,
 				B47444C81CB6818C00233A9A /* MKAnnotationView+WebCache.m in Sources */,
 				B47444D61CB6818C00233A9A /* UIImageView+WebCache.m in Sources */,
+				B4304DF01CC09F5400792F2E /* infoViewController.m in Sources */,
 				B47444D71CB6818C00233A9A /* UIView+WebCacheOperation.m in Sources */,
 				B47444CF1CB6818C00233A9A /* SDWebImageManager.m in Sources */,
 				3BF59F221C9ECCD000B4D414 /* ViewController.m in Sources */,

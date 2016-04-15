@@ -7,7 +7,8 @@
 //
 #import "StarsController.h"
 #import "UIImageView+WebCache.h"
-
+#import "menu.h"
+#
 
 @interface StarsController ()
 @end
@@ -15,21 +16,14 @@
 @implementation StarsController
 
 UIButton *btn;
-NSDictionary *dic_star1;
 UICollectionViewCell *cell;
 NSMutableArray *all_stars;
 
 -(void) datasource_init:(NSString*)selected
 {
-    NSURL *mAll = [NSURL URLWithString:@"http://83.138.133.168/ipic/json.php"];
-    NSData *ajsonData = [NSData dataWithContentsOfURL:mAll];
-    NSError *error = nil;
-    NSMutableDictionary *data =[NSJSONSerialization JSONObjectWithData:ajsonData options:0 error:&error];
-    
-    dic_star1 =  [data valueForKey:@"info"];
-    int k=0;
-    for (NSDictionary *item in dic_star1) {
-        // if([[item objectForKey:@"category_id"]isEqualToString:selected])
+        int k=0;
+    for (NSDictionary *item in dic_star) {
+         if([[item objectForKey:@"category_id"]isEqualToString:selected])
         {//sports
             
             all_stars[k] = item;
@@ -47,7 +41,7 @@ NSMutableArray *all_stars;
     all_stars =[[NSMutableArray alloc]init];
     //  [self loadMyview:@"1"];
     
-    [self datasource_init:@"1"];
+    [self datasource_init:_cat_id];
     
     myTableView.delegate = self;
     myTableView.dataSource = self;
@@ -60,13 +54,14 @@ NSMutableArray *all_stars;
     
     [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [btn addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    
     [self.view  addSubview:btn];
     
     
 }
 - (void)buttonClicked:(UIButton*)button
 {
-    [self dismissViewControllerAnimated:YES completion:nil];;
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 -(BOOL)shouldAutorotate
@@ -119,13 +114,13 @@ NSMutableArray *all_stars;
     
     
     NSURL *url = [NSURL URLWithString:[item objectForKey:@"image_path"]];
-    UIImageView *imageview=[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 80,80)];
+    UIImageView *imageview=[[UIImageView alloc]initWithFrame:CGRectMake(10, 0, 80,80)];
     imageview.image = nil;
     [imageview sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"loading_star.png"]];
     imageview.contentMode = UIViewContentModeScaleAspectFit;
     
     
-    UILabel *lblStar=[[UILabel alloc]initWithFrame:CGRectMake(82,20,90 ,20)];
+    UILabel *lblStar=[[UILabel alloc]initWithFrame:CGRectMake(92,20,130 ,20)];
     //[imageview addSubview:label];
     
     //imageview.center=cell.center;
@@ -135,15 +130,15 @@ NSMutableArray *all_stars;
     lblStar.textColor=[UIColor blackColor];
     
     
-    UILabel *lblClub=[[UILabel alloc]initWithFrame:CGRectMake(82,40,120 ,20)];
+    UILabel *lblClub=[[UILabel alloc]initWithFrame:CGRectMake(92,40,130 ,20)];
     //[imageview addSubview:label];
     
     //imageview.center=cell.center;
     lblClub.text=nil;
     lblClub.text=[item objectForKey:@"sub_category_name"];
     [lblClub setBackgroundColor:[UIColor whiteColor]];
-    lblClub.textColor=[UIColor blackColor];
-    
+    lblClub.textColor=[UIColor grayColor];
+    [lblClub setFont:[UIFont systemFontOfSize:12]];
     
     [cell.contentView addSubview:imageview];
     [cell.contentView addSubview:lblStar];
