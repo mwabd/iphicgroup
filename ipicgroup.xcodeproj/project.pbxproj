@@ -62,6 +62,8 @@
 		B47DD0AD1CB7C6BE00B3FCB0 /* loading_club.png in Resources */ = {isa = PBXBuildFile; fileRef = B47DD0AC1CB7C6BE00B3FCB0 /* loading_club.png */; };
 		B47DD0AF1CB7C6E300B3FCB0 /* loading_star.png in Resources */ = {isa = PBXBuildFile; fileRef = B47DD0AE1CB7C6E300B3FCB0 /* loading_star.png */; };
 		B47DD0B11CB7C71A00B3FCB0 /* loading_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = B47DD0B01CB7C71A00B3FCB0 /* loading_logo.png */; };
+		B4F7BF141CC0FC9F0080C779 /* tabbgplus.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B4F7BF131CC0FC9F0080C779 /* tabbgplus.jpg */; };
+		B4F7BF161CC0FCD50080C779 /* tabbgplus.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B4F7BF151CC0FCD50080C779 /* tabbgplus.jpg */; };
 		B61C496C1C9A7665003B01E7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B61C496B1C9A7665003B01E7 /* main.m */; };
 		B61C496F1C9A7665003B01E7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B61C496E1C9A7665003B01E7 /* AppDelegate.m */; };
 		B61C49721C9A7665003B01E7 /* menu.m in Sources */ = {isa = PBXBuildFile; fileRef = B61C49711C9A7665003B01E7 /* menu.m */; };
@@ -174,6 +176,8 @@
 		B47DD0AC1CB7C6BE00B3FCB0 /* loading_club.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading_club.png; sourceTree = "<group>"; };
 		B47DD0AE1CB7C6E300B3FCB0 /* loading_star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading_star.png; sourceTree = "<group>"; };
 		B47DD0B01CB7C71A00B3FCB0 /* loading_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading_logo.png; sourceTree = "<group>"; };
+		B4F7BF131CC0FC9F0080C779 /* tabbgplus.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = tabbgplus.jpg; path = ../../../Downloads/tabbgplus.jpg; sourceTree = "<group>"; };
+		B4F7BF151CC0FCD50080C779 /* tabbgplus.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = tabbgplus.jpg; path = ../../../Downloads/tabbgplus.jpg; sourceTree = "<group>"; };
 		B61C49661C9A7665003B01E7 /* ipicgroup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ipicgroup.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B61C496A1C9A7665003B01E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B61C496B1C9A7665003B01E7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -364,6 +368,7 @@
 		B6E83C2E1CA242AE00C03C0C /* images */ = {
 			isa = PBXGroup;
 			children = (
+				B4F7BF151CC0FCD50080C779 /* tabbgplus.jpg */,
 				B47DD0B01CB7C71A00B3FCB0 /* loading_logo.png */,
 				B6AEFF4E1CBE0F7600D2926F /* i.png */,
 				B47DD0AE1CB7C6E300B3FCB0 /* loading_star.png */,
@@ -372,6 +377,7 @@
 				B41B34941CAD040900C41474 /* mancity-logo.png */,
 				B41B34921CAD02F600C41474 /* arsenal-logo.png */,
 				B41B34901CAD027500C41474 /* Logo-LFC.png */,
+				B4F7BF131CC0FC9F0080C779 /* tabbgplus.jpg */,
 				B644E4201CABC0C300628C24 /* Halifaxoff.png */,
 				B644E41E1CABC0AA00628C24 /* CASTELEFORD.png */,
 				B644E41C1CABB71E00628C24 /* HULL.png */,
@@ -503,6 +509,7 @@
 				B461D4701CAD2A78004F2ED8 /* Cervo-LightItalic.otf in Resources */,
 				B461D4711CAD2A78004F2ED8 /* Cervo-Medium.otf in Resources */,
 				B461D4721CAD2A78004F2ED8 /* Cervo-MediumItalic.otf in Resources */,
+				B4F7BF161CC0FCD50080C779 /* tabbgplus.jpg in Resources */,
 				B461D4731CAD2A78004F2ED8 /* Cervo-Regular.otf in Resources */,
 				B461D4741CAD2A78004F2ED8 /* Cervo-RegularItalic.otf in Resources */,
 				B461D4751CAD2A78004F2ED8 /* Cervo-Thin.otf in Resources */,
@@ -527,6 +534,7 @@
 				B644E4211CABC0C300628C24 /* Halifaxoff.png in Resources */,
 				B47DD0B11CB7C71A00B3FCB0 /* loading_logo.png in Resources */,
 				B644E41D1CABB71E00628C24 /* HULL.png in Resources */,
+				B4F7BF141CC0FC9F0080C779 /* tabbgplus.jpg in Resources */,
 				3BF59F2C1C9ECD1D00B4D414 /* left.jpg in Resources */,
 				3BB2EA7D1CA2F1B200A2EF32 /* data.plist in Resources */,
 				3BF59F2D1C9ECD1D00B4D414 /* right.jpg in Resources */,

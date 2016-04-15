@@ -140,14 +140,16 @@ UILabel *label;
 {
 
     
-    UIImage *imge=[UIImage imageNamed:@"sportstabw.jpg"];
-    [[UITabBar appearance]setBackgroundColor:[UIColor whiteColor]];
+    UIImage *imge=[[UIImage imageNamed:@"tabbgplus.jpg"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
+    
+    [[UITabBar appearance]setBackgroundImage:imge];
+    [[UITabBar appearance]setBackgroundColor:[UIColor grayColor]];
     [[UITabBar appearance] setTintColor:[UIColor colorWithRed:0.14 green:0.57 blue:0.22 alpha:1.00]]; // for
-    UITabBarItem *tabBarItem1 = [[UITabBarItem alloc]initWithTitle:@"SPORTS" image:imge selectedImage:imge];
     
+    UITabBarItem *tabBarItem1 = [[UITabBarItem alloc]initWithTitle:@"SPORTS" image:imge selectedImage:nil];
     
-    UITabBarItem *tabBarItem2 = [[UITabBarItem alloc]initWithTitle:@"ENTERTAINMENT" image:nil selectedImage:imge];
-    UITabBarItem *tabBarItem3 = [[UITabBarItem alloc]initWithTitle:@"SERVICE" image:nil selectedImage:imge];
+    UITabBarItem *tabBarItem2 = [[UITabBarItem alloc]initWithTitle:@"ENTERTAINMENT" image:nil selectedImage:nil];
+    UITabBarItem *tabBarItem3 = [[UITabBarItem alloc]initWithTitle:@"SERVICE" image:nil selectedImage:nil];
     
     
    // tabBarItem1.titlePositionAdjustment=UIOffsetMake(0, -5);
@@ -162,6 +164,7 @@ UILabel *label;
     tabBarItem1.image=imge;
     tabBarItem2.image=imge;
     tabBarItem3.image=imge;
+    
     [tabBarItem1 setTitlePositionAdjustment:UIOffsetMake(0, -20)];
     [tabBarItem2 setTitlePositionAdjustment:UIOffsetMake(0, -20)];
     [tabBarItem3 setTitlePositionAdjustment:UIOffsetMake(0, -20)];

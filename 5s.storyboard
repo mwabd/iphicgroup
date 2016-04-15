@@ -138,7 +138,10 @@
                             <tabBar contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cav-ix-VD9">
                                 <rect key="frame" x="0.0" y="536" width="324" height="49"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <items/>
+                                <items>
+                                    <tabBarItem title="Item" id="vuY-ic-RxB"/>
+                                    <tabBarItem title="Item" id="Puf-S2-WrH"/>
+                                </items>
                             </tabBar>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dkf-iD-jXB">
                                 <rect key="frame" x="-4" y="364" width="328" height="172"/>
